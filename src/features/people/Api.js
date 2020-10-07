@@ -6,7 +6,7 @@ export const getPopularPeople = async () => {
       new Error(response.statusText);
     };
     const popularPeople = await response.json();
-    console.log(getPopularPeople());
+    
     return popularPeople.results;
   };
 
