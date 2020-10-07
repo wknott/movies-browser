@@ -9,7 +9,6 @@ import {
 function* fetchPopularMoviesHandler() {
   try {
     const popularMovies = yield call(getPopularMovies);
-    yield console.log(popularMovies);
     yield put(fetchPopularMoviesSuccess(popularMovies));
   } catch (error) {
     yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
