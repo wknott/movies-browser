@@ -5,6 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { ThemeProvider} from "styled-components";
 import { theme } from "./theme";
+import { GlobalStyle } from "./GlobalStyle";
 
 ReactDOM.render(
   <React.StrictMode>
