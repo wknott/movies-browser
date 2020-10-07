@@ -12,7 +12,7 @@ export const getPopularPeople = async () => {
 
   export const getPersonDetails = async (personId) => {
     const response = await fetch(
-      `https://api.themoviedb.org/3/person/{personId}?api_key=${process.env.REACT_APP_API_KEY}`
+      `https://api.themoviedb.org/3/person/${personId}?api_key=${process.env.REACT_APP_API_KEY}`
     );
     if (!response.ok) {
       new Error(response.statusText);
@@ -24,7 +24,7 @@ export const getPopularPeople = async () => {
 
   export const getPersonMovieCredits = async (personId) => {
     const response = await fetch(
-      `https://api.themoviedb.org/3/person/{personId}/movie_credits?api_key=${process.env.REACT_APP_API_KEY}`
+      `https://api.themoviedb.org/3/person/${personId}/movie_credits?api_key=${process.env.REACT_APP_API_KEY}`
     );
   
     if (!response.ok) {
