@@ -5,6 +5,6 @@ export default () => {
   const { id } = useParams();
 
   return (
-    <h1>Strona filmu o id: {id}</h1>
+    <h1>Movie Details id: {id}</h1>
   )
 };
