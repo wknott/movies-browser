@@ -25,3 +25,17 @@ export const getMovieDetails = async (movieId) => {
 
   return movieDetails;
 };
+
+export const getMovieCredits = async (movieId) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${process.env.REACT_APP_API_KEY}`
+  );
+
+  if (!response.ok) {
+    new Error(response.statusText);
+  };
+
+  const movieCredits = await response.json();
+
+  return movieCredits;
+};
