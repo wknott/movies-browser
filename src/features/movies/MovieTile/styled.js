@@ -5,6 +5,10 @@ const MovieTileImg = styled.img`
   margin: 0;
   margin-bottom: 16px;
 `;
+const MovieInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 const MovieTileHeader = styled.h2`
   margin: 0;
   font-family: Poppins;
@@ -31,7 +35,7 @@ const MovieTileTags = styled.ul`
   margin-bottom: 39px;
 `;
 const MovieTileTag = styled.li`
-  background: #e4e6f0;
+  background-color: grey;
   font-family: Poppins;
   font-size: 14px;
   line-height: 140%;
@@ -73,4 +77,5 @@ export {
   MovieRatingImg,
   MovieRatingText,
   MovieRatingVotes,
+  MovieInfoWrapper,
 };
