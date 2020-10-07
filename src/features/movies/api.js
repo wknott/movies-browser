@@ -1,6 +1,6 @@
 export const getPopularMovies = async () => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/person/popular?api_key=0e9e647ea010d8b3410709d41b745d87`
+    `https://api.themoviedb.org/3/person/popular?api_key=`
   );
 
   if (!response.ok) {
