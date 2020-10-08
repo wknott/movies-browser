@@ -1,10 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { MoviePageTop } from "./styled";
 
 export default () => {
   const { id } = useParams();
 
   return (
-    <h1>Movie Details id: {id}</h1>
+    <MoviePageTop src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}>
+    </MoviePageTop>
   )
 };
