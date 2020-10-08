@@ -1,5 +1,5 @@
 import React from "react";
-import star from "./Vector.svg";
+import star from "./ratingStar.svg";
 import Tile from "../../../common/Tile";
 import {
   MovieTileImg,

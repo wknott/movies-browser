@@ -1,5 +1,4 @@
 import React from "react";
-import { nanoid } from "@reduxjs/toolkit";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MoviesContainer } from "../MoviesContainer";
@@ -23,7 +22,7 @@ export default () => {
 
   const generateMovies = (movies) => {
     return movies.map((movie) => {
-      return <MovieTile key={nanoid()} movie={movie}></MovieTile>;
+      return <MovieTile key={movie.id} movie={movie}></MovieTile>;
     });
   };
 
@@ -32,9 +31,7 @@ export default () => {
       <div className="App">
         <Wrapper>
           <h1>Popular movies</h1>
-          <MoviesContainer>
-            {generateMovies(movies.slice(0, 8))}
-          </MoviesContainer>
+          <MoviesContainer>{generateMovies(movies)}</MoviesContainer>
         </Wrapper>
       </div>
     );

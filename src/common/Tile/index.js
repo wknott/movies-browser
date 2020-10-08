@@ -1,8 +1,8 @@
 import React from "react";
 import { StyledTile } from "./styledTile";
 
-const Tile = ({ className, children }) => {
-  return <StyledTile className={className}>{children}</StyledTile>;
+const Tile = ({ children }) => {
+  return <StyledTile>{children}</StyledTile>;
 };
 
 /* dodałem parametr className, ponieważ przyda nam 
