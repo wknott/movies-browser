@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { theme } from "../../theme";
 
 const StyledTile = styled.div`
   padding: 16px;
@@ -8,8 +7,8 @@ const StyledTile = styled.div`
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto 1fr;
-  background-color: ${theme.color.white};
-  @media (max-width: ${theme.breakpoint.mobileMax}px) {
+  background-color: ${({ theme }) => theme.color.white};
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     grid-template-columns: auto 1fr;
     grid-template-rows: auto;
   } ;

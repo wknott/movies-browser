@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import { theme } from "../../../theme";
 
 const MovieTileImg = styled.img`
   width: 292px;
   margin: 0;
   margin-bottom: 16px;
   border-radius: 5px;
-  @media (max-width: ${theme.breakpoint.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     width: 34vw;
     min-width: 114px;
     margin: 0;
@@ -25,7 +24,7 @@ const MovieTileHeader = styled.h2`
   margin-bottom: 8px;
   font-size: 22px;
   line-height: 130%;
-  @media (max-width: ${theme.breakpoint.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 13px;
     margin-bottom: 4px;
   } ;
@@ -36,8 +35,8 @@ const MovieTileYear = styled.p`
   margin-bottom: 8px;
   font-size: 16px;
   line-height: 150%;
-  color: ${theme.color.darkerGrey};
-  @media (max-width: ${theme.breakpoint.mobileMax}px) {
+  color: ${({ theme }) => theme.color.darkerGrey};
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 16px;
   } ;
 `;
@@ -49,19 +48,19 @@ const MovieTileTags = styled.ul`
   list-style: none;
   margin-left: -8px;
   margin-bottom: 45px;
-  @media (max-width: ${theme.breakpoint.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     margin-bottom: 16px;
   } ;
 `;
 const MovieTileTag = styled.li`
-  background-color: ${theme.color.grey};
+  background-color: ${({ theme }) => theme.color.grey};
   font-family: Poppins;
   font-size: 14px;
   line-height: 140%;
   border-radius: 5px;
   margin-left: 8px;
   padding: 8px 16px;
-  @media (max-width: ${theme.breakpoint.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     padding: 4px 8px;
     font-size: 10px;
     margin-bottom: 8px;
@@ -73,13 +72,13 @@ const MovieAdditionalInfo = styled.div`
   bottom: 0;
   display: flex;
   align-items: center;
-  @media (max-width: ${theme.breakpoint.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     position: relative;
   } ;
 `;
 const MovieRatingImg = styled.img`
   width: 24px;
-  @media (max-width: ${theme.breakpoint.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     width: 16px;
   } ;
 `;
@@ -90,7 +89,7 @@ const MovieRatingText = styled.p`
   font-size: 16px;
   line-height: 150%;
   margin: 0 12px;
-  @media (max-width: ${theme.breakpoint.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 13px;
     line-height: 130%;
   } ;
@@ -100,8 +99,8 @@ const MovieRatingVotes = styled.p`
   font-family: Poppins;
   font-size: 16px;
   line-height: 150%;
-  color: ${theme.color.darkerGrey};
-  @media (max-width: ${theme.breakpoint.mobileMax}px) {
+  color: ${({ theme }) => theme.color.darkerGrey};
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 13px;
     line-height: 130%;
   } ;

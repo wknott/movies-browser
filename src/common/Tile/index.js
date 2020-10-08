@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledTile } from "./styledTile";
+import { StyledTile } from "./styled";
 
 const Tile = ({ children }) => {
   return <StyledTile>{children}</StyledTile>;
