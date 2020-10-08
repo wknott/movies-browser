@@ -14,27 +14,32 @@ import {
   MovieInfoWrapper,
 } from "./styled";
 
-const MovieTile = (movie) => {
+const generateTags = (tagNames) => {
+  if (tagNames) {
+    return tagNames.map((tagName) => {
+      return <MovieTileTag>{tagName}</MovieTileTag>;
+    });
+  }
+};
+
+const MovieTile = (props) => {
+  console.log(props.genreNames);
   return (
     <Tile>
       <MovieTileImg
         src={
-          `https://image.tmdb.org/t/p/w400${movie.movie.poster_path}` ||
+          `https://image.tmdb.org/t/p/w400${props.movie.poster_path}` ||
           `./default_poster.svg`
         }
       ></MovieTileImg>
       <MovieInfoWrapper>
-        <MovieTileHeader>{movie.movie.title}</MovieTileHeader>
-        <MovieTileYear>{movie.movie.release_date.slice(0, 4)}</MovieTileYear>
-        <MovieTileTags>
-          <MovieTileTag>Action</MovieTileTag>
-          <MovieTileTag>Adventure</MovieTileTag>
-          <MovieTileTag>Kids</MovieTileTag>
-        </MovieTileTags>
+        <MovieTileHeader>{props.movie.title}</MovieTileHeader>
+        <MovieTileYear>{props.movie.release_date.slice(0, 4)}</MovieTileYear>
+        <MovieTileTags>{generateTags(props.genreNames)}</MovieTileTags>
         <MovieAdditionalInfo>
           <MovieRatingImg src={star}></MovieRatingImg>
-          <MovieRatingText>{movie.movie.vote_average}</MovieRatingText>
-          <MovieRatingVotes>{movie.movie.vote_count} votes</MovieRatingVotes>
+          <MovieRatingText>{props.movie.vote_average}</MovieRatingText>
+          <MovieRatingVotes>{props.movie.vote_count} votes</MovieRatingVotes>
         </MovieAdditionalInfo>
       </MovieInfoWrapper>
     </Tile>
