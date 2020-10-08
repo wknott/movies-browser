@@ -1,5 +1,4 @@
 import React from "react";
-import img from "./poster.jpg";
 import star from "./Vector.svg";
 import Tile from "../../../common/Tile";
 import {
@@ -16,11 +15,13 @@ import {
 } from "./styled";
 
 const MovieTile = (movie) => {
-  console.log(movie);
   return (
     <Tile>
       <MovieTileImg
-        src={`https://image.tmdb.org/t/p/w400${movie.movie.poster_path}`}
+        src={
+          `https://image.tmdb.org/t/p/w400${movie.movie.poster_path}` ||
+          `./default_poster.svg`
+        }
       ></MovieTileImg>
       <MovieInfoWrapper>
         <MovieTileHeader>{movie.movie.title}</MovieTileHeader>
