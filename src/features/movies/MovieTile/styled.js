@@ -59,6 +59,7 @@ const MovieTileTag = styled.li`
   line-height: 140%;
   border-radius: 5px;
   margin-left: 8px;
+  margin-bottom: 8px;
   padding: 8px 16px;
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     padding: 4px 8px;
