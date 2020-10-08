@@ -13,17 +13,17 @@ import {
   MovieRatingVotes,
   MovieInfoWrapper,
 } from "./styled";
+import { nanoid } from "@reduxjs/toolkit";
 
 const generateTags = (tagNames) => {
   if (tagNames) {
     return tagNames.map((tagName) => {
-      return <MovieTileTag>{tagName}</MovieTileTag>;
+      return <MovieTileTag key={nanoid()}>{tagName}</MovieTileTag>;
     });
   }
 };
 
 const MovieTile = (props) => {
-  console.log(props.genreNames);
   return (
     <Tile>
       <MovieTileImg
