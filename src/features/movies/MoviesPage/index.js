@@ -10,6 +10,7 @@ import {
   fetchGenres,
 } from "../moviesSlice";
 import MovieTile from "../MovieTile";
+import Header from "../../../common/Header";
 
 export default () => {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ export default () => {
     return (
       <div className="App">
         <Wrapper>
-          <h1>Popular movies</h1>
+          <Header>Popular movies</Header>
           <MoviesContainer>{generateMovies(movies)}</MoviesContainer>
         </Wrapper>
       </div>
