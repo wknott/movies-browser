@@ -7,6 +7,7 @@ import {
   fetchPopularMovies,
   selectLoading,
   selectMovies,
+  fetchGenres,
 } from "../moviesSlice";
 import MovieTile from "../MovieTile";
 
@@ -15,6 +16,7 @@ export default () => {
 
   useEffect(() => {
     dispatch(fetchPopularMovies());
+    dispatch(fetchGenres());
   }, []);
 
   const loading = useSelector(selectLoading);
