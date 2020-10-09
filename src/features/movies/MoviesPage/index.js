@@ -18,7 +18,7 @@ export default () => {
   useEffect(() => {
     dispatch(fetchPopularMovies());
     dispatch(fetchGenres());
-  }, []);
+  }, [dispatch]);
 
   const loading = useSelector(selectLoading);
   const movies = useSelector(selectMovies);
