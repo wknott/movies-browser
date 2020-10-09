@@ -1,5 +1,5 @@
 import React from "react";
-import StyledWrapper from "./styledWrapper";
+import StyledWrapper from "./styled";
 
 const Wrapper = (props) => {
   return <StyledWrapper>{props.children}</StyledWrapper>;
