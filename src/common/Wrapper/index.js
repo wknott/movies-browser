@@ -1,8 +1,11 @@
-import React from "react";
-import StyledWrapper from "./styled";
+import styled from "styled-components";
 
-const Wrapper = (props) => {
-  return <StyledWrapper>{props.children}</StyledWrapper>;
-};
-
-export default Wrapper;
+export default styled.div`
+  max-width: 1368px;
+  margin: 0 auto;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    width: calc(100vw - 32px);
+    margin: 0 auto;
+  } ;
+`;
