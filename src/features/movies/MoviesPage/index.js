@@ -20,7 +20,7 @@ export default () => {
   useEffect(() => {
     dispatch(fetchGenres());
     dispatch(fetchPopularMovies());
-  }, []);
+  }, [dispatch]);
 
   const loading = useSelector(selectLoading);
   const movies = useSelector(selectMovies);
