@@ -7,7 +7,7 @@ const MovieListPage = () => {
 
   useEffect(() => {
     dispatch(fetchMoviesByName("mulan"));
-  }, []);
+  }, [dispatch]);
 
   return <h1>Cześć !</h1>;
 };
