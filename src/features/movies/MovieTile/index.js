@@ -34,7 +34,7 @@ const MovieTile = (props) => {
       ></MovieTileImg>
       <MovieInfoWrapper>
         <MovieTileHeader>{props.movie.title}</MovieTileHeader>
-        <MovieTileYear>{props.movie.release_date.slice(0, 4)}</MovieTileYear>
+        <MovieTileYear>{props.movie.release_date}</MovieTileYear>
         <MovieTileTags>{generateTags(props.genreNames)}</MovieTileTags>
         <MovieAdditionalInfo>
           <MovieRatingImg src={star}></MovieRatingImg>
