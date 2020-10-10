@@ -2,7 +2,15 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchMovie, selectLoading, selectMovie } from "../moviesSlice";
-import { MoviePageTop, MainInfo, MovieLongTitle, MovieRatingImg, MovieRatingText, MovieRating, MovieRatingNote } from "./styled";
+import {
+  MovieBackdrop,
+  MainInfo,
+  MovieLongTitle,
+  MovieRatingImg,
+  MovieRatingText,
+  MovieRating,
+  MovieRatingNote
+} from "./styled";
 import star from "../MovieTile/ratingStar.svg";
 
 export default () => {
@@ -19,17 +27,17 @@ export default () => {
 
   return (
     !loading ?
-      <MoviePageTop src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}>
+      <MovieBackdrop src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}>
         <MainInfo>
           <MovieLongTitle>{movie.title}</MovieLongTitle>
           <MovieRating>
             <MovieRatingImg src={star}></MovieRatingImg>
             <MovieRatingNote>{movie.vote_average}</MovieRatingNote>
-            <MovieRatingText>/10</MovieRatingText>
+            <MovieRatingText>/ 10</MovieRatingText>
             <MovieRatingText>{movie.vote_count} votes</MovieRatingText>
           </MovieRating>
         </MainInfo>
-      </ MoviePageTop>
+      </MovieBackdrop>
       :
       <h1>Trwa ładowanie...</h1>
   )
