@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledPersonDetailsTile = styled.div`
+export const DetailsTail = styled.div`
   padding: 40px;
   background-color: ${({ theme }) => theme.color.white};
   color: ${({ theme }) => theme.color.black};
@@ -13,12 +13,12 @@ export const StyledPersonDetailsTile = styled.div`
     grid-gap: 16px;
     grid-template-areas:
       "image info"
-      "biography biography"
+      "description description"
     ;
   }
 `;
 
-export const PersonImage = styled.img`
+export const Image = styled.img`
   width: 399px;
   height: 564px;
   border-radius: 5px;
@@ -26,17 +26,11 @@ export const PersonImage = styled.img`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     width: 116px;
     height: 163px;
-    grid-area: image;
+  
   }
 `;
 
-export const PersonInfo = styled.div`
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    grid-area: info;
-  }
-`;
-
-export const PersonName = styled.h1`
+export const Name = styled.h1`
   font-weight: 600;
   font-size: 36px;
   margin: 8px 0px 24px 0px;
@@ -49,7 +43,7 @@ export const PersonName = styled.h1`
   }
 `;
 
-export const DetailsContainer = styled.div`
+export const Frame = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
@@ -81,7 +75,7 @@ export const MobileGrayText = styled(GrayText)`
   }
 `;
 
-export const PersonBirthContainer = styled.div`
+export const Birth = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 8px;
@@ -92,24 +86,24 @@ export const PersonBirthContainer = styled.div`
   }
 `;
 
-export const PersonBiography = styled.p`
+export const Description = styled.p`
   font-size: 20px;
   line-height: 1.6;
   margin: 0px;
   
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 14px;
-    grid-area: biography;
+    grid-area: description;
   }
 `;
 
-export const MobilePersonBiography = styled(PersonBiography)`
+export const MobileDescription = styled(Description)`
   @media (min-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     display: none;
   }
 `;
 
-export const DesktopPersonBiography = styled(PersonBiography)`
+export const DesktopDescription = styled(Description)`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     display: none;
   }
