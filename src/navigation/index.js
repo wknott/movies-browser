@@ -1,11 +1,12 @@
 import React from "react";
 import Search from "../features/search";
 import camera from "../images/camera.svg";
+import { Wrapper } from "./styled";
 
 const Navigation = () => {
     return (
 <div>
-    <div>
+    <Wrapper>
         <nav>
 <img src={camera} />
 <h1>
@@ -21,7 +22,9 @@ const Navigation = () => {
 </ul>
         </nav>
         <Search/>
-    </div>
+    </Wrapper>
 </div>
     );
 };
+
+export default Navigation;
