@@ -1,0 +1,56 @@
+import React from "react";
+import {
+  DetailsTile,
+  Image,
+  ProductionYear,
+  Text,
+  Birth as ProductionAndRelease,
+  MobileDescription,
+  DesktopDescription,
+  DesktopGrayText,
+  Frame,
+  Name as Title,
+  Tags,
+  Tag,
+  MovieRatingImg,
+  MovieRatingText,
+  MovieRatingVotes,
+  Rating,
+  DesktopMovieRatingVotes,
+} from "./styled";
+import star from "../../MovieTile/ratingStar.svg";
+
+
+const MovieDetailsTile = ({ movie }) => (
+  <DetailsTile>
+    <Image src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt="" />
+    <section>
+      <Title>{movie.original_title}</Title>
+      <ProductionYear>{movie.release_date.slice(0, 4)}</ProductionYear>
+      <ProductionAndRelease>
+        <Frame>
+          <DesktopGrayText>Production:</DesktopGrayText>
+          <Text>{movie.production_countries.map(country => country.name).join(", ")}</Text>
+        </Frame>
+        <Frame>
+          <DesktopGrayText>Release date:</DesktopGrayText>
+          <Text>{movie.release_date.slice(8, 10)}.{movie.release_date.slice(5, 7)}.{movie.release_date.slice(0, 4)}</Text>
+        </Frame>
+      </ProductionAndRelease>
+      <Tags>
+        {movie.genres.map(genre =>
+          <Tag key={genre.id}>{genre.name}</Tag>)}
+      </Tags>
+      <Rating>
+        <MovieRatingImg src={star}></MovieRatingImg>
+        <MovieRatingText>{movie.vote_average}</MovieRatingText>
+        <DesktopMovieRatingVotes>/ 10</DesktopMovieRatingVotes>
+        <MovieRatingVotes>{movie.vote_count} votes</MovieRatingVotes>
+      </Rating>
+      <DesktopDescription>{movie.overview}</DesktopDescription>
+    </section>
+    <MobileDescription>{movie.overview}</MobileDescription>
+  </DetailsTile>
+);
+
+export default MovieDetailsTile;
