@@ -5,25 +5,26 @@ import { Wrapper } from "./styled";
 
 const Navigation = () => {
     return (
-<div>
+<Container>
     <Wrapper>
-        <nav>
-<img src={camera} />
-<h1>
-    Movie Browser
-</h1>
-<ul>
-    <li>
-        <a href>Movies</a>
-    </li>
-    <li>
-        <a href>Movies</a>
-    </li>
-</ul>
-        </nav>
+        <NavigationStyle>
+<Icon src={camera} />
+<Title>
+    Movies Browser
+</Title>
+<NavigationList>
+    <NavigationItem>
+        <Link >Movies</Link>
+    </NavigationItem>
+    <NavigationItem>
+        <Link >People</Link>
+    </NavigationItem>
+   
+</NavigationList>
+        </NavigationStyle>
         <Search/>
     </Wrapper>
-</div>
+</Container>
     );
 };
 
