@@ -1,12 +1,33 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { fetchPopularMovies } from "./features/movies/moviesSlice";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { toMovie, toMovieList, toMovies, toPeople, toPerson } from "./routes";
+import MoviePage from "./features/movies/MoviePage";
+import MoviesPage from "./features/movies/MoviesPage";
+import PersonPage from "./features/people/PersonPage";
+import PeoplePage from "./features/people/PeoplePage";
+import MovieListPage from "./features/movies/MovieListPage";
 
-function App() {
-  const dispatch = useDispatch();
-  dispatch(fetchPopularMovies());
-
-  return <div className="App"></div>;
-}
-
-export default App;
+export default () => (
+  <BrowserRouter>
+    <Switch>
+      <Route path={toMovie()}>
+        <MoviePage />
+      </Route>
+      <Route path={toMovies()}>
+        <MoviesPage />
+      </Route>
+      <Route path={toPerson()}>
+        <PersonPage />
+      </Route>
+      <Route path={toPeople()}>
+        <PeoplePage />
+      </Route>
+      <Route path={toMovieList()}>
+        <MovieListPage />
+      </Route>
+      <Route>
+        <Redirect to={toMovies()} />
+      </Route>
+    </Switch>
+  </BrowserRouter>
+);

@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyle = createGlobalStyle `
+export const GlobalStyle = createGlobalStyle`
     html {
         box-sizing: border-box;
     }
@@ -12,5 +12,6 @@ export const GlobalStyle = createGlobalStyle `
     body {
         font-family: 'Poppins', sans-serif;
         background: ${({ theme }) => theme.color.mercury};
+        margin: 0;
     }
 `;
