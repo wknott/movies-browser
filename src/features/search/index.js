@@ -1,10 +1,11 @@
 import React from "react";
 import searchIcon from "../../images/searchIcon.svg";
+import { Label, Icon, Input} from "./styled";
 
 const Search = () => {
     return (
 <Label>
-    <img src={searchIcon} />
+    <Icon src={searchIcon} />
     <Input placeholder="Search for movies" />
 </Label>
     );
