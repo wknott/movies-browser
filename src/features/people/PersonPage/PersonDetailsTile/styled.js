@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const DetailsTail = styled.div`
+export const DetailsTile = styled.div`
   padding: 40px;
   background-color: ${({ theme }) => theme.color.white};
   color: ${({ theme }) => theme.color.black};

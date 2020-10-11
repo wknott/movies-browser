@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  DetailsTail,
+  DetailsTile,
   Image,
   Text,
   Birth,
@@ -14,7 +14,7 @@ import {
 } from "./styled";
 
 const PersonDetailsTile = ({ person }) => (
-  <DetailsTail>
+  <DetailsTile>
     <Image src={`https://image.tmdb.org/t/p/h632${person.profile_path}`} alt="" />
     <section>
       <Name>{person.name}</Name>
@@ -32,7 +32,7 @@ const PersonDetailsTile = ({ person }) => (
       <DesktopDescription>{person.biography}</DesktopDescription>
     </section>
     <MobileDescription>{person.biography}</MobileDescription>
-  </DetailsTail>
+  </DetailsTile>
 );
 
 export default PersonDetailsTile;
