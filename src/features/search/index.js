@@ -6,7 +6,7 @@ const Search = () => {
     return (
 <Label>
     <Icon src={searchIcon} />
-    <Input placeholder="Search for movies" />
+    <Input placeholder="Search for movies..." />
 </Label>
     );
 };
