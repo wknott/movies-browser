@@ -19,11 +19,11 @@ import {
   DesktopMovieRatingVotes,
 } from "./styled";
 import star from "../../MovieTile/ratingStar.svg";
-
+import poster from "../../../../images/Poster.svg";
 
 const MovieDetailsTile = ({ movie }) => (
   <DetailsTile>
-    <Image src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt="" />
+    <Image src={movie.poster_path ? `https://image.tmdb.org/t/p/w342${movie.poster_path}` : poster} alt="" />
     <section>
       <Title>{movie.original_title}</Title>
       <ProductionYear>{movie.release_date.slice(0, 4)}</ProductionYear>
