@@ -1,6 +1,7 @@
 import React from "react";
 import star from "./ratingStar.svg";
 import Tile from "../../../common/Tile";
+import Poster from "../../../images/Poster.svg"
 import {
   MovieTileImg,
   MovieTileHeader,
@@ -27,14 +28,11 @@ const MovieTile = (props) => {
   return (
     <Tile>
       <MovieTileImg
-        src={
-          `https://image.tmdb.org/t/p/w400${props.movie.poster_path}` ||
-          `./default_poster.svg`
-        }
+        src= { props.movie.poster_path ? `https://image.tmdb.org/t/p/w400${props.movie.poster_path}` :  Poster}
       ></MovieTileImg>
       <MovieInfoWrapper>
         <MovieTileHeader>{props.movie.title}</MovieTileHeader>
-        <MovieTileYear>{props.movie.release_date.slice(0, 4)}</MovieTileYear>
+        <MovieTileYear>{props.movie.release_date ? props.movie.release_date.slice(0,4) : "????"}</MovieTileYear>
         <MovieTileTags>{generateTags(props.genreNames)}</MovieTileTags>
         <MovieAdditionalInfo>
           <MovieRatingImg src={star}></MovieRatingImg>
