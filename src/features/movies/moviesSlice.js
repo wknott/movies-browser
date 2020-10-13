@@ -27,7 +27,7 @@ const moviesSlice = createSlice({
     },
     fetchGenresSuccess: (state, { payload: genres }) => {
       state.genres = genres;
-      state.loading = false;
+      state.loading = true;
     },
     fetchGenresError: (state) => {
       state.loading = false;
@@ -42,15 +42,15 @@ const moviesSlice = createSlice({
     fetchMovieError: (state) => {
       state.loading = false;
     },
-    fetchMoviesByName: (state, { payload: query }) => {
+    fetchMoviesByQuery: (state, { payload: query }) => {
       state.searchQuery = query;
       state.loading = true;
     },
-    fetchMoviesByNameSuccess: (state, { payload: movies }) => {
+    fetchMoviesByQuerySuccess: (state, { payload: movies }) => {
       state.movies = movies;
       state.loading = false;
     },
-    fetchMoviesByNameError: (state) => {
+    fetchMoviesByQueryError: (state) => {
       state.loading = false;
     },
   },
@@ -73,8 +73,8 @@ export const {
   fetchMovie,
   fetchMovieError,
   fetchMovieSuccess,
-  fetchMoviesByName,
-  fetchMoviesByNameSuccess,
-  fetchMoviesByNameError,
+  fetchMoviesByQuery,
+  fetchMoviesByQuerySuccess,
+  fetchMoviesByQueryError,
 } = moviesSlice.actions;
 export default moviesSlice.reducer;
