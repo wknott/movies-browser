@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const DetailsTail = styled.div`
+export const DetailsTile = styled.div`
   padding: 40px;
   background-color: ${({ theme }) => theme.color.white};
   color: ${({ theme }) => theme.color.black};
@@ -52,11 +52,12 @@ export const Text = styled.p`
   margin: 0;
   font-size: 18px;
   line-height: 120%;
-  margin: 4px 4px 0px 0px;
+  margin-right: 10px;
   color: ${({ theme }) => theme.color.black};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 12px;
+    margin-right: 4px;
   }
 `;
 export const GrayText = styled(Text)`

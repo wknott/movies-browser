@@ -12,6 +12,8 @@ import {
   MovieRatingNote
 } from "./styled";
 import star from "../MovieTile/ratingStar.svg";
+import Wrapper from "../../../common/Wrapper";
+import MovieDetailsTile from "./MovieDetailsTile";
 
 export default () => {
   const { id } = useParams();
@@ -26,18 +28,23 @@ export default () => {
   }, [dispatch, id]);
 
   return (
-    !loading ?
-      <MovieBackdrop src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}>
-        <MainInfo>
-          <MovieLongTitle>{movie.title}</MovieLongTitle>
-          <MovieRating>
-            <MovieRatingImg src={star}></MovieRatingImg>
-            <MovieRatingNote>{movie.vote_average}</MovieRatingNote>
-            <MovieRatingText>/ 10</MovieRatingText>
-            <MovieRatingText>{movie.vote_count} votes</MovieRatingText>
-          </MovieRating>
-        </MainInfo>
-      </MovieBackdrop>
+    !loading && movie ?
+      <>
+        <MovieBackdrop src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}>
+          <MainInfo>
+            <MovieLongTitle>{movie.title}</MovieLongTitle>
+            <MovieRating>
+              <MovieRatingImg src={star}></MovieRatingImg>
+              <MovieRatingNote>{movie.vote_average}</MovieRatingNote>
+              <MovieRatingText>/ 10</MovieRatingText>
+              <MovieRatingText>{movie.vote_count} votes</MovieRatingText>
+            </MovieRating>
+          </MainInfo>
+        </MovieBackdrop>
+        <Wrapper>
+          <MovieDetailsTile movie={movie} />
+        </Wrapper>
+      </>
       :
       <h1>Trwa ładowanie...</h1>
   )
