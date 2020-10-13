@@ -1,0 +1,111 @@
+import styled from "styled-components";
+
+export const DetailsTile = styled.div`
+  padding: 40px;
+  background-color: ${({ theme }) => theme.color.white};
+  color: ${({ theme }) => theme.color.black};
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 40px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    padding: 16px;
+    grid-gap: 16px;
+    grid-template-areas:
+      "image info"
+      "description description"
+    ;
+  }
+`;
+
+export const Image = styled.img`
+  width: 399px;
+  height: 564px;
+  border-radius: 5px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    width: 116px;
+    height: 163px;
+  
+  }
+`;
+
+export const Name = styled.h1`
+  font-weight: 600;
+  font-size: 36px;
+  margin: 8px 0px 24px 0px;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.3;
+    margin: 4px 0px 16px 0px;
+  }
+`;
+
+export const Frame = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+export const Text = styled.p`
+  margin: 0;
+  font-size: 18px;
+  line-height: 120%;
+  margin-right: 10px;
+  color: ${({ theme }) => theme.color.black};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    font-size: 12px;
+    margin-right: 4px;
+  }
+`;
+export const GrayText = styled(Text)`
+  color: ${({ theme }) => theme.color.stormGray};
+`;
+
+export const DesktopGrayText = styled(GrayText)`
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    display: none;
+  }
+`;
+
+export const MobileGrayText = styled(GrayText)`
+  @media (min-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    display: none;
+  }
+`;
+
+export const Birth = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 8px;
+  margin-bottom: 24px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    margin-bottom: 0;
+  }
+`;
+
+export const Description = styled.p`
+  font-size: 20px;
+  line-height: 1.6;
+  margin: 0px;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    font-size: 14px;
+    grid-area: description;
+  }
+`;
+
+export const MobileDescription = styled(Description)`
+  @media (min-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    display: none;
+  }
+`;
+
+export const DesktopDescription = styled(Description)`
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    display: none;
+  }
+`;
