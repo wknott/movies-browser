@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
 import { toMovie, toMovieList, toMovies, toPeople, toPerson } from "./routes";
 import MoviePage from "./features/movies/MoviePage";
 import MoviesPage from "./features/movies/MoviesPage";
@@ -8,7 +8,7 @@ import PeoplePage from "./features/people/PeoplePage";
 import MovieListPage from "./features/movies/MovieListPage";
 
 export default () => (
-  <BrowserRouter>
+  <HashRouter>
     <Switch>
       <Route path={toMovie()}>
         <MoviePage />
@@ -29,5 +29,5 @@ export default () => (
         <Redirect to={toMovies()} />
       </Route>
     </Switch>
-  </BrowserRouter>
+  </HashRouter>
 );
