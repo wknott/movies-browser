@@ -17,9 +17,9 @@ import {
   fetchMoviesByQueryError,
 } from "./moviesSlice";
 
-function* fetchPopularMoviesHandler() {
+function* fetchPopularMoviesHandler({payload: page}) {
   try {
-    const popularMovies = yield call(getPopularMovies);
+    const popularMovies = yield call(getPopularMovies,page);
     yield put(fetchPopularMoviesSuccess(popularMovies));
   } catch (error) {
     yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
@@ -36,7 +36,7 @@ function* fetchGenresHandler() {
     yield put(fetchGenresError());
   }
 }
-function* fetchMoviesByQueryHandler({payload : query}) {
+function* fetchMoviesByQueryHandler({payload: query}) {
   try {
     const movies = yield call(getMoviesByQuery,query);
     yield put(fetchMoviesByQuerySuccess(movies));
