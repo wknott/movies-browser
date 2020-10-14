@@ -1,6 +1,6 @@
 import React from "react";
-import Search from "../features/search";
-import camera from "../images/camera.svg";
+import Search from "../../features/search";
+import camera from "../../images/camera.svg";
 import {
   Container,
   NavigationStyle,
@@ -11,8 +11,8 @@ import {
   StyledLink,
   Logo,
 } from "./styled";
-import { toMovies, toPeople } from "../routes";
-import Wrapper from "../common/Wrapper";
+import { toMovies, toPeople } from "../../routes";
+import Wrapper from "../Wrapper";
 
 const Navigation = () => {
   return (
