@@ -45,9 +45,9 @@ const MovieListPage = () => {
     return (
       <div className="App">
         <Wrapper>
-          <Pager></Pager>
-        <Header>Search results for "{searchQuery.query}"</Header>
+          <Header>Search results for "{searchQuery.query}"</Header>
           <MoviesContainer>{generateMovies(movies.results)}</MoviesContainer>
+          <Pager></Pager>
         </Wrapper>
       </div>
     );

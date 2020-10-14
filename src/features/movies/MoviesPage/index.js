@@ -55,10 +55,9 @@ export default () => {
     return (
       <div className="App">
         <Wrapper>
-        <Pager></Pager>
           <Header>Popular movies</Header>
           <MoviesContainer>{generateMovies(movies)}</MoviesContainer>
-          
+          <Pager></Pager>
         </Wrapper>
       </div>
     );
