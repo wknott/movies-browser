@@ -9,18 +9,24 @@ import {
   selectMovies,
   fetchGenres,
   selectGenres,
+  selectCurrentPage
 } from "../moviesSlice";
 import MovieTile from "../MovieTile";
 import Header from "../../../common/Header";
 import { getGenreName } from "../getGenreName";
+import { Pager } from "../../../Pager";
 
 export default () => {
   const dispatch = useDispatch();
+  const currentPage = useSelector(selectCurrentPage);
+  
+  useEffect( () => {
+    dispatch(fetchGenres());
+  },[dispatch]);
 
   useEffect(() => {
-    dispatch(fetchGenres());
-    dispatch(fetchPopularMovies());
-  }, [dispatch]);
+    dispatch(fetchPopularMovies(currentPage));
+  }, [dispatch,currentPage]);
 
   const loading = useSelector(selectLoading);
   const movies = useSelector(selectMovies);
@@ -45,12 +51,13 @@ export default () => {
     });
   };
 
-  if (!loading) {
+  if (!loading && movies) {
     return (
       <div className="App">
         <Wrapper>
           <Header>Popular movies</Header>
           <MoviesContainer>{generateMovies(movies)}</MoviesContainer>
+          <Pager></Pager>
         </Wrapper>
       </div>
     );

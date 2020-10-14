@@ -9,6 +9,7 @@ export const theme = {
         darkerGrey: "#7E839A",
         grey: "#E4E6F0",
         mercury: "#E5E5E5",
+        whisper: "#F5F5FA",
         white: "#FFFFFF",
     },
     breakpoint: {

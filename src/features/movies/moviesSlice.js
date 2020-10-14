@@ -10,14 +10,29 @@ const moviesSlice = createSlice({
     movieCast: [],
     movieCrew: [],
     searchQuery: "",
+    currentPage:1,
+    allPages:1,
   },
   reducers: {
+    setPageToFirst: (state) => {
+      state.currentPage = 1;
+    },
+    setPageToLast: (state) => {
+      state.currentPage = state.allPages;
+    },
+    incrementPage: (state) => {
+      state.currentPage += 1;
+    },
+    decrementPage: (state) => {
+      state.currentPage -= 1;
+    },
     fetchPopularMovies: (state) => {
       state.loading = true;
       state.movies = [];
     },
     fetchPopularMoviesSuccess: (state, { payload: movies }) => {
-      state.movies = movies;
+      state.movies = movies.results;
+      state.allPages = movies.total_pages;
       state.loading = false;
     },
     fetchPopularMoviesError: (state) => {
@@ -50,6 +65,7 @@ const moviesSlice = createSlice({
     },
     fetchMoviesByQuerySuccess: (state, { payload: movies }) => {
       state.movies = movies;
+      state.allPages = movies.total_pages;
       state.loading = false;
     },
     fetchMoviesByQueryError: (state) => {
@@ -75,10 +91,16 @@ export const selectMovies = (state) => selectMoviesState(state).movies;
 export const selectMovie = (state) => selectMoviesState(state).movie;
 export const selectGenres = (state) => selectMoviesState(state).genres;
 export const selectSearchQuery = (state) => selectMoviesState(state).searchQuery;
+export const selectCurrentPage = (state) => selectMoviesState(state).currentPage;
+export const selectAllPages = (state) => selectMoviesState(state).allPages;
 export const selectMovieCast = (state) => selectMoviesState(state).movieCast;
 export const selectMovieCrew = (state) => selectMoviesState(state).movieCrew;
 
 export const {
+  setPageToFirst,
+  setPageToLast,
+  incrementPage,
+  decrementPage,
   fetchPopularMovies,
   fetchPopularMoviesError,
   fetchPopularMoviesSuccess,

@@ -20,9 +20,9 @@ import {
   fetchMovieCreditsSuccess,
 } from "./moviesSlice";
 
-function* fetchPopularMoviesHandler() {
+function* fetchPopularMoviesHandler({payload: page}) {
   try {
-    const popularMovies = yield call(getPopularMovies);
+    const popularMovies = yield call(getPopularMovies,page);
     yield put(fetchPopularMoviesSuccess(popularMovies));
   } catch (error) {
     yield put(fetchPopularMoviesError());

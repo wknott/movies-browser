@@ -1,6 +1,6 @@
-export const getPopularMovies = async () => {
+export const getPopularMovies = async (pageNumber) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}`
+    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${pageNumber}`
   );
 
   if (!response.ok) {
@@ -9,7 +9,7 @@ export const getPopularMovies = async () => {
 
   const popularMovies = await response.json();
 
-  return popularMovies.results;
+  return popularMovies;
 };
 
 export const getMovieDetails = async (movieId) => {
@@ -39,18 +39,16 @@ export const getMovieCredits = async (movieId) => {
 
   return movieCredits;
 };
-export const getMoviesByQuery = async (query) => {
+export const getMoviesByQuery = async ({query,page}) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${query}&page=1`
+    `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${query}&page=${page}`
   );
-  
-  console.log(response);
 
   if (!response.ok) {
   new Error(response.statusText);
   }
   const movies = await response.json();
-
+  
   return movies;
 };
 
