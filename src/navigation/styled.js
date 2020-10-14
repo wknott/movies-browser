@@ -1,31 +1,23 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
+
+const activeClassName = "link-active";
 
 export const Container = styled.div`
   width: 100%;
-  background-color: ${({ theme }) => theme.color.black};
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-`;
-
-export const Wrapper = styled.div`
-  width: 100%;
-  max-width: 1320px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  background-color: ${({ theme }) => theme.color.woodsmoke};
 `;
 
 export const NavigationStyle = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 
 export const Icon = styled.img`
-  height: 23px;
-  width: 30px;
-  margin: 0 10px;
+  height: 40px;
+  width: 40px;
+  margin-right: 12px;
 `;
 
 export const Title = styled.h1`
@@ -50,9 +42,19 @@ export const NavigationItem = styled.li`
   padding: 10px;
 `;
 
-export const Link = styled.a`
-  color: white;
-  font-size: 14px;
-  font-weight: 600;
+export const StyledLink = styled(NavLink).attrs(() => ({ activeClassName }))`
+  &.${activeClassName} {
+    border: 1px solid white;
+    border-radius: 24px;
+  }
+  
+  padding: 13.5px 24px;
+  color: ${({ theme }) => theme.color.white};
+  text-decoration: none;
   text-transform: uppercase;
+`;
+
+export const Logo = styled.div`
+  display: flex;
+  align-items: center;
 `;
