@@ -30,10 +30,12 @@ const MovieDetailsTile = ({ movie }) => (
         <ProductionYear>{movie.release_date.slice(0, 4)}</ProductionYear>
       }
       <ProductionAndRelease>
-        <Frame>
-          <DesktopGrayText>Production:</DesktopGrayText>
-          <Text>{movie.production_countries.map(country => country.name).join(", ")}</Text>
-        </Frame>
+        {movie.production_countries &&
+          <Frame>
+            <DesktopGrayText>Production:</DesktopGrayText>
+            <Text>{movie.production_countries.map(country => country.name).join(", ")}</Text>
+          </Frame>
+        }
         {movie.release_date &&
           <Frame>
             <DesktopGrayText>Release date:</DesktopGrayText>
@@ -41,10 +43,12 @@ const MovieDetailsTile = ({ movie }) => (
           </Frame>
         }
       </ProductionAndRelease>
-      <Tags>
-        {movie.genres.map(genre =>
-          <Tag key={genre.id}>{genre.name}</Tag>)}
-      </Tags>
+      {movie.genres &&
+        <Tags>
+          {movie.genres.map(genre =>
+            <Tag key={genre.id}>{genre.name}</Tag>)}
+        </Tags>
+      }
       <Rating>
         <MovieRatingImg src={star}></MovieRatingImg>
         <MovieRatingText>{movie.vote_average}</MovieRatingText>
