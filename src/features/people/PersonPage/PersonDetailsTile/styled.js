@@ -109,3 +109,28 @@ export const DesktopDescription = styled(Description)`
     display: none;
   }
 `;
+
+export const DefaultImageContainer = styled.div`
+  width: 399px;
+  height: 564px;
+  border-radius: 5px;
+  background: ${({ theme }) => theme.color.silver};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    width: 116px;
+    height: 163px;
+  }
+`;
+
+export const DefaultImage = styled.img`
+  width: 216px;
+  height: 216px;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    width: 72px;
+    height: 72px;
+  }
+`;
