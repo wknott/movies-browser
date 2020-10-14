@@ -22,7 +22,7 @@ export default () => {
   
   useEffect( () => {
     dispatch(fetchGenres());
-  },[]);
+  },[dispatch]);
 
   useEffect(() => {
     dispatch(fetchPopularMovies(currentPage));
