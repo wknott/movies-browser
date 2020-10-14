@@ -15,6 +15,8 @@ import {
   MovieInfoWrapper,
 } from "./styled";
 import { nanoid } from "@reduxjs/toolkit";
+import { Link } from "react-router-dom";
+import { toMovie } from "../../../routes";
 
 const generateTags = (tagNames) => {
   if (tagNames) {
@@ -26,13 +28,13 @@ const generateTags = (tagNames) => {
 
 const MovieTile = (props) => {
   return (
-    <Tile>
+    <Tile as={Link} to={toMovie({ id: props.movie.id })}>
       <MovieTileImg
-        src= { props.movie.poster_path ? `https://image.tmdb.org/t/p/w400${props.movie.poster_path}` :  Poster}
+        src={props.movie.poster_path ? `https://image.tmdb.org/t/p/w400${props.movie.poster_path}` : Poster}
       ></MovieTileImg>
       <MovieInfoWrapper>
         <MovieTileHeader>{props.movie.title}</MovieTileHeader>
-        <MovieTileYear>{props.movie.release_date ? props.movie.release_date.slice(0,4) : "????"}</MovieTileYear>
+        <MovieTileYear>{props.movie.release_date ? props.movie.release_date.slice(0, 4) : "????"}</MovieTileYear>
         <MovieTileTags>{generateTags(props.genreNames)}</MovieTileTags>
         <MovieAdditionalInfo>
           <MovieRatingImg src={star}></MovieRatingImg>
