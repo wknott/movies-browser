@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Header from "../../../common/Header";
 import Wrapper from "../../../common/Wrapper";
-import { Pager } from "../../../pager/index"
+import { Pager } from "../../../Pager/index"
 import { getGenreName } from "../getGenreName";
 import { MoviesContainer } from "../MoviesContainer";
 import MovieTile from "../MovieTile";

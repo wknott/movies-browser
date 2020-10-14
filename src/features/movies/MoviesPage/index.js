@@ -14,7 +14,7 @@ import {
 import MovieTile from "../MovieTile";
 import Header from "../../../common/Header";
 import { getGenreName } from "../getGenreName";
-import { Pager } from "../../../pager";
+import { Pager } from "../../../Pager";
 
 export default () => {
   const dispatch = useDispatch();
