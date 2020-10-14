@@ -22,8 +22,8 @@ function* fetchPopularMoviesHandler({payload: page}) {
     const popularMovies = yield call(getPopularMovies,page);
     yield put(fetchPopularMoviesSuccess(popularMovies));
   } catch (error) {
-    yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
     yield put(fetchPopularMoviesError());
+    yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
   }
 }
 
@@ -32,8 +32,8 @@ function* fetchGenresHandler() {
     const popularMovies = yield call(getGenres);
     yield put(fetchGenresSuccess(popularMovies));
   } catch (error) {
-    yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
     yield put(fetchGenresError());
+    yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
   }
 }
 function* fetchMoviesByQueryHandler({payload: query}) {
@@ -41,8 +41,8 @@ function* fetchMoviesByQueryHandler({payload: query}) {
     const movies = yield call(getMoviesByQuery,query);
     yield put(fetchMoviesByQuerySuccess(movies));
   } catch (error) {
-    yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
     yield put(fetchMoviesByQueryError());
+    yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
   }
 }
 
@@ -51,8 +51,8 @@ function* fetchMovieHandler({ payload: movieId }) {
     const movie = yield call(getMovieDetails, movieId);
     yield put(fetchMovieSuccess(movie));
   } catch (error) {
-    yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
     yield put(fetchMovieError());
+    yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
   }
 };
 
