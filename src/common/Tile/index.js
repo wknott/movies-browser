@@ -8,6 +8,9 @@ export default styled.div`
   grid-template-columns: auto;
   grid-template-rows: auto 1fr;
   background-color: ${({ theme }) => theme.color.white};
+  cursor: pointer;
+  text-decoration: none;
+  color: ${({ theme }) => theme.color.woodsmoke};
   
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     grid-template-columns: auto 1fr;
