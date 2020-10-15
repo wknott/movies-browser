@@ -21,10 +21,10 @@ export default () => {
     !loading && person ?
       <Wrapper>
         <PersonDetailsTile person={person} />
-        <Header>Movies - cast ({person.credits.cast.length})</Header>
-        <MoviesContainer movies={person.credits.cast.slice(0, 20)} />
-        <Header>Movies - crew ({person.credits.crew.length})</Header>
-        <MoviesContainer movies={person.credits.crew.slice(0, 20)} />
+        <Header>Movies - cast ({person.cast.length})</Header>
+        <MoviesContainer movies={person.cast.slice(0, 20)} />
+        <Header>Movies - crew ({person.crew.length})</Header>
+        <MoviesContainer movies={person.crew.slice(0, 20)} />
       </Wrapper>
       :
       <h1>Loading...</h1>

@@ -8,6 +8,8 @@ import {
   fetchPopularPeopleError,
   fetchPopularPeopleSuccess,
 } from "./peopleSlice";
+import { getGenres } from "../movies/api";
+import { getGenreName } from "../movies/getGenreName";
 
 function* fetchPopularPeopleHandler() {
   try {
@@ -23,7 +25,16 @@ function* fetchPersonHandler({ payload: personId }) {
   try {
     const person = yield call(getPersonDetails, personId);
     const credits = yield call(getPersonMovieCredits, personId);
-    yield put(fetchPersonSuccess({ ...person, credits }));
+    const genres = yield call(getGenres);
+    const crew = yield credits.crew.map(movie => {
+      const genresNames = movie.genre_ids.map(genre => getGenreName(genre, genres));
+      return { ...movie, genres: genresNames }
+    });
+    const cast = yield credits.cast.map(movie => {
+      const genresNames = movie.genre_ids.map(genre => getGenreName(genre, genres));
+      return { ...movie, genres: genresNames }
+    });
+    yield put(fetchPersonSuccess({ ...person, cast, crew }));
   } catch (error) {
     yield call(alert, error + "Coś poszło nie tak! Spróbuj ponownie później.");
     yield put(fetchPersonError());
