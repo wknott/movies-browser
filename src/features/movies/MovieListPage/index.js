@@ -1,21 +1,20 @@
 import React, { useEffect } from "react";
 import Header from "../../../common/Header";
 import Wrapper from "../../../common/Wrapper";
-import { Pager } from "../../../Pager/index"
+import { Pager } from "../../../common/Pager";
 import { getGenreName } from "../getGenreName";
 import { MoviesContainer } from "../MoviesContainer";
 import MovieTile from "../MovieTile";
 const { useDispatch, useSelector } = require("react-redux");
-const { fetchMoviesByQuery, selectMovies, selectLoading, selectGenres, fetchGenres, selectSearchQuery, selectCurrentPage } = require("../moviesSlice");
+const { selectMovies, selectLoading, selectGenres, selectSearchQuery, selectCurrentPage, fetchMovies } = require("../moviesSlice");
 
 const MovieListPage = () => {
- const dispatch = useDispatch();
- const currentPage = useSelector(selectCurrentPage);
+  const dispatch = useDispatch();
+  const currentPage = useSelector(selectCurrentPage);
 
   useEffect(() => {
-    dispatch(fetchGenres());
-    dispatch(fetchMoviesByQuery({query:"frozen",page:currentPage}));
-  }, [dispatch,currentPage]);
+    dispatch(fetchMovies({ query: "frozen", page: currentPage }));
+  }, [dispatch, currentPage]);
 
   const loading = useSelector(selectLoading);
   const movies = useSelector(selectMovies);
@@ -41,12 +40,12 @@ const MovieListPage = () => {
     });
   };
 
-  if (!loading) {
+  if (!loading && movies.length) {
     return (
       <div className="App">
         <Wrapper>
           <Header>Search results for "{searchQuery.query}"</Header>
-          <MoviesContainer>{generateMovies(movies.results)}</MoviesContainer>
+          <MoviesContainer>{generateMovies(movies)}</MoviesContainer>
           <Pager></Pager>
         </Wrapper>
       </div>

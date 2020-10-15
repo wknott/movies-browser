@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchMovie, fetchMovieCredits, selectLoading, selectMovie, selectMovieCast, selectMovieCrew } from "../moviesSlice";
+import { fetchMovie, selectLoading, selectMovie } from "../moviesSlice";
 import {
   MovieBackdrop,
   MainInfo,
@@ -21,14 +21,11 @@ export default () => {
   const { id } = useParams();
   const movie = useSelector(selectMovie);
   const loading = useSelector(selectLoading);
-  const cast = useSelector(selectMovieCast);
-  const crew = useSelector(selectMovieCrew);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (id) {
       dispatch(fetchMovie(id));
-      dispatch(fetchMovieCredits(id));
     }
   }, [dispatch, id]);
 
@@ -51,9 +48,9 @@ export default () => {
         <Wrapper>
           <MovieDetailsTile movie={movie} />
           <Header>Cast</Header>
-          <PeopleContainer people={cast} />
+          <PeopleContainer people={movie.credits.cast} />
           <Header>Crew</Header>
-          <PeopleContainer people={crew} />
+          <PeopleContainer people={movie.credits.crew} />
         </Wrapper>
       </>
       :
