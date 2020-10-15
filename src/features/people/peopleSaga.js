@@ -1,5 +1,5 @@
 import { takeLatest, call, put } from "redux-saga/effects";
-import { getPersonDetails, getPopularPeople } from "./api";
+import { getPersonDetails, getPersonMovieCredits, getPopularPeople } from "./api";
 import {
   fetchPerson,
   fetchPersonError,
@@ -22,7 +22,8 @@ function* fetchPopularPeopleHandler() {
 function* fetchPersonHandler({ payload: personId }) {
   try {
     const person = yield call(getPersonDetails, personId);
-    yield put(fetchPersonSuccess(person));
+    const credits = yield call(getPersonMovieCredits, personId);
+    yield put(fetchPersonSuccess({ ...person, credits }));
   } catch (error) {
     yield call(alert, error + "Coś poszło nie tak! Spróbuj ponownie później.");
     yield put(fetchPersonError());
