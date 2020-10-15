@@ -6,12 +6,10 @@ import Wrapper from "../../../common/Wrapper/index";
 import {
   selectLoading,
   selectMovies,
-  selectGenres,
   selectCurrentPage,
   fetchMovies
 } from "../moviesSlice";
 import Header from "../../../common/Header";
-import { getGenreName } from "../getGenreName";
 import { Pager } from "../../../common/Pager";
 
 export default () => {
