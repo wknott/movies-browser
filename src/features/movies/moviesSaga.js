@@ -1,6 +1,7 @@
 import { takeLatest, call, put } from "redux-saga/effects";
 
 import { getGenres, getMovieCredits, getMovieDetails, getMovies } from "./api";
+import { getGenreName } from "./getGenreName";
 
 import {
   fetchMovies,
@@ -12,9 +13,13 @@ import {
 
 function* fetchMoviesHandler({ payload }) {
   try {
-    const movies = yield call(getMovies, payload);
+    const data = yield call(getMovies, payload);
     const genres = yield call(getGenres);
-    yield put(fetchMoviesSuccess({ movies, genres }));
+    const movies = yield data.results.map(movie => {
+      const genresNames = movie.genre_ids.map(genre => getGenreName(genre, genres));
+      return { ...movie, genres: genresNames }
+    });
+    yield put(fetchMoviesSuccess({ movies, totalPages: data.total_pages }));
   } catch (error) {
     yield put(fetchError());
     yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
