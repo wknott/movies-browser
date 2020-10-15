@@ -13,7 +13,7 @@ import {
 import MovieTile from "../MovieTile";
 import Header from "../../../common/Header";
 import { getGenreName } from "../getGenreName";
-import { Pager } from "../../../Pager";
+import { Pager } from "../../../common/Pager";
 
 export default () => {
   const dispatch = useDispatch();
