@@ -13,9 +13,9 @@ import Header from "../../../common/Header";
 import { Pager } from "../../../common/Pager";
 import { useQueryParameter } from "../../search/queryParameters";
 import Loader from "../../../common/Loader";
+import searchQueryParamName from "../../searchQueryParamName";
 
 export default () => {
-  const searchQueryParamName = "search";
   const query = useQueryParameter(searchQueryParamName);
 
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ export default () => {
     return (
       <div className="App">
         <Wrapper>
-          <Header>Popular movies</Header>
+          <Header>{query  ? `Search results for "${query}" (ilość filmów)` : "Popular movies"}</Header>
           <MoviesContainer movies={movies} />
           <Pager></Pager>
         </Wrapper>
