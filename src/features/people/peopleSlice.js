@@ -6,28 +6,28 @@ const peopleSlice = createSlice({
     loading: true,
     people: [],
     person: null,
-    searchQuery: "",
-    currentPage: 1,
-    allPages: 1,
   },
   reducers: {
-    fetchMovies: (state) => {
+    fetchPopularPeople: (state) => {
       state.loading = true;
-      state.movies = [];
+      state.people = [];
     },
-    fetchMoviesSuccess: (state, { payload }) => {
-      state.movies = payload.movies;
-      state.allPages = payload.totalPages;
+    fetchPopularPeopleSuccess: (state, { payload: people }) => {
+      state.people = people;
       state.loading = false;
     },
-    fetchMovie: (state) => {
+    fetchPopularPeopleError: (state) => {
+      state.loading = false;
+      state.people = [];
+    },
+    fetchPerson: (state) => {
       state.loading = true;
     },
-    fetchMovieSuccess: (state, { payload: movie }) => {
-      state.movie = movie;
+    fetchPersonSuccess: (state, { payload: person }) => {
+      state.person = person;
       state.loading = false;
     },
-    fetchError: (state) => {
+    fetchPersonError: (state) => {
       state.loading = false;
     },
   },
