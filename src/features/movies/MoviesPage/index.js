@@ -11,6 +11,7 @@ import {
 } from "../moviesSlice";
 import Header from "../../../common/Header";
 import { Pager } from "../../../common/Pager";
+import Loader from "../../../common/Loader";
 
 export default () => {
   const dispatch = useDispatch();
@@ -35,6 +36,10 @@ export default () => {
       </div>
     );
   } else {
-    return <div className="App">Trwa ładowanie...</div>;
+    return<>
+    <Wrapper>
+      <Loader></Loader>
+    </Wrapper>
+    </>;  
   }
 };
