@@ -11,14 +11,18 @@ import {
 } from "../moviesSlice";
 import Header from "../../../common/Header";
 import { Pager } from "../../../common/Pager";
+import { useQueryParameter } from "../../search/queryParameters";
 
 export default () => {
+  const searchQueryParamName = "search";
+  const query = useQueryParameter(searchQueryParamName);
+
   const dispatch = useDispatch();
   const currentPage = useSelector(selectCurrentPage);
 
   useEffect(() => {
-    dispatch(fetchMovies({ page: currentPage }));
-  }, [dispatch, currentPage]);
+    dispatch(fetchMovies({ page: currentPage, query }));
+  }, [dispatch, currentPage, query]);
 
   const loading = useSelector(selectLoading);
   const movies = useSelector(selectMovies);
