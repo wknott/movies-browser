@@ -14,6 +14,9 @@ export const theme = {
         white: "#FFFFFF",
     },
     breakpoint: {
+        miniMobile: 568,
         mobileMax: 767,
+        ipad: 1024,
+        hdDesktop: 1366,
     },
 };
