@@ -1,4 +1,4 @@
-import { takeLatest, call, put } from "redux-saga/effects";
+import { takeLatest, call, put, delay } from "redux-saga/effects";
 
 import { getGenres, getMovieCredits, getMovieDetails, getMoviesByQuery, getPopularMovies } from "./api";
 
@@ -43,6 +43,7 @@ function* fetchGenresHandler() {
 function* fetchMoviesByQueryHandler({ payload: query }) {
   try {
     const movies = yield call(getMoviesByQuery, query);
+    yield delay(500);
     yield put(fetchMoviesByQuerySuccess(movies));
   } catch (error) {
     yield put(fetchMoviesByQueryError());

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Header from "../../../common/Header";
+import Loader from "../../../common/Loader";
 import Wrapper from "../../../common/Wrapper";
 import { Pager } from "../../../Pager/index"
 import { getGenreName } from "../getGenreName";
@@ -52,7 +53,12 @@ const MovieListPage = () => {
       </div>
     );
   } else {
-    return <div className="App">Trwa ładowanie...</div>;
+    return (<>
+    <Wrapper>
+      <Header>Search results for "{searchQuery.query}"</Header>
+      <Loader></Loader>
+    </Wrapper>
+    </>)
   }
 };
 
