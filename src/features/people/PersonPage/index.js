@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchPerson, selectLoading, selectPerson } from "../peopleSlice";
 import Wrapper from "../../../common/Wrapper";
+import Header from "../../../common/Header";
 import PersonDetailsTile from "./PersonDetailsTile";
+import { MoviesContainer } from "../../movies/MoviesContainer";
 
 export default () => {
   const { id } = useParams();
@@ -19,6 +21,10 @@ export default () => {
     !loading && person ?
       <Wrapper>
         <PersonDetailsTile person={person} />
+        <Header>Movies - cast ({person.cast.length})</Header>
+        <MoviesContainer movies={person.cast.slice(0, 20)} />
+        <Header>Movies - crew ({person.crew.length})</Header>
+        <MoviesContainer movies={person.crew.slice(0, 20)} />
       </Wrapper>
       :
       <h1>Loading...</h1>
