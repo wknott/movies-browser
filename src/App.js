@@ -6,7 +6,7 @@ import MoviesPage from "./features/movies/MoviesPage";
 import PersonPage from "./features/people/PersonPage";
 import PeoplePage from "./features/people/PeoplePage";
 import MovieListPage from "./features/movies/MovieListPage";
-import Navigation from "./Navigation/index";
+import Navigation from "./common/Navigation/";
 
 export default () => (
   <HashRouter>
