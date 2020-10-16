@@ -4,6 +4,7 @@ import Header from "../../../common/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPopularPeople, selectLoading, selectPeople } from "../peopleSlice";
 import PeopleContainer from "../PeopleContainer";
+import Loader from "../../../common/Loader";
 
 export default () => {
   const dispatch = useDispatch();
@@ -22,6 +23,8 @@ export default () => {
         <PeopleContainer people={people} />
       </Wrapper>
       :
-      <h1>trwa ładowanie...</h1>
+      <Wrapper>
+        <Loader></Loader>
+      </Wrapper>
   )
 };
