@@ -22,4 +22,5 @@ export const Input = styled.input`
   border: none;
   font-size: 16px;
   flex-grow: 0.8;
+  outline: none;
 `;
