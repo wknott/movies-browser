@@ -1,34 +1,38 @@
 import React from "react";
-import Search from "../features/search";
-import camera from "../images/camera.svg";
+import Search from "../../features/search";
+import camera from "../../images/camera.svg";
 import {
-  Wrapper,
   Container,
   NavigationStyle,
   NavigationItem,
   NavigationList,
   Title,
-  Link,
   Icon,
+  StyledLink,
+  Logo,
 } from "./styled";
+import { toMovies, toPeople } from "../../routes";
+import Wrapper from "../Wrapper";
 
 const Navigation = () => {
   return (
     <Container>
       <Wrapper>
         <NavigationStyle>
-          <Icon src={camera} />
-          <Title>Movies Browser</Title>
+          <Logo>
+            <Icon src={camera} />
+            <Title>Movies Browser</Title>
+          </Logo>
           <NavigationList>
             <NavigationItem>
-              <Link>Movies</Link>
+              <StyledLink to={toMovies()}>Movies</StyledLink>
             </NavigationItem>
             <NavigationItem>
-              <Link>People</Link>
+              <StyledLink to={toPeople()}>People</StyledLink>
             </NavigationItem>
           </NavigationList>
+          <Search />
         </NavigationStyle>
-        <Search />
       </Wrapper>
     </Container>
   );

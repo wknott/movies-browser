@@ -8,14 +8,13 @@ export const Label = styled.label`
   border: 1px solid ${({ theme }) => theme.color.grey};
   display: flex;
   align-items: center;
-  margin: 23px 200px;
+  margin-left: auto
 `;
 
 export const Icon = styled.img`
   margin: 0 15px;
   width: 20px;
   height: 20px;
-  border: 1px solid ${({ theme }) => theme.color.darkerGrey};
 `;
 
 export const Input = styled.input`

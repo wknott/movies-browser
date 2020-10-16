@@ -14,6 +14,8 @@ import {
 import star from "../MovieTile/ratingStar.svg";
 import Wrapper from "../../../common/Wrapper";
 import MovieDetailsTile from "./MovieDetailsTile";
+import PeopleContainer from "../../people/PeopleContainer";
+import Header from "../../../common/Header";
 
 export default () => {
   const { id } = useParams();
@@ -30,19 +32,25 @@ export default () => {
   return (
     !loading && movie ?
       <>
-        <MovieBackdrop src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}>
-          <MainInfo>
-            <MovieLongTitle>{movie.title}</MovieLongTitle>
-            <MovieRating>
-              <MovieRatingImg src={star}></MovieRatingImg>
-              <MovieRatingNote>{movie.vote_average}</MovieRatingNote>
-              <MovieRatingText>/ 10</MovieRatingText>
-              <MovieRatingText>{movie.vote_count} votes</MovieRatingText>
-            </MovieRating>
-          </MainInfo>
-        </MovieBackdrop>
+        {movie.backdrop_path &&
+          <MovieBackdrop src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}>
+            <MainInfo>
+              <MovieLongTitle>{movie.title}</MovieLongTitle>
+              <MovieRating>
+                <MovieRatingImg src={star}></MovieRatingImg>
+                <MovieRatingNote>{movie.vote_average}</MovieRatingNote>
+                <MovieRatingText>/ 10</MovieRatingText>
+                <MovieRatingText>{movie.vote_count} votes</MovieRatingText>
+              </MovieRating>
+            </MainInfo>
+          </MovieBackdrop>
+        }
         <Wrapper>
           <MovieDetailsTile movie={movie} />
+          <Header>Cast</Header>
+          <PeopleContainer people={movie.credits.cast} />
+          <Header>Crew</Header>
+          <PeopleContainer people={movie.credits.crew} />
         </Wrapper>
       </>
       :

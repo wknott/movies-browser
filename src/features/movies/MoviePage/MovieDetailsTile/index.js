@@ -26,21 +26,29 @@ const MovieDetailsTile = ({ movie }) => (
     <Image src={movie.poster_path ? `https://image.tmdb.org/t/p/w342${movie.poster_path}` : poster} alt="" />
     <section>
       <Title>{movie.original_title}</Title>
-      <ProductionYear>{movie.release_date.slice(0, 4)}</ProductionYear>
+      {movie.release_date &&
+        <ProductionYear>{movie.release_date.slice(0, 4)}</ProductionYear>
+      }
       <ProductionAndRelease>
-        <Frame>
-          <DesktopGrayText>Production:</DesktopGrayText>
-          <Text>{movie.production_countries.map(country => country.name).join(", ")}</Text>
-        </Frame>
-        <Frame>
-          <DesktopGrayText>Release date:</DesktopGrayText>
-          <Text>{movie.release_date.slice(8, 10)}.{movie.release_date.slice(5, 7)}.{movie.release_date.slice(0, 4)}</Text>
-        </Frame>
+        {movie.production_countries &&
+          <Frame>
+            <DesktopGrayText>Production:</DesktopGrayText>
+            <Text>{movie.production_countries.map(country => country.name).join(", ")}</Text>
+          </Frame>
+        }
+        {movie.release_date &&
+          <Frame>
+            <DesktopGrayText>Release date:</DesktopGrayText>
+            <Text>{movie.release_date.slice(8, 10)}.{movie.release_date.slice(5, 7)}.{movie.release_date.slice(0, 4)}</Text>
+          </Frame>
+        }
       </ProductionAndRelease>
-      <Tags>
-        {movie.genres.map(genre =>
-          <Tag key={genre.id}>{genre.name}</Tag>)}
-      </Tags>
+      {movie.genres &&
+        <Tags>
+          {movie.genres.map(genre =>
+            <Tag key={genre.id}>{genre.name}</Tag>)}
+        </Tags>
+      }
       <Rating>
         <MovieRatingImg src={star}></MovieRatingImg>
         <MovieRatingText>{movie.vote_average}</MovieRatingText>

@@ -5,7 +5,7 @@ const peopleSlice = createSlice({
   initialState: {
     loading: true,
     people: [],
-    person: {},
+    person: null,
   },
   reducers: {
     fetchPopularPeople: (state) => {
