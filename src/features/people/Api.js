@@ -1,13 +1,16 @@
-export const getPopularPeople = async () => {
-  const response = await fetch(
-    `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_API_KEY}`
-  );
+export const getPeople = async ({ page , query }) => {
+  
+  const url =  query ? `https://api.themoviedb.org/3/search/person?api_key=${process.env.REACT_APP_API_KEY}&query=${query}&page=${page}`
+    : `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_API_KEY}`
+
+    const response = await fetch(url);
+
   if (!response.ok) {
     new Error(response.statusText);
   };
-  const popularPeople = await response.json();
+  const people = await response.json();
 
-  return popularPeople.results;
+  return people.results;
 };
 
 export const getPersonDetails = async (personId) => {
