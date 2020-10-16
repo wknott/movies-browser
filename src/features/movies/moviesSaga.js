@@ -1,52 +1,27 @@
-import { takeLatest, call, put, delay } from "redux-saga/effects";
+import { takeLatest, call, put} from "redux-saga/effects";
 
-import { getGenres, getMovieCredits, getMovieDetails, getMoviesByQuery, getPopularMovies } from "./api";
+import { getGenres, getMovieCredits, getMovieDetails, getMovies } from "./api";
+import { getGenreName } from "./getGenreName";
 
 import {
-  fetchPopularMovies,
-  fetchPopularMoviesError,
-  fetchPopularMoviesSuccess,
-  fetchGenres,
-  fetchGenresError,
-  fetchGenresSuccess,
+  fetchMovies,
+  fetchMoviesSuccess,
   fetchMovie,
   fetchMovieSuccess,
-  fetchMovieError,
-  fetchMoviesByQuery,
-  fetchMoviesByQuerySuccess,
-  fetchMoviesByQueryError,
-  fetchMovieCredits,
-  fetchMovieCreditsError,
-  fetchMovieCreditsSuccess,
+  fetchError,
 } from "./moviesSlice";
 
-function* fetchPopularMoviesHandler({payload: page}) {
+function* fetchMoviesHandler({ payload }) {
   try {
-    const popularMovies = yield call(getPopularMovies,page);
-    yield put(fetchPopularMoviesSuccess(popularMovies));
+    const data = yield call(getMovies, payload);
+    const genres = yield call(getGenres);
+    const movies = yield data.results.map(movie => {
+      const genresNames = movie.genre_ids.map(genre => getGenreName(genre, genres));
+      return { ...movie, genres: genresNames }
+    });
+    yield put(fetchMoviesSuccess({ movies, totalPages: data.total_pages }));
   } catch (error) {
-    yield put(fetchPopularMoviesError());
-    yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
-  }
-}
-
-function* fetchGenresHandler() {
-  try {
-    const popularMovies = yield call(getGenres);
-    yield put(fetchGenresSuccess(popularMovies));
-  } catch (error) {
-    yield put(fetchGenresError());
-    yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
-  }
-}
-
-function* fetchMoviesByQueryHandler({ payload: query }) {
-  try {
-    const movies = yield call(getMoviesByQuery, query);
-    yield delay(500);
-    yield put(fetchMoviesByQuerySuccess(movies));
-  } catch (error) {
-    yield put(fetchMoviesByQueryError());
+    yield put(fetchError());
     yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
   }
 }
@@ -54,27 +29,15 @@ function* fetchMoviesByQueryHandler({ payload: query }) {
 function* fetchMovieHandler({ payload: movieId }) {
   try {
     const movie = yield call(getMovieDetails, movieId);
-    yield put(fetchMovieSuccess(movie));
-  } catch (error) {
-    yield put(fetchMovieError());
-    yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
-  }
-};
-
-function* fetchMovieCreditsHandler({ payload: movieId }) {
-  try {
     const credits = yield call(getMovieCredits, movieId);
-    yield put(fetchMovieCreditsSuccess(credits));
+    yield put(fetchMovieSuccess({ ...movie, credits }));
   } catch (error) {
+    yield put(fetchError());
     yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
-    yield put(fetchMovieCreditsError());
   }
 };
 
 export function* watchFetchPopularMovies() {
-  yield takeLatest(fetchMoviesByQuery.type, fetchMoviesByQueryHandler);
-  yield takeLatest(fetchPopularMovies.type, fetchPopularMoviesHandler);
-  yield takeLatest(fetchGenres.type, fetchGenresHandler);
+  yield takeLatest(fetchMovies.type, fetchMoviesHandler);
   yield takeLatest(fetchMovie.type, fetchMovieHandler);
-  yield takeLatest(fetchMovieCredits.type, fetchMovieCreditsHandler);
 };

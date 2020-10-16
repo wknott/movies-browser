@@ -5,13 +5,10 @@ const moviesSlice = createSlice({
   initialState: {
     loading: true,
     movies: [],
-    genres: [],
-    movie: {},
-    movieCast: [],
-    movieCrew: [],
+    movie: null,
     searchQuery: "",
-    currentPage:1,
-    allPages:1,
+    currentPage: 1,
+    allPages: 1,
   },
   reducers: {
     setPageToFirst: (state) => {
@@ -26,27 +23,13 @@ const moviesSlice = createSlice({
     decrementPage: (state) => {
       state.currentPage -= 1;
     },
-    fetchPopularMovies: (state) => {
+    fetchMovies: (state) => {
       state.loading = true;
       state.movies = [];
     },
-    fetchPopularMoviesSuccess: (state, { payload: movies }) => {
-      state.movies = movies.results;
-      state.allPages = movies.total_pages;
-      state.loading = false;
-    },
-    fetchPopularMoviesError: (state) => {
-      state.loading = false;
-      state.movies = [];
-    },
-    fetchGenres: (state) => {
-      state.loading = true;
-    },
-    fetchGenresSuccess: (state, { payload: genres }) => {
-      state.genres = genres;
-      state.loading = true;
-    },
-    fetchGenresError: (state) => {
+    fetchMoviesSuccess: (state, { payload }) => {
+      state.movies = payload.movies;
+      state.allPages = payload.totalPages;
       state.loading = false;
     },
     fetchMovie: (state) => {
@@ -56,30 +39,7 @@ const moviesSlice = createSlice({
       state.movie = movie;
       state.loading = false;
     },
-    fetchMovieError: (state) => {
-      state.loading = false;
-    },
-    fetchMoviesByQuery: (state, { payload: query }) => {
-      state.searchQuery = query;
-      state.loading = true;
-    },
-    fetchMoviesByQuerySuccess: (state, { payload: movies }) => {
-      state.movies = movies;
-      state.allPages = movies.total_pages;
-      state.loading = false;
-    },
-    fetchMoviesByQueryError: (state) => {
-      state.loading = false;
-    },
-    fetchMovieCredits: (state) => {
-      state.loading = true;
-    },
-    fetchMovieCreditsSuccess: (state, { payload: credits }) => {
-      state.movieCast = credits.cast;
-      state.movieCrew = credits.crew;
-      state.loading = false;
-    },
-    fetchMovieCreditsError: (state) => {
+    fetchError: (state) => {
       state.loading = false;
     },
   },
@@ -89,32 +49,19 @@ export const selectMoviesState = (state) => state.movies;
 export const selectLoading = (state) => selectMoviesState(state).loading;
 export const selectMovies = (state) => selectMoviesState(state).movies;
 export const selectMovie = (state) => selectMoviesState(state).movie;
-export const selectGenres = (state) => selectMoviesState(state).genres;
 export const selectSearchQuery = (state) => selectMoviesState(state).searchQuery;
 export const selectCurrentPage = (state) => selectMoviesState(state).currentPage;
 export const selectAllPages = (state) => selectMoviesState(state).allPages;
-export const selectMovieCast = (state) => selectMoviesState(state).movieCast;
-export const selectMovieCrew = (state) => selectMoviesState(state).movieCrew;
 
 export const {
   setPageToFirst,
   setPageToLast,
   incrementPage,
   decrementPage,
-  fetchPopularMovies,
-  fetchPopularMoviesError,
-  fetchPopularMoviesSuccess,
-  fetchGenres,
-  fetchGenresError,
-  fetchGenresSuccess,
+  fetchMovies,
+  fetchMoviesSuccess,
   fetchMovie,
-  fetchMovieError,
   fetchMovieSuccess,
-  fetchMoviesByQuery,
-  fetchMoviesByQuerySuccess,
-  fetchMoviesByQueryError,
-  fetchMovieCredits,
-  fetchMovieCreditsError,
-  fetchMovieCreditsSuccess,
+  fetchError,
 } = moviesSlice.actions;
 export default moviesSlice.reducer;
