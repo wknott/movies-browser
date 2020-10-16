@@ -6,6 +6,7 @@ import Wrapper from "../../../common/Wrapper";
 import Header from "../../../common/Header";
 import PersonDetailsTile from "./PersonDetailsTile";
 import { MoviesContainer } from "../../movies/MoviesContainer";
+import Loader from "../../../common/Loader";
 
 export default () => {
   const { id } = useParams();
@@ -27,6 +28,8 @@ export default () => {
         <MoviesContainer movies={person.crew.slice(0, 20)} />
       </Wrapper>
       :
-      <h1>Loading...</h1>
+      <Wrapper>
+      <Loader></Loader>
+      </Wrapper>
   )
 };

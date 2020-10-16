@@ -12,6 +12,7 @@ import {
 import Header from "../../../common/Header";
 import { Pager } from "../../../common/Pager";
 import { useQueryParameter } from "../../search/queryParameters";
+import Loader from "../../../common/Loader";
 
 export default () => {
   const searchQueryParamName = "search";
@@ -39,6 +40,10 @@ export default () => {
       </div>
     );
   } else {
-    return <div className="App">Trwa ładowanie...</div>;
+    return<>
+    <Wrapper>
+      <Loader></Loader>
+    </Wrapper>
+    </>;  
   }
 };

@@ -7,10 +7,13 @@ export const DetailsTile = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
   grid-gap: 40px;
+  margin: 64px auto;
+  box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     padding: 16px;
     grid-gap: 16px;
+    margin: 16px auto;
     grid-template-areas:
       "image info"
       "description description"
