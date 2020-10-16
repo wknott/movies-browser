@@ -16,6 +16,7 @@ import Wrapper from "../../../common/Wrapper";
 import MovieDetailsTile from "./MovieDetailsTile";
 import PeopleContainer from "../../people/PeopleContainer";
 import Header from "../../../common/Header";
+import Loader from "../../../common/Loader";
 
 export default () => {
   const { id } = useParams();
@@ -54,6 +55,8 @@ export default () => {
         </Wrapper>
       </>
       :
-      <h1>Trwa ładowanie...</h1>
+      <Wrapper>
+      <Loader></Loader>
+      </Wrapper>
   )
 };
