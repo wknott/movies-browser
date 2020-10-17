@@ -14,20 +14,16 @@ export const Pager = () => {
     const mobileWidth = theme.breakpoint.mobileMax;
     const location = useLocation();
     const atMovies = location.pathname.includes("movies") ? true : false;
-
     const currentMoviesPage = useSelector(selectCurrentMoviesPage);
     const allMoviesPages = useSelector(selectAllMoviesPages);
     const currentPeoplePage = useSelector(selectCurrentPeoplePage);
     const allPeoplePages = useSelector(selectPeopleAllPages);
-
     const currentPage = atMovies ? currentMoviesPage : currentPeoplePage;
     const allPages = atMovies ? allMoviesPages : allPeoplePages;
-
-
     const disablePrevious = atMovies ? (currentMoviesPage === 1 ? true : false) : (currentPeoplePage === 1 ? true : false);
     const disableNext = atMovies ? (currentMoviesPage === allMoviesPages ? true : false) : (currentPeoplePage === allPeoplePages ? true : false);
     const dispatch = useDispatch();
-
+    
     return (
         <PagerWrapper>
             <PagerButton
