@@ -13,8 +13,14 @@ import { getGenreName } from "../movies/getGenreName";
 
 function* fetchPeopleHandler({ payload }) {
   try {
-    const people = yield call(getPeople,{ page: payload.page, query: payload.query});
-    yield put(fetchPeopleSuccess({people: people.results, allPages: people.total_pages}));
+    const people = yield call(getPeople, { page: payload.page, query: payload.query });
+    yield put(fetchPeopleSuccess(
+      {
+        people: people.results,
+        allPages: people.total_pages,
+        totalResults: people.total_results,
+      }
+    ));
   } catch (error) {
     yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
     yield put(fetchPeopleError());
