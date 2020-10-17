@@ -1,7 +1,6 @@
 export const getPeople = async ({ page , query }) => {
-  
   const url =  query ? `https://api.themoviedb.org/3/search/person?api_key=${process.env.REACT_APP_API_KEY}&query=${query}&page=${page}`
-    : `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_API_KEY}`
+    : `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
 
     const response = await fetch(url);
 
@@ -10,7 +9,7 @@ export const getPeople = async ({ page , query }) => {
   };
   const people = await response.json();
 
-  return people.results;
+  return people;
 };
 
 export const getPersonDetails = async (personId) => {
