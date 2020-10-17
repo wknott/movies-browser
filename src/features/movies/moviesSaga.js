@@ -18,7 +18,13 @@ function* fetchMoviesHandler({ payload }) {
       const genresNames = movie.genre_ids.map(genre => getGenreName(genre, genres));
       return { ...movie, genres: genresNames }
     });
-    yield put(fetchMoviesSuccess({ movies, totalPages: data.total_pages }));
+    yield put(fetchMoviesSuccess(
+      {
+        movies,
+        totalPages: data.total_pages,
+        totalResults: data.total_results,
+      }
+    ));
   } catch (error) {
     yield put(fetchError());
     yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");

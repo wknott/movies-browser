@@ -7,7 +7,8 @@ import {
   selectLoading,
   selectMovies,
   selectCurrentMoviesPage,
-  fetchMovies
+  fetchMovies,
+  selectTotalNumberOfMovies
 } from "../moviesSlice";
 import Header from "../../../common/Header";
 import { Pager } from "../../../common/Pager";
@@ -28,13 +29,14 @@ export default () => {
 
   const loading = useSelector(selectLoading);
   const movies = useSelector(selectMovies);
+  const totalNumberOfMovies = useSelector(selectTotalNumberOfMovies);
 
   return (
     <Wrapper>
       {!loading ?
         movies.length ?
           <>
-            <Header>{query ? `Search results for "${query}" (ilość filmów)` : "Popular movies"}</Header>
+            <Header>{query ? `Search results for "${query}" (${totalNumberOfMovies})` : "Popular movies"}</Header>
             <MoviesContainer movies={movies} />
             <Pager></Pager>
           </> :
