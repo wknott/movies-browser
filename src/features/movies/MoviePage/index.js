@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 import { fetchMovie, selectLoading, selectMovie } from "../moviesSlice";
 import {
   MovieBackdrop,
@@ -17,18 +17,30 @@ import MovieDetailsTile from "./MovieDetailsTile";
 import PeopleContainer from "../../people/PeopleContainer";
 import Header from "../../../common/Header";
 import Loader from "../../../common/Loader";
+import { useQueryParameter } from "../../search/queryParameters";
+import searchQueryParamName from "../../searchQueryParamName";
 
 export default () => {
   const { id } = useParams();
   const movie = useSelector(selectMovie);
   const loading = useSelector(selectLoading);
   const dispatch = useDispatch();
+  const query = useQueryParameter(searchQueryParamName);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const history = useHistory();
 
   useEffect(() => {
     if (id) {
       dispatch(fetchMovie(id));
     }
   }, [dispatch, id]);
+
+  useEffect(() => {
+    if (query) {
+      history.push(`/movies?${searchParams.toString()}`);
+    }
+  }, [query, history, searchParams]);
 
   return (
     !loading && movie ?
@@ -56,7 +68,7 @@ export default () => {
       </>
       :
       <Wrapper>
-      <Loader></Loader>
+        <Loader></Loader>
       </Wrapper>
   )
 };
