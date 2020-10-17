@@ -6,7 +6,7 @@ import Wrapper from "../../../common/Wrapper/index";
 import {
   selectLoading,
   selectMovies,
-  selectCurrentPage,
+  selectCurrentMoviesPage,
   fetchMovies
 } from "../moviesSlice";
 import Header from "../../../common/Header";
@@ -19,7 +19,7 @@ export default () => {
   const query = useQueryParameter(searchQueryParamName);
 
   const dispatch = useDispatch();
-  const currentPage = useSelector(selectCurrentPage);
+  const currentPage = useSelector(selectCurrentMoviesPage);
 
   useEffect(() => {
     dispatch(fetchMovies({ page: currentPage, query }));
