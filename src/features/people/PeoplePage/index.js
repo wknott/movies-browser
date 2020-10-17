@@ -8,6 +8,7 @@ import Loader from "../../../common/Loader";
 import { useQueryParameter } from "../../search/queryParameters";
 import searchQueryParamName from "../../searchQueryParamName";
 import { Pager } from "../../../common/Pager";
+import NoResults from "../../../common/NoResults";
 
 export default () => {
   const query = useQueryParameter(searchQueryParamName);
@@ -21,16 +22,21 @@ export default () => {
   }, [dispatch, currentPage, query]);
 
   return (
-    !loading
-      ?
-      <Wrapper>
-        <Header>{query ? `Search results for "${query}"` : "Popular people"}</Header>
-        <PeopleContainer people={people} />
-        <Pager/>
-      </Wrapper>
-      :
-      <Wrapper>
-        <Loader></Loader>
-      </Wrapper>
+
+    <Wrapper>
+      {!loading ?
+        people.length ?
+          <>
+            <Header>{query ? `Search results for "${query}"` : "Popular people"}</Header>
+            <PeopleContainer people={people} />
+            <Pager />
+          </> :
+          <>
+            <Header>{`Sorry, there are no results for "${query}"`}</Header>
+            <NoResults />
+          </> :
+        <Loader />
+      }
+    </Wrapper>
   )
 };

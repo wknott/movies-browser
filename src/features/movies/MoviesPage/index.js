@@ -13,6 +13,7 @@ import Header from "../../../common/Header";
 import { Pager } from "../../../common/Pager";
 import { useQueryParameter } from "../../search/queryParameters";
 import Loader from "../../../common/Loader";
+import NoResults from "../../../common/NoResults";
 import searchQueryParamName from "../../searchQueryParamName";
 
 export default () => {
@@ -28,22 +29,21 @@ export default () => {
   const loading = useSelector(selectLoading);
   const movies = useSelector(selectMovies);
 
-
-  if (!loading && movies) {
-    return (
-      <div className="App">
-        <Wrapper>
-          <Header>{query  ? `Search results for "${query}" (ilość filmów)` : "Popular movies"}</Header>
-          <MoviesContainer movies={movies} />
-          <Pager></Pager>
-        </Wrapper>
-      </div>
-    );
-  } else {
-    return<>
+  return (
     <Wrapper>
-      <Loader></Loader>
+      {!loading ?
+        movies.length ?
+          <>
+            <Header>{query ? `Search results for "${query}" (ilość filmów)` : "Popular movies"}</Header>
+            <MoviesContainer movies={movies} />
+            <Pager></Pager>
+          </> :
+          <>
+            <Header>{`Sorry, there are no results for "${query}"`}</Header>
+            <NoResults />
+          </> :
+        <Loader />
+      }
     </Wrapper>
-    </>;  
-  }
+  );
 };
