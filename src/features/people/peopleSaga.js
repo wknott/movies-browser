@@ -1,23 +1,23 @@
-import { takeLatest, call, put } from "redux-saga/effects";
-import { getPersonDetails, getPersonMovieCredits, getPopularPeople } from "./api";
+import { takeLatest, call, put, debounce } from "redux-saga/effects";
+import { getPersonDetails, getPersonMovieCredits, getPeople } from "./api";
 import {
   fetchPerson,
   fetchPersonError,
   fetchPersonSuccess,
-  fetchPopularPeople,
-  fetchPopularPeopleError,
-  fetchPopularPeopleSuccess,
+  fetchPeople,
+  fetchPeopleError,
+  fetchPeopleSuccess,
 } from "./peopleSlice";
 import { getGenres } from "../movies/api";
 import { getGenreName } from "../movies/getGenreName";
 
-function* fetchPopularPeopleHandler() {
+function* fetchPeopleHandler({ payload }) {
   try {
-    const popularPeople = yield call(getPopularPeople);
-    yield put(fetchPopularPeopleSuccess(popularPeople));
+    const people = yield call(getPeople,{ page: payload.page, query: payload.query});
+    yield put(fetchPeopleSuccess({people: people.results, allPages: people.total_pages}));
   } catch (error) {
     yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
-    yield put(fetchPopularPeopleError());
+    yield put(fetchPeopleError());
   }
 };
 
@@ -41,7 +41,7 @@ function* fetchPersonHandler({ payload: personId }) {
   }
 };
 
-export function* watchFetchPopularPeople() {
-  yield takeLatest(fetchPopularPeople.type, fetchPopularPeopleHandler);
+export function* watchFetchPeople() {
+  yield debounce(500, fetchPeople.type, fetchPeopleHandler);
   yield takeLatest(fetchPerson.type, fetchPersonHandler);
 };

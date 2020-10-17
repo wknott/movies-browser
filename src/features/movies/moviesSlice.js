@@ -10,16 +10,16 @@ const moviesSlice = createSlice({
     allPages: 1,
   },
   reducers: {
-    setPageToFirst: (state) => {
+    setMoviesPageToFirst: (state) => {
       state.currentPage = 1;
     },
-    setPageToLast: (state) => {
+    setMoviesPageToLast: (state) => {
       state.currentPage = state.allPages;
     },
-    incrementPage: (state) => {
+    incrementMoviesPage: (state) => {
       state.currentPage += 1;
     },
-    decrementPage: (state) => {
+    decrementMoviesPage: (state) => {
       state.currentPage -= 1;
     },
     fetchMovies: (state) => {
@@ -48,14 +48,14 @@ export const selectMoviesState = (state) => state.movies;
 export const selectLoading = (state) => selectMoviesState(state).loading;
 export const selectMovies = (state) => selectMoviesState(state).movies;
 export const selectMovie = (state) => selectMoviesState(state).movie;
-export const selectCurrentPage = (state) => selectMoviesState(state).currentPage;
-export const selectAllPages = (state) => selectMoviesState(state).allPages;
+export const selectCurrentMoviesPage = (state) => selectMoviesState(state).currentPage;
+export const selectAllMoviesPages = (state) => selectMoviesState(state).allPages;
 
 export const {
-  setPageToFirst,
-  setPageToLast,
-  incrementPage,
-  decrementPage,
+  setMoviesPageToFirst,
+  setMoviesPageToLast,
+  incrementMoviesPage,
+  decrementMoviesPage,
   fetchMovies,
   fetchMoviesSuccess,
   fetchMovie,
