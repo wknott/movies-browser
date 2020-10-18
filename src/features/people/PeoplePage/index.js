@@ -9,13 +9,14 @@ import { useQueryParameter } from "../../search/queryParameters";
 import searchQueryParamName from "../../searchQueryParamName";
 import { Pager } from "../../../common/Pager";
 import NoResults from "../../../common/NoResults";
+import pageQueryParamName from "../../pageQueryParamName";
 
 export default () => {
   const query = useQueryParameter(searchQueryParamName);
   const dispatch = useDispatch();
   const people = useSelector(selectPeople);
   const loading = useSelector(selectLoading);
-  const currentPage = useSelector(selectCurrentPeoplePage);
+  const currentPage = useQueryParameter(pageQueryParamName);
   const totalNumberOfPeople = useSelector(selectTotalNumberOfPeople);
   useEffect(() => {
     dispatch(fetchPeople({ page: currentPage, query }))
