@@ -1,18 +1,20 @@
 {
   "files": {
-    "main.js": "/movies-browser/static/js/main.aa3cf9b5.chunk.js",
-    "main.js.map": "/movies-browser/static/js/main.aa3cf9b5.chunk.js.map",
+    "main.js": "/movies-browser/static/js/main.667d765a.chunk.js",
+    "main.js.map": "/movies-browser/static/js/main.667d765a.chunk.js.map",
     "runtime-main.js": "/movies-browser/static/js/runtime-main.8e42f4f8.js",
     "runtime-main.js.map": "/movies-browser/static/js/runtime-main.8e42f4f8.js.map",
-    "static/js/2.b9119fc3.chunk.js": "/movies-browser/static/js/2.b9119fc3.chunk.js",
-    "static/js/2.b9119fc3.chunk.js.map": "/movies-browser/static/js/2.b9119fc3.chunk.js.map",
+    "static/js/2.ca7d8729.chunk.js": "/movies-browser/static/js/2.ca7d8729.chunk.js",
+    "static/js/2.ca7d8729.chunk.js.map": "/movies-browser/static/js/2.ca7d8729.chunk.js.map",
     "index.html": "/movies-browser/index.html",
-    "precache-manifest.f1ebad02d41db8c60084f97192c046fd.js": "/movies-browser/precache-manifest.f1ebad02d41db8c60084f97192c046fd.js",
+    "precache-manifest.7d59d4dfa57e9cd95826f9a402123289.js": "/movies-browser/precache-manifest.7d59d4dfa57e9cd95826f9a402123289.js",
     "service-worker.js": "/movies-browser/service-worker.js",
-    "static/js/2.b9119fc3.chunk.js.LICENSE.txt": "/movies-browser/static/js/2.b9119fc3.chunk.js.LICENSE.txt",
+    "static/js/2.ca7d8729.chunk.js.LICENSE.txt": "/movies-browser/static/js/2.ca7d8729.chunk.js.LICENSE.txt",
     "static/media/DisabledNext.svg": "/movies-browser/static/media/DisabledNext.704699a6.svg",
     "static/media/DisabledPrev.svg": "/movies-browser/static/media/DisabledPrev.3b1bf9e0.svg",
+    "static/media/Loading.svg": "/movies-browser/static/media/Loading.ab5b22d5.svg",
     "static/media/Next.svg": "/movies-browser/static/media/Next.9e9451e5.svg",
+    "static/media/NoResults.svg": "/movies-browser/static/media/NoResults.d277a94c.svg",
     "static/media/Poster.svg": "/movies-browser/static/media/Poster.bc415ff5.svg",
     "static/media/Prev.svg": "/movies-browser/static/media/Prev.f3be61f3.svg",
     "static/media/Profile.svg": "/movies-browser/static/media/Profile.e35e95ed.svg",
@@ -22,7 +24,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.8e42f4f8.js",
-    "static/js/2.b9119fc3.chunk.js",
-    "static/js/main.aa3cf9b5.chunk.js"
+    "static/js/2.ca7d8729.chunk.js",
+    "static/js/main.667d765a.chunk.js"
   ]
 }
