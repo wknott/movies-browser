@@ -16,7 +16,6 @@ import pageParam from "../../features/pageQueryParamName";
 export const Pager = () => {
     const mobileWidth = theme.breakpoint.mobileMax;
     const location = useLocation();
-    const dispatch = useDispatch();
     const atMovies = location.pathname.includes("movies") ? true : false;
     const currentPage = +useQueryParameter(pageParam) || 1;
     const allMoviesPages = useSelector(selectAllMoviesPages);
@@ -26,10 +25,6 @@ export const Pager = () => {
     const disableNext = currentPage === allPages;
     const disablePrevious = currentPage === 1;
 
-    useEffect(() => {
-        dispatch(atMovies ? setMoviesPage(currentPage) : setPeoplePage(currentPage));
-    },[currentPage,dispatch])
-    
     const onFirstButtonClick = () => {
         replaceQueryParam({key: pageParam, value: 1 })
     }
