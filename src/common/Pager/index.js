@@ -4,10 +4,10 @@ import DisabledPrev from "./images/DisabledPrev.svg"
 import Next from "./images/Next.svg"
 import DisabledNext from "./images/DisabledNext.svg"
 import { PagerButton, PagerNext, PagerPrev, PagerText, PagerInfo, PagerWrapper, Bold } from "./styled"
-import { useDispatch, useSelector } from "react-redux";
-import { selectAllMoviesPages, setMoviesPage } from "../../features/movies/moviesSlice";
+import { useSelector } from "react-redux";
+import { selectAllMoviesPages } from "../../features/movies/moviesSlice";
 import { theme } from "../../theme";
-import { selectPeopleAllPages, setPeoplePage } from "../../features/people/peopleSlice";
+import { selectPeopleAllPages } from "../../features/people/peopleSlice";
 import { useLocation } from "react-router-dom";
 import { useQueryParameter, useReplaceQueryParameter } from "../../features/search/queryParameters";
 import pageParam from "../../features/pageQueryParamName";
