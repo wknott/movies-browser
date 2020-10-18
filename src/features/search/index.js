@@ -10,7 +10,7 @@ import { setMoviesPageToFirst } from "../movies/moviesSlice";
 const Search = () => {
   const searchQueryParamName = "search";
   const query = useQueryParameter(searchQueryParamName);
-  const replaceQueryParameter = useReplaceQueryParameter();
+  const replaceQueryParameter = useReplaceQueryParameter(true);
   const location = useLocation();
   const atMovies = location.pathname.includes("movies");
   const dispatch = useDispatch();
