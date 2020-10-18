@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Prev from "./images/Prev.svg"
 import DisabledPrev from "./images/DisabledPrev.svg"
 import Next from "./images/Next.svg"
@@ -19,14 +19,16 @@ export const Pager = () => {
     const dispatch = useDispatch();
     const atMovies = location.pathname.includes("movies") ? true : false;
     const currentPage = +useQueryParameter(pageParam) || 1;
-    dispatch(atMovies ? setMoviesPage(currentPage) : setPeoplePage(currentPage));
     const allMoviesPages = useSelector(selectAllMoviesPages);
     const allPeoplePages = useSelector(selectPeopleAllPages);
     const allPages = atMovies ? allMoviesPages : allPeoplePages;
     const replaceQueryParam = useReplaceQueryParameter();
-
     const disableNext = currentPage === allPages;
     const disablePrevious = currentPage === 1;
+
+    useEffect(() => {
+        dispatch(atMovies ? setMoviesPage(currentPage) : setPeoplePage(currentPage));
+    },[currentPage,dispatch])
     
     const onFirstButtonClick = () => {
         replaceQueryParam({key: pageParam, value: 1 })
