@@ -39,4 +39,13 @@ export const ReturnButton = styled.button`
   line-height: 19px;
   background-color: ${({ theme }) => theme.color.blue};
   color: ${({ theme }) => theme.color.white};
+  transition: 0.3s filter;
+
+  &:hover {
+    filter: brightness(110%);
+  }
+
+  &:active {
+    filter: brightness(120%);
+  }
 `;
