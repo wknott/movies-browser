@@ -13,6 +13,10 @@ export const MovieBackdrop = styled.div`
   background-repeat: no-repeat;
   background-position: center;
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.hdDesktop}px) {
+    background-size: 1366px 525px, 1366px 525px, 1366px 525px, 1366px 525px, 1024px 525px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     background-size: 350px 148px, 350px 148px, 350px 148px, 350px 148px, 262px 148px;
   }
@@ -26,6 +30,11 @@ export const MainInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.hdDesktop}px) {
+    width: 1024px;
+    height: 525px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     width: 320px;
@@ -65,6 +74,7 @@ export const MovieRatingNote = styled.p`
   line-height: 1.3;
   align-self: center;
   margin: 0px 8px;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 14px;
     font-weight: 600;
@@ -79,6 +89,7 @@ export const MovieRatingText = styled.p`
   margin-top: 16px;
   color: ${({ theme }) => theme.color.white};
   flex-basis: 90%;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 10px;
     margin-top: 0px;
