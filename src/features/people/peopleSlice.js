@@ -11,17 +11,11 @@ const peopleSlice = createSlice({
     totalNumberOfPeople: 0,
   },
   reducers: {
+    setPeoplePage: (state,{ payload: URLCurrentPage }) => {
+      state.currentPage = URLCurrentPage;
+    },
     setPeoplePageToFirst: (state) => {
       state.currentPage = 1;
-    },
-    setPeoplePageToLast: (state) => {
-      state.currentPage = state.allPages;
-    },
-    incrementPeoplePage: (state) => {
-      state.currentPage += 1;
-    },
-    decrementPeoplePage: (state) => {
-      state.currentPage -= 1;
     },
     fetchPeople: (state) => {
       state.loading = true;
@@ -59,10 +53,8 @@ export const selectPeopleAllPages = state => selectPeopleState(state).allPages;
 export const selectTotalNumberOfPeople = state => selectPeopleState(state).totalNumberOfPeople;
 
 export const {
+  setPeoplePage,
   setPeoplePageToFirst,
-  setPeoplePageToLast,
-  incrementPeoplePage,
-  decrementPeoplePage,
   fetchPeople,
   fetchPeopleError,
   fetchPeopleSuccess,
