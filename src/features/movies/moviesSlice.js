@@ -11,8 +11,8 @@ const moviesSlice = createSlice({
     totalNumberOfMovies: 0,
   },
   reducers: {
-    setMoviesPage:(state,{ payload : URLCurrentPage }) => {
-      state.currentPage = URLCurrentPage;
+    setMoviesPage:(state,{ payload : page }) => {
+      state.currentPage = page;
     },
     setMoviesPageToFirst: (state) => {
       state.currentPage = 1;
