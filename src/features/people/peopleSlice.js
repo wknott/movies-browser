@@ -11,8 +11,8 @@ const peopleSlice = createSlice({
     totalNumberOfPeople: 0,
   },
   reducers: {
-    setPeoplePage: (state,{ payload: URLCurrentPage }) => {
-      state.currentPage = URLCurrentPage;
+    setPeoplePage: (state,{ payload: page }) => {
+      state.currentPage = page;
     },
     setPeoplePageToFirst: (state) => {
       state.currentPage = 1;
