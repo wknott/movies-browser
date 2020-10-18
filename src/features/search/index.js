@@ -23,8 +23,6 @@ const Search = () => {
     });
   };
 
-
-  console.log(location.pathname.slice(1, 6));
   return (
     <Label>
       <Icon src={searchIcon} />
