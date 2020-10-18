@@ -1,21 +1,36 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 import { fetchPerson, selectLoading, selectPerson } from "../peopleSlice";
 import Wrapper from "../../../common/Wrapper";
 import Header from "../../../common/Header";
 import PersonDetailsTile from "./PersonDetailsTile";
 import { MoviesContainer } from "../../movies/MoviesContainer";
+import Loader from "../../../common/Loader";
+import searchQueryParamName from "../../searchQueryParamName";
+import { useQueryParameter } from "../../search/queryParameters";
 
 export default () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const person = useSelector(selectPerson);
   const loading = useSelector(selectLoading);
+  const query = useQueryParameter(searchQueryParamName);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const history = useHistory();
 
   useEffect(() => {
-    dispatch(fetchPerson(id));
-  }, [dispatch, id])
+    if (id) {
+      dispatch(fetchPerson(id));
+    }
+  }, [dispatch, id]);
+
+  useEffect(() => {
+    if (query) {
+      history.push(`/people?${searchParams.toString()}`);
+    }
+  }, [query, history, searchParams]);
 
   return (
     !loading && person ?
@@ -27,6 +42,8 @@ export default () => {
         <MoviesContainer movies={person.crew.slice(0, 20)} />
       </Wrapper>
       :
-      <h1>Loading...</h1>
+      <Wrapper>
+        <Loader></Loader>
+      </Wrapper>
   )
 };

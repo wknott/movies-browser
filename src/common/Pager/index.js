@@ -5,22 +5,29 @@ import Next from "./images/Next.svg"
 import DisabledNext from "./images/DisabledNext.svg"
 import { PagerButton, PagerNext, PagerPrev, PagerText, PagerInfo, PagerWrapper, Bold } from "./styled"
 import { useDispatch, useSelector } from "react-redux";
-import { selectCurrentPage, incrementPage, decrementPage, selectAllPages, setPageToFirst, setPageToLast } from "../../features/movies/moviesSlice";
+import { selectCurrentMoviesPage, incrementMoviesPage, decrementMoviesPage, selectAllMoviesPages, setMoviesPageToFirst, setMoviesPageToLast } from "../../features/movies/moviesSlice";
 import { theme } from "../../theme";
+import {useLocation} from "react-router-dom";
+import { selectCurrentPeoplePage, selectPeopleAllPages, incrementPeoplePage, decrementPeoplePage, setPeoplePageToFirst, setPeoplePageToLast } from "../../features/people/peopleSlice"
 
 export const Pager = () => {
-
-    const currentPage = useSelector(selectCurrentPage);
-    const allPages = useSelector(selectAllPages);
     const mobileWidth = theme.breakpoint.mobileMax;
-    const disablePrevious = currentPage === 1 ? true : false;
-    const disableNext = currentPage === allPages ? true : false;
+    const location = useLocation();
+    const atMovies = location.pathname.includes("movies") ? true : false;
+    const currentMoviesPage = useSelector(selectCurrentMoviesPage);
+    const allMoviesPages = useSelector(selectAllMoviesPages);
+    const currentPeoplePage = useSelector(selectCurrentPeoplePage);
+    const allPeoplePages = useSelector(selectPeopleAllPages);
+    const currentPage = atMovies ? currentMoviesPage : currentPeoplePage;
+    const allPages = atMovies ? allMoviesPages : allPeoplePages;
+    const disablePrevious = atMovies ? (currentMoviesPage === 1 ? true : false) : (currentPeoplePage === 1 ? true : false);
+    const disableNext = atMovies ? (currentMoviesPage === allMoviesPages ? true : false) : (currentPeoplePage === allPeoplePages ? true : false);
     const dispatch = useDispatch();
-
+    
     return (
         <PagerWrapper>
             <PagerButton
-                onClick={() => { dispatch(setPageToFirst()) }}
+                onClick={() => { dispatch( atMovies ? setMoviesPageToFirst() : setPeoplePageToFirst()) }}
                 disabled={disablePrevious}
             >
                 <PagerPrev src={disablePrevious ? DisabledPrev : Prev} />
@@ -34,7 +41,7 @@ export const Pager = () => {
             </PagerButton>
 
             <PagerButton
-                onClick={() => { dispatch(decrementPage()) }}
+                onClick={() => { dispatch( atMovies ? decrementMoviesPage() : decrementPeoplePage() ) }}
                 disabled={disablePrevious}
             >
                 <PagerPrev src={disablePrevious ? DisabledPrev : Prev} />
@@ -51,7 +58,7 @@ export const Pager = () => {
             </PagerInfo>
 
             <PagerButton
-                onClick={() => { dispatch(incrementPage()) }}
+                onClick={() => { dispatch( atMovies ? incrementMoviesPage() : incrementPeoplePage()) }}
                 disabled={disableNext}
             >
                 {window.innerWidth > mobileWidth ?
@@ -63,7 +70,7 @@ export const Pager = () => {
             </PagerButton>
 
             <PagerButton
-                onClick={() => { dispatch(setPageToLast()) }}
+                onClick={() => { dispatch( atMovies ? setMoviesPageToLast() : setPeoplePageToLast()) }}
                 disabled={disableNext}
             >
                 {window.innerWidth > mobileWidth ?

@@ -1,14 +1,11 @@
 import React from "react";
-import noResult from "../../images/noResult.svg";
-import { Wrapper, Header, ImgStyled } from "./styled";
+import Img from "./../../images/NoResults.svg";
+import { NoResultsImg, NoResultsContainer } from "./styled";
 
-const NoResult = () => {
-  return (
-    <Wrapper>
-      <Header>Sorry, there are no results for "Muan"</Header>
-      <ImgStyled src={noResult} alt="Searching not found" />
-    </Wrapper>
-  );
-};
+const NoResults = () => (
+    <NoResultsContainer>
+        <NoResultsImg src={Img} />
+    </NoResultsContainer>
+);
 
-export default NoResult;
+export default NoResults;

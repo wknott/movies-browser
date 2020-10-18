@@ -1,20 +1,17 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const NoResultsContainer = styled.div`
+width: 100%;
+margin-top: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
+@media(max-width:${({theme})=>theme.breakpoint.mobileMax}px)
+{
+    margin-top:24px;
+}
 `;
 
-export const Header = styled.h1`
-  font-style: normal;
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 43px;
-  display: flex;
-  align-items: center;
-`;
-
-export const ImgStyled = styled.img`
-  max-width: 100%;
+export const NoResultsImg = styled.img`
+    width: 668px;
 `;
