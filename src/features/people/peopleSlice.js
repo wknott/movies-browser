@@ -6,7 +6,6 @@ const peopleSlice = createSlice({
     loading: true,
     people: [],
     person: null,
-    currentPage: 1,
     allPages: 1,
     totalNumberOfPeople: 0,
   },

@@ -6,7 +6,6 @@ const moviesSlice = createSlice({
     loading: true,
     movies: [],
     movie: null,
-    currentPage: 1,
     allPages: 1,
     totalNumberOfMovies: 0,
   },
