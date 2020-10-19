@@ -3,7 +3,6 @@ import searchIcon from "../../images/searchIcon.svg";
 import { Label, Icon, Input } from "./styled";
 import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
 import { useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
 const Search = () => {
   const searchQueryParamName = "search";
@@ -22,9 +21,11 @@ const Search = () => {
   return (
     <Label>
       <Icon src={searchIcon} />
-      <Input value={query || ""}
+      <Input
+        value={query || ""}
         placeholder={`Search for ${atMovies ? "movies" : "people"}...`}
-        onChange={onInputChange} />
+        onChange={onInputChange}
+      />
     </Label>
   );
 };

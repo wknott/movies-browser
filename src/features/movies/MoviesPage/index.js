@@ -6,7 +6,6 @@ import Wrapper from "../../../common/Wrapper/index";
 import {
   selectLoading,
   selectMovies,
-  selectCurrentMoviesPage,
   fetchMovies,
   selectTotalNumberOfMovies
 } from "../moviesSlice";

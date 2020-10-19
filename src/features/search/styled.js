@@ -1,14 +1,19 @@
 import styled from "styled-components";
 
 export const Label = styled.label`
-  width: 432px;
-  height: 48px;
+  min-width: 340px;
   border-radius: 33px;
   background-color: ${({ theme }) => theme.color.white};
   border: 1px solid ${({ theme }) => theme.color.grey};
   display: flex;
   align-items: center;
-  margin-left: auto
+  margin-left: auto;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+    margin: 0;
+    width: 100%;
+    min-width: 200px;
+  }
 `;
 
 export const Icon = styled.img`
@@ -21,6 +26,10 @@ export const Input = styled.input`
   background-color: none;
   border: none;
   font-size: 16px;
+  line-height: 150%;
+  align-items: center;
   flex-grow: 0.8;
   outline: none;
+  padding: 12px 0px;
+  border-radius: 33px;
 `;
