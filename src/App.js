@@ -6,10 +6,12 @@ import MoviesPage from "./features/movies/MoviesPage";
 import PersonPage from "./features/people/PersonPage";
 import PeoplePage from "./features/people/PeoplePage";
 import Navigation from "./common/Navigation/";
+import ScrollArrow from "./common/ScrollArrow/";
 
 export default () => (
   <HashRouter>
     <Navigation />
+    <ScrollArrow />
     <Switch>
       <Route path={toMovie()}>
         <MoviePage />
