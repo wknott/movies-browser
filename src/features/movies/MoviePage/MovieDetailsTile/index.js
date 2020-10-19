@@ -20,6 +20,7 @@ import {
 } from "./styled";
 import star from "../../MovieTile/ratingStar.svg";
 import poster from "../../../../images/Poster.svg";
+import ReadMoreButton from "../../../../common/ReadMoreButton";
 
 const MovieDetailsTile = ({ movie }) => (
   <DetailsTile>
@@ -55,9 +56,13 @@ const MovieDetailsTile = ({ movie }) => (
         <DesktopMovieRatingVotes>/ 10</DesktopMovieRatingVotes>
         <MovieRatingVotes>{movie.vote_count} votes</MovieRatingVotes>
       </Rating>
-      <DesktopDescription>{movie.overview}</DesktopDescription>
+      <DesktopDescription>
+        <ReadMoreButton content={movie.overview} />
+      </DesktopDescription>
     </section>
-    <MobileDescription>{movie.overview}</MobileDescription>
+    <MobileDescription>
+      <ReadMoreButton content={movie.overview} />
+    </MobileDescription>
   </DetailsTile>
 );
 
