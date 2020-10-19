@@ -26,9 +26,11 @@ const Search = () => {
   return (
     <Label>
       <Icon src={searchIcon} />
-      <Input value={query || ""}
+      <Input
+        value={query || ""}
         placeholder={`Search for ${atMovies ? "movies" : "people"}...`}
-        onChange={onInputChange} />
+        onChange={onInputChange}
+      />
     </Label>
   );
 };

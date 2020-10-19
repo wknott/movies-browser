@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 const activeClassName = "link-active";
 
 export const Container = styled.div`
-  width: 100%;
   background-color: ${({ theme }) => theme.color.woodsmoke};
 `;
 
@@ -13,7 +12,10 @@ export const NavigationStyle = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 10px;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+    padding-bottom: 16px;
+  }
 `;
 
 export const Icon = styled.img`
@@ -47,7 +49,8 @@ export const NavigationList = styled.ul`
   list-style: none;
   display: flex;
   justify-content: center;
-  
+  margin: 32px 0;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     padding: 0;
   }
