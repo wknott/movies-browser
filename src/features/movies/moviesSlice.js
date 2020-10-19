@@ -6,17 +6,10 @@ const moviesSlice = createSlice({
     loading: true,
     movies: [],
     movie: null,
-    currentPage: 1,
     allPages: 1,
     totalNumberOfMovies: 0,
   },
   reducers: {
-    setMoviesPage:(state,{ payload : page }) => {
-      state.currentPage = page;
-    },
-    setMoviesPageToFirst: (state) => {
-      state.currentPage = 1;
-    },
     fetchMovies: (state) => {
       state.loading = true;
       state.movies = [];
@@ -49,8 +42,6 @@ export const selectAllMoviesPages = (state) => selectMoviesState(state).allPages
 export const selectTotalNumberOfMovies = (state) => selectMoviesState(state).totalNumberOfMovies;
 
 export const {
-  setMoviesPage,
-  setMoviesPageToFirst,
   fetchMovies,
   fetchMoviesSuccess,
   fetchMovie,
