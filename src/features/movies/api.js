@@ -8,7 +8,7 @@ export const getMovies = async ({ query, page }) => {
   const response = await fetch(url);
 
   if (!response.ok) {
-    new Error(response.statusText);
+    throw new Error(response.statusText);
   }
 
   const movies = await response.json();
@@ -22,7 +22,7 @@ export const getGenres = async () => {
   );
 
   if (!response.ok) {
-    new Error(response.statusText);
+    throw new Error(response.statusText);
   }
 
   const data = await response.json();
@@ -36,9 +36,8 @@ export const getMovieDetails = async (movieId) => {
   );
 
   if (!response.ok) {
-    new Error(response.statusText);
+    throw new Error(response.statusText);
   }
-
   const movieDetails = await response.json();
 
   return movieDetails;
@@ -50,7 +49,7 @@ export const getMovieCredits = async (movieId) => {
   );
 
   if (!response.ok) {
-    new Error(response.statusText);
+    throw new Error(response.statusText);
   }
 
   const movieCredits = await response.json();
