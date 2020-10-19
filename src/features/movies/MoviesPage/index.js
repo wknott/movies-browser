@@ -7,7 +7,8 @@ import {
   selectLoading,
   selectMovies,
   fetchMovies,
-  selectTotalNumberOfMovies
+  selectTotalNumberOfMovies,
+  selectError
 } from "../moviesSlice";
 import Header from "../../../common/Header";
 import { Pager } from "../../../common/Pager";
@@ -16,6 +17,7 @@ import Loader from "../../../common/Loader";
 import NoResults from "../../../common/NoResults";
 import searchQueryParamName from "../../searchQueryParamName";
 import pageQueryParamName from "../../pageQueryParamName";
+import Error from "../../../common/Error/index";
 
 export default () => {
   const query = useQueryParameter(searchQueryParamName);
@@ -29,6 +31,14 @@ export default () => {
   const loading = useSelector(selectLoading);
   const movies = useSelector(selectMovies);
   const totalNumberOfMovies = useSelector(selectTotalNumberOfMovies);
+  const error = useSelector(selectError);
+
+  if(error)
+  {
+    return  <Wrapper> 
+              <Error/>
+            </Wrapper> 
+  }
 
   return (
     <Wrapper>

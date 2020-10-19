@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation, useParams } from "react-router-dom";
-import { fetchMovie, selectLoading, selectMovie } from "../moviesSlice";
+import { fetchMovie, selectError, selectLoading, selectMovie } from "../moviesSlice";
 import {
   MovieBackdrop,
   MainInfo,
@@ -19,6 +19,7 @@ import Header from "../../../common/Header";
 import Loader from "../../../common/Loader";
 import { useQueryParameter } from "../../search/queryParameters";
 import searchQueryParamName from "../../searchQueryParamName";
+import Error from "../../../common/Error/index";
 
 export default () => {
   const { id } = useParams();
@@ -29,6 +30,7 @@ export default () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const history = useHistory();
+  const error = useSelector(selectError);
 
   useEffect(() => {
     if (id) {
@@ -42,8 +44,15 @@ export default () => {
     }
   }, [query, history, searchParams]);
 
+  if(error)
+  {
+    return  <Wrapper> 
+              <Error/>
+            </Wrapper> 
+  }
+
   return (
-    !loading && movie ?
+    !loading && movie && movie.credits.cast ?
       <>
         {movie.backdrop_path &&
           <MovieBackdrop src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}>
