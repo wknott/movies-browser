@@ -9,6 +9,7 @@ export const ErrorContainer = styled.div`
 `;
 
 export const ErrorImg = styled.img`
+  margin-top: 80px;
   max-width: 120px;
 `;
 
@@ -40,6 +41,7 @@ export const ReturnButton = styled.button`
   background-color: ${({ theme }) => theme.color.blue};
   color: ${({ theme }) => theme.color.white};
   transition: 0.3s filter;
+  text-decoration: none;
 
   &:hover {
     filter: brightness(110%);
