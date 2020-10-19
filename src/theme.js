@@ -16,7 +16,7 @@ export const theme = {
     breakpoint: {
         miniMobile: 568,
         mobileMax: 767,
-        ipad: 1024,
+        ipad: 1040,
         hdDesktop: 1366,
     },
 };
