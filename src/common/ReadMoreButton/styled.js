@@ -10,14 +10,15 @@ export const Button = styled.button`
   font-weight: bold;
   font-size: 14px;
   line-height: 19px;
-  background-color: ${({ theme }) => theme.color.blue};
-  color: ${({ theme }) => theme.color.white};
+  background-color: ${({ theme }) => theme.color.grey};
+  color: ${({ theme }) => theme.color.black};
   transition: 0.3s filter;
-
+  cursor: pointer;
+  
   &:hover {
-    filter: brightness(110%);
+    filter: brightness(105%);
   }
   &:active {
-    filter: brightness(120%);
+    filter: brightness(110%);
   }
 `;
