@@ -31,7 +31,7 @@ export const ErrorText = styled.p`
 export const ReturnButton = styled.button`
   border: none;
   border-radius: 5px;
-  padding: 16px 0px 0px 24px;
+  padding: 16px 24px;
   font-family: Open Sans;
   font-style: normal;
   font-weight: bold;
