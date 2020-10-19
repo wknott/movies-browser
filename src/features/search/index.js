@@ -3,9 +3,6 @@ import searchIcon from "../../images/searchIcon.svg";
 import { Label, Icon, Input } from "./styled";
 import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
 import { useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setPeoplePageToFirst } from "../people/peopleSlice";
-import { setMoviesPageToFirst } from "../movies/moviesSlice";
 
 const Search = () => {
   const searchQueryParamName = "search";
@@ -13,10 +10,8 @@ const Search = () => {
   const replaceQueryParameter = useReplaceQueryParameter(true);
   const location = useLocation();
   const atMovies = location.pathname.includes("movies");
-  const dispatch = useDispatch();
 
   const onInputChange = ({ target }) => {
-    dispatch(atMovies ? setMoviesPageToFirst() : setPeoplePageToFirst())
     replaceQueryParameter({
       key: searchQueryParamName,
       value: target.value.trim() !== "" ? target.value : undefined,

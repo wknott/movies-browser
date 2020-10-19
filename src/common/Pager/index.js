@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import Prev from "./images/Prev.svg"
 import DisabledPrev from "./images/DisabledPrev.svg"
 import Next from "./images/Next.svg"
@@ -14,16 +14,15 @@ import {
   MobilePagerPrev,
   MobilePagerNext
 } from "./styled"
-import { useDispatch, useSelector } from "react-redux";
-import { selectAllMoviesPages, setMoviesPage } from "../../features/movies/moviesSlice";
-import { selectPeopleAllPages, setPeoplePage } from "../../features/people/peopleSlice";
+import { useSelector } from "react-redux";
+import { selectAllMoviesPages } from "../../features/movies/moviesSlice";
+import { selectPeopleAllPages } from "../../features/people/peopleSlice";
 import { useLocation } from "react-router-dom";
 import { useQueryParameter, useReplaceQueryParameter } from "../../features/search/queryParameters";
 import pageParam from "../../features/pageQueryParamName";
 
 export const Pager = () => {
   const location = useLocation();
-  const dispatch = useDispatch();
   const atMovies = location.pathname.includes("movies") ? true : false;
   const currentPage = +useQueryParameter(pageParam) || 1;
   const allMoviesPages = useSelector(selectAllMoviesPages);
@@ -32,10 +31,6 @@ export const Pager = () => {
   const replaceQueryParam = useReplaceQueryParameter();
   const disableNext = currentPage === allPages;
   const disablePrevious = currentPage === 1;
-
-  useEffect(() => {
-    dispatch(atMovies ? setMoviesPage(currentPage) : setPeoplePage(currentPage));
-  }, [currentPage, dispatch, atMovies])
 
   const onFirstButtonClick = () => {
     replaceQueryParam({ key: pageParam, value: 1 })
