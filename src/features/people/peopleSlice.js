@@ -8,9 +8,11 @@ const peopleSlice = createSlice({
     person: null,
     allPages: 1,
     totalNumberOfPeople: 0,
+    error:false,
   },
   reducers: {
     fetchPeople: (state) => {
+      state.error = false;
       state.loading = true;
       state.people = [];
     },
@@ -21,10 +23,12 @@ const peopleSlice = createSlice({
       state.loading = false;
     },
     fetchPeopleError: (state) => {
+      state.error = true;
       state.loading = false;
       state.people = [];
     },
     fetchPerson: (state) => {
+      state.error = false;
       state.loading = true;
     },
     fetchPersonSuccess: (state, { payload: person }) => {
@@ -32,6 +36,7 @@ const peopleSlice = createSlice({
       state.loading = false;
     },
     fetchPersonError: (state) => {
+      state.error = true;
       state.loading = false;
     },
   },
@@ -41,9 +46,9 @@ export const selectPeopleState = state => state.people;
 export const selectLoading = state => selectPeopleState(state).loading;
 export const selectPeople = state => selectPeopleState(state).people;
 export const selectPerson = state => selectPeopleState(state).person;
-export const selectCurrentPeoplePage = state => selectPeopleState(state).currentPage;
 export const selectPeopleAllPages = state => selectPeopleState(state).allPages;
 export const selectTotalNumberOfPeople = state => selectPeopleState(state).totalNumberOfPeople;
+export const selectError = state => selectPeopleState(state).error;
 
 export const {
   fetchPeople,
