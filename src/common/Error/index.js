@@ -1,5 +1,5 @@
 import React from "react";
-import noConnect from "../../images/noConnect";
+import noConnect from "../../images/noConnect.svg";
 import {ErrorContainer, ErrorImg, ErrorTitle, ErrorText, ReturnButton} from "./styled";
 
 const NoConnection = () => {
