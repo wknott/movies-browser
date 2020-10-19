@@ -27,7 +27,6 @@ function* fetchMoviesHandler({ payload }) {
     ));
   } catch (error) {
     yield put(fetchError());
-    yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
   }
 }
 
@@ -38,7 +37,6 @@ function* fetchMovieHandler({ payload: movieId }) {
     yield put(fetchMovieSuccess({ ...movie, credits }));
   } catch (error) {
     yield put(fetchError());
-    yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
   }
 };
 

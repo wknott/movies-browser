@@ -22,7 +22,6 @@ function* fetchPeopleHandler({ payload }) {
       }
     ));
   } catch (error) {
-    yield call(alert, "Coś poszło nie tak! Spróbuj ponownie później.");
     yield put(fetchPeopleError());
   }
 };
@@ -42,7 +41,6 @@ function* fetchPersonHandler({ payload: personId }) {
     });
     yield put(fetchPersonSuccess({ ...person, cast, crew }));
   } catch (error) {
-    yield call(alert, error + "Coś poszło nie tak! Spróbuj ponownie później.");
     yield put(fetchPersonError());
   }
 };
