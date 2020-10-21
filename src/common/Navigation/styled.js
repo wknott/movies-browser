@@ -24,8 +24,8 @@ export const Icon = styled.img`
   margin-right: 12px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    width: 17px;
-    height: 17px;
+    width: 19px;
+    height: 19px;
   }
 `;
 
@@ -38,7 +38,7 @@ export const Title = styled.h1`
   display: flex;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 130%;
     letter-spacing: -0.5px;
     margin: 0px;
