@@ -17,8 +17,16 @@ export const MovieBackdrop = styled.div`
     background-size: 1366px 525px, 1366px 525px, 1366px 525px, 1366px 525px, 1024px 525px;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+    background-size: 1040px 400px, 1040px 400px, 1040px 400px, 1040px 400px, 776px 400px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    background-size: 350px 148px, 350px 148px, 350px 148px, 350px 148px, 262px 148px;
+    background-size: 700px 300px, 700px 300px, 700px 300px, 700px 300px, 550px 300px
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.miniMobile}px) {
+    background-size: 450px 188px, 450px 188px, 450px 188px, 450px 188px, 350px 188px;
   }
 `;
 
@@ -36,10 +44,20 @@ export const MainInfo = styled.div`
     height: 525px;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+    width: 776px;
+    height: 400px;
+    padding: 16px 32px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    width: 320px;
-    height: 148px;
+    width: 100%;
+    height: 300px;
     padding: 8px 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.miniMobile}px) {
+    height: 188px;
   }
 `;
 
@@ -47,6 +65,10 @@ export const MovieLongTitle = styled.h1`
   font-weight: 600;
   font-size: 64px;
   margin: 0px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+    font-size: 36px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 24px;
@@ -88,7 +110,7 @@ export const MovieRatingText = styled.p`
   align-self: center;
   margin-top: 16px;
   color: ${({ theme }) => theme.color.white};
-  flex-basis: 90%;
+  flex-basis: 70%;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 10px;
