@@ -12,3 +12,9 @@ export const languages = [
     code: "de-DE",
   },
 ];
+
+export const votes = {
+  "pl-PL": "głosów",
+  "en-US": "votes",
+  "de-DE": "Bewertungen",
+}
