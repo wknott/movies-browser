@@ -13,7 +13,7 @@ import { getGenreName } from "../movies/getGenreName";
 
 function* fetchPeopleHandler({ payload }) {
   try {
-    const people = yield call(getPeople, { page: payload.page, query: payload.query });
+    const people = yield call(getPeople, payload);
     yield put(fetchPeopleSuccess(
       {
         people: people.results,
@@ -26,11 +26,11 @@ function* fetchPeopleHandler({ payload }) {
   }
 };
 
-function* fetchPersonHandler({ payload: personId }) {
+function* fetchPersonHandler({ payload }) {
   try {
-    const person = yield call(getPersonDetails, personId);
-    const credits = yield call(getPersonMovieCredits, personId);
-    const genres = yield call(getGenres);
+    const person = yield call(getPersonDetails, payload);
+    const credits = yield call(getPersonMovieCredits, payload);
+    const genres = yield call(getGenres, { language: payload.language });
     const crew = yield credits.crew.map(movie => {
       const genresNames = movie.genre_ids.map(genre => getGenreName(genre, genres));
       return { ...movie, genres: genresNames }
