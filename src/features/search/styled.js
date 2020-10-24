@@ -23,7 +23,8 @@ export const Icon = styled.img`
 `;
 
 export const Input = styled.input`
-  background-color: none;
+  background-color:inherit;
+  color: ${({theme}) => theme.color.black};
   border: none;
   font-size: 16px;
   line-height: 150%;
