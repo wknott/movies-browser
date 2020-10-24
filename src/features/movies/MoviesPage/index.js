@@ -18,26 +18,27 @@ import NoResults from "../../../common/NoResults";
 import searchQueryParamName from "../../searchQueryParamName";
 import pageQueryParamName from "../../pageQueryParamName";
 import Error from "../../../common/Error/index";
+import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
 
 export default () => {
   const query = useQueryParameter(searchQueryParamName);
   const dispatch = useDispatch();
   const currentPage = useQueryParameter(pageQueryParamName);
+  const language = useSelector(selectLanguage);
 
   useEffect(() => {
-    dispatch(fetchMovies({ page: currentPage, query }));
-  }, [dispatch, currentPage, query]);
+    dispatch(fetchMovies({ page: currentPage, query, language }));
+  }, [dispatch, currentPage, query, language]);
 
   const loading = useSelector(selectLoading);
   const movies = useSelector(selectMovies);
   const totalNumberOfMovies = useSelector(selectTotalNumberOfMovies);
   const error = useSelector(selectError);
 
-  if(error)
-  {
-    return  <Wrapper> 
-              <Error/>
-            </Wrapper> 
+  if (error) {
+    return <Wrapper>
+      <Error />
+    </Wrapper>
   }
 
   return (

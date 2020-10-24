@@ -11,6 +11,7 @@ import { Pager } from "../../../common/Pager";
 import NoResults from "../../../common/NoResults";
 import pageQueryParamName from "../../pageQueryParamName";
 import Error from "../../../common/Error/index";
+import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
 
 export default () => {
   const query = useQueryParameter(searchQueryParamName);
@@ -20,16 +21,16 @@ export default () => {
   const currentPage = useQueryParameter(pageQueryParamName);
   const totalNumberOfPeople = useSelector(selectTotalNumberOfPeople);
   const error = useSelector(selectError);
-  
-  useEffect(() => {
-    dispatch(fetchPeople({ page: currentPage, query }))
-  }, [dispatch, currentPage, query]);
+  const language = useSelector(selectLanguage);
 
-  if(error)
-  {
-    return  <Wrapper> 
-              <Error/>
-            </Wrapper> 
+  useEffect(() => {
+    dispatch(fetchPeople({ page: currentPage, query, language }))
+  }, [dispatch, currentPage, query, language]);
+
+  if (error) {
+    return <Wrapper>
+      <Error />
+    </Wrapper>
   }
 
   return (

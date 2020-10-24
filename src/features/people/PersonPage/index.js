@@ -10,6 +10,7 @@ import Loader from "../../../common/Loader";
 import searchQueryParamName from "../../searchQueryParamName";
 import { useQueryParameter } from "../../search/queryParameters";
 import Error from "../../../common/Error/index";
+import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
 
 export default () => {
   const { id } = useParams();
@@ -21,12 +22,13 @@ export default () => {
   const searchParams = new URLSearchParams(location.search);
   const history = useHistory();
   const error = useSelector(selectError);
+  const language = useSelector(selectLanguage);
 
   useEffect(() => {
     if (id) {
-      dispatch(fetchPerson(id));
+      dispatch(fetchPerson({ id, language }));
     }
-  }, [dispatch, id]);
+  }, [dispatch, id, language]);
 
   useEffect(() => {
     if (query) {
@@ -34,11 +36,10 @@ export default () => {
     }
   }, [query, history, searchParams]);
 
-  if(error)
-  {
-    return  <Wrapper> 
-              <Error/>
-            </Wrapper> 
+  if (error) {
+    return <Wrapper>
+      <Error />
+    </Wrapper>
   }
 
   return (
