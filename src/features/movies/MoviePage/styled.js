@@ -1,8 +1,8 @@
 const { default: styled } = require("styled-components");
 
 export const MovieBackdrop = styled.div`
-  background-color: ${({ theme }) => theme.color.black};
-  color: ${({ theme }) => theme.color.white};
+  background-color: ${({ theme }) => theme.movieBanner.color.black};
+  color: ${({ theme }) => theme.movieBanner.color.white};
   background-image: 
   linear-gradient(270deg, #000000 14.11%, rgba(0, 0, 0, 0.873268) 15.08%, rgba(0, 0, 0, 0.720529) 16.51%, rgba(0, 0, 0, 0.294577) 19.99%, rgba(0, 0, 0, 0.159921) 21.88%, rgba(0, 0, 0, 0) 25.68%), 
   linear-gradient(90deg, #000000 13.6%, rgba(0, 0, 0, 0.984059) 14.58%, rgba(0, 0, 0, 0.967732) 15.44%, rgba(0, 0, 0, 0.865569) 16.3%, rgba(0, 0, 0, 0.230315) 22.87%, rgba(0, 0, 0, 0) 26.64%), 
@@ -47,7 +47,7 @@ export const MovieLongTitle = styled.h1`
   font-weight: 600;
   font-size: 64px;
   margin: 0px;
-
+  color: ${({theme}) => theme.basicColor.white};
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 24px;
   }
@@ -59,6 +59,7 @@ export const MovieRating = styled.div`
   align-items: flex-start;
   padding: 0px;
   flex-wrap: wrap;
+  color: ${({theme}) => theme.basicColor.white};
 `;
 
 export const MovieRatingImg = styled.img`
@@ -74,6 +75,7 @@ export const MovieRatingNote = styled.p`
   line-height: 1.3;
   align-self: center;
   margin: 0px 8px;
+  color: ${({theme}) => theme.basicColor.white};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 14px;
@@ -87,7 +89,7 @@ export const MovieRatingText = styled.p`
   line-height: 1.2;
   align-self: center;
   margin-top: 16px;
-  color: ${({ theme }) => theme.color.white};
+  color: ${({theme}) => theme.basicColor.white};
   flex-basis: 90%;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {

@@ -20,6 +20,7 @@ export const PagerButton = styled.button`
     outline:none;
     border:0;
     border-radius: 5px;
+    color: ${({ theme }) => theme.color.black};
 
     &:hover{
         cursor:pointer;
@@ -27,7 +28,7 @@ export const PagerButton = styled.button`
 
     &:disabled{
         background-color:${({ theme }) => theme.color.grey};
-        color: ${({ theme }) => theme.color.black}
+        color: ${({ theme }) => theme.basicColor.black}
     }
 
     @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px){

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const activeClassName = "link-active";
 
 export const Container = styled.div`
-  background-color: ${({ theme }) => theme.color.woodsmoke};
+  background-color: ${({ theme }) => theme.basicColor.woodsmoke};
 `;
 
 export const NavigationStyle = styled.div`
@@ -30,7 +30,7 @@ export const Icon = styled.img`
 `;
 
 export const Title = styled.h1`
-  color: ${({ theme }) => theme.color.white};
+  color: ${({ theme }) => theme.navBar.color.white};
   font-weight: 500;
   font-size: 24px;
   line-height: 40px;
@@ -63,12 +63,12 @@ export const NavigationItem = styled.li`
 
 export const StyledLink = styled(NavLink).attrs(() => ({ activeClassName }))`
   &.${activeClassName} {
-    border: 1px solid ${({ theme }) => theme.color.white};
+    border: 1px solid ${({ theme }) => theme.navBar.color.white};
     border-radius: 24px;
   }
   
   padding: 13.5px 24px;
-  color: ${({ theme }) => theme.color.white};
+  color: ${({ theme }) => theme.navBar.color.white};
   text-decoration: none;
   text-transform: uppercase;
 
