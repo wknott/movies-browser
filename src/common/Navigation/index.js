@@ -13,6 +13,7 @@ import {
 } from "./styled";
 import { toMovies, toPeople } from "../../routes";
 import Wrapper from "../Wrapper";
+import LanguageSelect from "./LanguageSelect";
 
 const Navigation = () => {
   return (
@@ -32,6 +33,7 @@ const Navigation = () => {
             </NavigationItem>
           </NavigationList>
           <Search />
+          <LanguageSelect />
         </NavigationStyle>
       </Wrapper>
     </Container>
