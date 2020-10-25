@@ -90,3 +90,39 @@ export const returnButton = {
   "en-US": "Back to home page",
   "de-DE": "Zurück zur Startseite",
 }
+
+export const first = {
+  "pl-PL": "Pierwsza",
+  "en-US": "First",
+  "de-DE": "Erste",
+}
+
+export const previous = {
+  "pl-PL": "Poprzednia",
+  "en-US": "Previous",
+  "de-DE": "Vorherige",
+}
+
+export const page = {
+  "pl-PL": "Strona",
+  "en-US": "Page",
+  "de-DE": "Seite",
+}
+
+export const ofPage = {
+  "pl-PL": "z",
+  "en-US": "of",
+  "de-DE": "von",
+}
+
+export const next = {
+  "pl-PL": "Następna",
+  "en-US": "Next",
+  "de-DE": "Nächste",
+}
+
+export const last = {
+  "pl-PL": "Ostatnia",
+  "en-US": "Last",
+  "de-DE": "Letzte",
+}
