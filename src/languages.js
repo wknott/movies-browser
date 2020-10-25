@@ -162,3 +162,21 @@ export const readMore = {
   "en-US": "Read more",
   "de-DE": "Weiterlesen",
 }
+
+export const dateOfBirth = {
+  "pl-PL": "Data urodzenia",
+  "en-US": "Date of birth",
+  "de-DE": "Geburtsdatum",
+}
+
+export const birth = {
+  "pl-PL": "Urodzony",
+  "en-US": "Birth",
+  "de-DE": "Geburt",
+}
+
+export const placeOfBirth = {
+  "pl-PL": "Miejsce urodzenia",
+  "en-US": "Place of birth",
+  "de-DE": "Geburtsort",
+}
