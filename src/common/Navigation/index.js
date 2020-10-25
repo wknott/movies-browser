@@ -14,8 +14,13 @@ import {
 import { toMovies, toPeople } from "../../routes";
 import Wrapper from "../Wrapper";
 import LanguageSelect from "./LanguageSelect";
+import { useSelector } from "react-redux";
+import { selectLanguage } from "./LanguageSelect/languageSlice";
+import { moviesNavigation, peopleNavigation } from "../../languages";
 
 const Navigation = () => {
+  const language = useSelector(selectLanguage);
+
   return (
     <Container>
       <Wrapper>
@@ -26,10 +31,10 @@ const Navigation = () => {
           </Logo>
           <NavigationList>
             <NavigationItem>
-              <StyledLink to={toMovies()}>Movies</StyledLink>
+              <StyledLink to={toMovies()}>{moviesNavigation[language]}</StyledLink>
             </NavigationItem>
             <NavigationItem>
-              <StyledLink to={toPeople()}>People</StyledLink>
+              <StyledLink to={toPeople()}>{peopleNavigation[language]}</StyledLink>
             </NavigationItem>
           </NavigationList>
           <Search />

@@ -54,3 +54,15 @@ export const people = {
   "en-US": "people",
   "de-DE": "Personen",
 }
+
+export const moviesNavigation = {
+  "pl-PL": "filmy",
+  "en-US": "movies",
+  "de-DE": "Filme",
+}
+
+export const peopleNavigation = {
+  "pl-PL": "osoby",
+  "en-US": "people",
+  "de-DE": "Personen",
+}
