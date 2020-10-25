@@ -72,3 +72,21 @@ export const popularPeople = {
   "en-US": "Popular people",
   "de-DE": "Beliebte Personen",
 }
+
+export const errorTitle = {
+  "pl-PL": "Ups! Coś poszło nie tak...",
+  "en-US": "Ooops! Something went wrong...",
+  "de-DE": "Ups! Etwas ist schief gelaufen...",
+}
+
+export const errorText = {
+  "pl-PL": "Sprawdź połączenie sieciowe i spróbuj ponownie",
+  "en-US": "Please check your network connection and try again",
+  "de-DE": "Bitte überprüfen Sie Ihre Netzwerkverbindung und versuchen Sie es erneut",
+}
+
+export const returnButton = {
+  "pl-PL": "Powrót do strony głownej",
+  "en-US": "Back to home page",
+  "de-DE": "Zurück zur Startseite",
+}
