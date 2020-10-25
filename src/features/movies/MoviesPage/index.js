@@ -19,6 +19,7 @@ import searchQueryParamName from "../../searchQueryParamName";
 import pageQueryParamName from "../../pageQueryParamName";
 import Error from "../../../common/Error/index";
 import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
+import { noResults, popularMovies, searchResultsFor } from "../../../languages";
 
 export default () => {
   const query = useQueryParameter(searchQueryParamName);
@@ -46,12 +47,12 @@ export default () => {
       {!loading ?
         movies.length ?
           <>
-            <Header>{query ? `Search results for "${query}" (${totalNumberOfMovies})` : "Popular movies"}</Header>
+            <Header>{query ? `${searchResultsFor[language]} "${query}" (${totalNumberOfMovies})` : popularMovies[language]}</Header>
             <MoviesContainer movies={movies} />
             <Pager></Pager>
           </> :
           <>
-            <Header>{`Sorry, there are no results for "${query}"`}</Header>
+            <Header>{`${noResults[language]} "${query}"`}</Header>
             <NoResults />
           </> :
         <Loader />
