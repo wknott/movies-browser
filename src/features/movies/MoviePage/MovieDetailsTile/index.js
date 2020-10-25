@@ -21,7 +21,7 @@ import {
 import star from "../../MovieTile/ratingStar.svg";
 import poster from "../../../../images/Poster.svg";
 import ReadMoreButton from "../../../../common/ReadMoreButton";
-import { votes } from "../../../../languages";
+import { production, releaseDate, votes } from "../../../../languages";
 import { useSelector } from "react-redux";
 import { selectLanguage } from "../../../../common/Navigation/LanguageSelect/languageSlice";
 
@@ -39,13 +39,13 @@ const MovieDetailsTile = ({ movie }) => {
         <ProductionAndRelease>
           {movie.production_countries &&
             <Frame>
-              <DesktopGrayText>Production:</DesktopGrayText>
+              <DesktopGrayText>{production[language]}:</DesktopGrayText>
               <Text>{movie.production_countries.map(country => country.name).join(", ")}</Text>
             </Frame>
           }
           {movie.release_date &&
             <Frame>
-              <DesktopGrayText>Release date:</DesktopGrayText>
+              <DesktopGrayText>{releaseDate[language]}:</DesktopGrayText>
               <Text>{movie.release_date.slice(8, 10)}.{movie.release_date.slice(5, 7)}.{movie.release_date.slice(0, 4)}</Text>
             </Frame>
           }

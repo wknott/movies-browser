@@ -1,14 +1,14 @@
 export const languages = [
   {
-    label: "PL",
+    label: "Polski",
     code: "pl-PL",
   },
   {
-    label: "EN",
+    label: "English",
     code: "en-US",
   },
   {
-    label: "DE",
+    label: "Deutsche",
     code: "de-DE",
   },
 ];
@@ -125,4 +125,40 @@ export const last = {
   "pl-PL": "Ostatnia",
   "en-US": "Last",
   "de-DE": "Letzte",
+}
+
+export const cast = {
+  "pl-PL": "Obsada",
+  "en-US": "Cast",
+  "de-DE": "Besetzung",
+}
+
+export const crew = {
+  "pl-PL": "Ekipa",
+  "en-US": "Crew",
+  "de-DE": "Filmstab",
+}
+
+export const production = {
+  "pl-PL": "Produkcja",
+  "en-US": "Production",
+  "de-DE": "Produktion",
+}
+
+export const releaseDate = {
+  "pl-PL": "Data premiery",
+  "en-US": "Release date",
+  "de-DE": "Veröffentlichungsdatum",
+}
+
+export const readLess = {
+  "pl-PL": "Czytaj mniej",
+  "en-US": "Read less",
+  "de-DE": "Lese weniger",
+}
+
+export const readMore = {
+  "pl-PL": "Czytaj więcej",
+  "en-US": "Read more",
+  "de-DE": "Weiterlesen",
 }

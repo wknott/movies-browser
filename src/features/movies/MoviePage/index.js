@@ -21,7 +21,7 @@ import { useQueryParameter } from "../../search/queryParameters";
 import searchQueryParamName from "../../searchQueryParamName";
 import Error from "../../../common/Error/index";
 import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
-import { votes } from "../../../languages";
+import { cast, crew, votes } from "../../../languages";
 
 export default () => {
   const { id } = useParams();
@@ -71,9 +71,9 @@ export default () => {
         }
         <Wrapper>
           <MovieDetailsTile movie={movie} />
-          <Header>Cast</Header>
+          <Header>{cast[language]}</Header>
           <PeopleContainer people={movie.credits.cast} />
-          <Header>Crew</Header>
+          <Header>{crew[language]}</Header>
           <PeopleContainer people={movie.credits.crew} />
         </Wrapper>
       </>
