@@ -66,3 +66,9 @@ export const peopleNavigation = {
   "en-US": "people",
   "de-DE": "Personen",
 }
+
+export const popularPeople = {
+  "pl-PL": "Popularne osoby",
+  "en-US": "Popular people",
+  "de-DE": "Beliebte Personen",
+}

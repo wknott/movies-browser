@@ -12,6 +12,7 @@ import NoResults from "../../../common/NoResults";
 import pageQueryParamName from "../../pageQueryParamName";
 import Error from "../../../common/Error/index";
 import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
+import { noResults, popularPeople, searchResultsFor } from "../../../languages";
 
 export default () => {
   const query = useQueryParameter(searchQueryParamName);
@@ -38,12 +39,12 @@ export default () => {
       {!loading ?
         people.length ?
           <>
-            <Header>{query ? `Search results for "${query}" (${totalNumberOfPeople})` : "Popular people"}</Header>
+            <Header>{query ? `${searchResultsFor[language]} "${query}" (${totalNumberOfPeople})` : popularPeople[language]}</Header>
             <PeopleContainer people={people} />
             <Pager />
           </> :
           <>
-            <Header>{`Sorry, there are no results for "${query}"`}</Header>
+            <Header>{`${noResults[language]} "${query}"`}</Header>
             <NoResults />
           </> :
         <Loader />
