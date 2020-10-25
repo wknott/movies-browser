@@ -36,3 +36,21 @@ export const noResults = {
   "en-US": "Sorry, there are no results for",
   "de-DE": "Entschuldigung, es gibt keine Ergebnisse für",
 }
+
+export const searchFor = {
+  "pl-PL": "Szukaj",
+  "en-US": "Search for",
+  "de-DE": "Suche nach",
+}
+
+export const movies = {
+  "pl-PL": "filmów",
+  "en-US": "movies",
+  "de-DE": "Filme",
+}
+
+export const people = {
+  "pl-PL": "osób",
+  "en-US": "people",
+  "de-DE": "Personen",
+}
