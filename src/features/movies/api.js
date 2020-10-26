@@ -1,9 +1,9 @@
 const apiKey = process.env.REACT_APP_API_KEY;
 
-export const getMovies = async ({ query, page }) => {
+export const getMovies = async ({ query, page, language }) => {
   const url = query ?
-    `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=${page}` :
-    `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${page}`;
+    `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=${language}&query=${query}&page=${page}` :
+    `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=${language}&page=${page}`;
 
   const response = await fetch(url);
 
@@ -16,9 +16,9 @@ export const getMovies = async ({ query, page }) => {
   return movies;
 };
 
-export const getGenres = async () => {
+export const getGenres = async ({ language }) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`
+    `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=${language}`
   );
 
   if (!response.ok) {
@@ -30,9 +30,9 @@ export const getGenres = async () => {
   return data.genres;
 };
 
-export const getMovieDetails = async (movieId) => {
+export const getMovieDetails = async ({ id, language }) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=${language}`
   );
 
   if (!response.ok) {
@@ -43,9 +43,9 @@ export const getMovieDetails = async (movieId) => {
   return movieDetails;
 };
 
-export const getMovieCredits = async (movieId) => {
+export const getMovieCredits = async ({ id, language }) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}&language=${language}`
   );
 
   if (!response.ok) {

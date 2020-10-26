@@ -1,8 +1,10 @@
-export const getPeople = async ({ page , query }) => {
-  const url =  query ? `https://api.themoviedb.org/3/search/person?api_key=${process.env.REACT_APP_API_KEY}&query=${query}&page=${page}`
-    : `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
+const apiKey = process.env.REACT_APP_API_KEY;
 
-    const response = await fetch(url);
+export const getPeople = async ({ page, query, language }) => {
+  const url = query ? `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&language=${language}&query=${query}&page=${page}`
+    : `https://api.themoviedb.org/3/person/popular?api_key=${apiKey}&language=${language}&page=${page}`
+
+  const response = await fetch(url);
 
   if (!response.ok) {
     throw new Error(response.statusText);
@@ -12,9 +14,9 @@ export const getPeople = async ({ page , query }) => {
   return people;
 };
 
-export const getPersonDetails = async (personId) => {
+export const getPersonDetails = async ({ id, language }) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/person/${personId}?api_key=${process.env.REACT_APP_API_KEY}`
+    `https://api.themoviedb.org/3/person/${id}?api_key=${apiKey}&language=${language}`
   );
   if (!response.ok) {
     throw new Error(response.statusText);
@@ -24,9 +26,9 @@ export const getPersonDetails = async (personId) => {
   return personDetails;
 };
 
-export const getPersonMovieCredits = async (personId) => {
+export const getPersonMovieCredits = async ({ id, language }) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/person/${personId}/movie_credits?api_key=${process.env.REACT_APP_API_KEY}`
+    `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${apiKey}&language=${language}`
   );
 
   if (!response.ok) {
