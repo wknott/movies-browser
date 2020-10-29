@@ -8,7 +8,7 @@
 
 ## Description
 
-*Movies browser* application was created as a final project in the course *"Frontend Developer from scratch"* led by *Youcode*. The app is used to browse and search for movies, actors and film crew. additionally, it is possible to change the background color, as well as a choice of languages: polish, bla bla.
+*Movies browser* application was created as a final project in the course *"Frontend Developer from scratch"* led by *Youcode*. The app is used to browse and search for movies, actors and film crew. Additionally, it is possible to change the background color, as well as a choice of languages: English, Polish and Deutsche.
 
 ### Used technologies:
 - HTML 
@@ -28,21 +28,21 @@
 
 ### Sample use:
 1. If you want to browse movies / people select the appropriate button in the navigation.
-2. If you want to learn more about the movie / man, click on the picture.
+2. If you want to learn more about the movie / person, click on the picture.
 3. If you want to search for a movie / person enter at least part of the name next to " magnifying glass".
 
 ### Change the language:
-krótki opis
+Just choose the language you want in the upper right corner and enjoy browsing the app :)
 
 gif
 ### Change background:
-krótki opis
+You can choose a darker version that will make your eyes less tired. Just slide the slider.
 
 gif
 ### Authors:
--[Amanda Chawińska](link do gita lub wizytówka)
--[Wojciech Knott](link do gita lub wizytówka)
--[Szymon Marczuk](link do gita lub wizytówka)
+-[Amanda Chawińska](https://github.com/AmandaChawinska)
+-[Wojciech Knott](https://github.com/wknott)
+-[Szymon Marczuk](https://github.com/Monsy99)
 
 
 
