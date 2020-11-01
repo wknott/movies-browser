@@ -20,6 +20,8 @@ import Loader from "../../../common/Loader";
 import { useQueryParameter } from "../../search/queryParameters";
 import searchQueryParamName from "../../searchQueryParamName";
 import Error from "../../../common/Error/index";
+import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
+import { cast, crew, votes } from "../../../languages";
 
 export default () => {
   const { id } = useParams();
@@ -31,12 +33,13 @@ export default () => {
   const searchParams = new URLSearchParams(location.search);
   const history = useHistory();
   const error = useSelector(selectError);
+  const language = useSelector(selectLanguage);
 
   useEffect(() => {
     if (id) {
-      dispatch(fetchMovie(id));
+      dispatch(fetchMovie({ id, language }));
     }
-  }, [dispatch, id]);
+  }, [dispatch, id, language]);
 
   useEffect(() => {
     if (query) {
@@ -44,11 +47,10 @@ export default () => {
     }
   }, [query, history, searchParams]);
 
-  if(error)
-  {
-    return  <Wrapper> 
-              <Error/>
-            </Wrapper> 
+  if (error) {
+    return <Wrapper>
+      <Error />
+    </Wrapper>
   }
 
   return (
@@ -62,16 +64,16 @@ export default () => {
                 <MovieRatingImg src={star}></MovieRatingImg>
                 <MovieRatingNote>{movie.vote_average}</MovieRatingNote>
                 <MovieRatingText>/ 10</MovieRatingText>
-                <MovieRatingText>{movie.vote_count} votes</MovieRatingText>
+                <MovieRatingText>{movie.vote_count} {votes[language]}</MovieRatingText>
               </MovieRating>
             </MainInfo>
           </MovieBackdrop>
         }
         <Wrapper>
           <MovieDetailsTile movie={movie} />
-          <Header>Cast</Header>
+          <Header>{cast[language]}</Header>
           <PeopleContainer people={movie.credits.cast} />
-          <Header>Crew</Header>
+          <Header>{crew[language]}</Header>
           <PeopleContainer people={movie.credits.crew} />
         </Wrapper>
       </>

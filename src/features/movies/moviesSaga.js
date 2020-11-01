@@ -13,7 +13,7 @@ import {
 function* fetchMoviesHandler({ payload }) {
   try {
     const data = yield call(getMovies, payload);
-    const genres = yield call(getGenres);
+    const genres = yield call(getGenres, { language: payload.language });
     const movies = yield data.results.map(movie => {
       const genresNames = movie.genre_ids.map(genre => getGenreName(genre, genres));
       return { ...movie, genres: genresNames }
@@ -30,10 +30,10 @@ function* fetchMoviesHandler({ payload }) {
   }
 }
 
-function* fetchMovieHandler({ payload: movieId }) {
+function* fetchMovieHandler({ payload }) {
   try {
-    const movie = yield call(getMovieDetails, movieId);
-    const credits = yield call(getMovieCredits, movieId);
+    const movie = yield call(getMovieDetails, payload);
+    const credits = yield call(getMovieCredits, payload);
     yield put(fetchMovieSuccess({ ...movie, credits }));
   } catch (error) {
     yield put(fetchError());

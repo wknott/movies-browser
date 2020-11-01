@@ -20,6 +20,8 @@ import { selectPeopleAllPages } from "../../features/people/peopleSlice";
 import { useLocation } from "react-router-dom";
 import { useQueryParameter, useReplaceQueryParameter } from "../../features/search/queryParameters";
 import pageParam from "../../features/pageQueryParamName";
+import { selectLanguage } from "../Navigation/LanguageSelect/languageSlice";
+import { first, previous, page, ofPage, next, last } from "../../languages"
 
 export const Pager = () => {
   const location = useLocation();
@@ -31,6 +33,7 @@ export const Pager = () => {
   const replaceQueryParam = useReplaceQueryParameter();
   const disableNext = currentPage === allPages;
   const disablePrevious = currentPage === 1;
+  const language = useSelector(selectLanguage);
 
   const onFirstButtonClick = () => {
     replaceQueryParam({ key: pageParam, value: 1 })
@@ -52,7 +55,7 @@ export const Pager = () => {
         disabled={disablePrevious}
       >
         <PagerPrev src={disablePrevious ? DisabledPrev : Prev} />
-        <PagerText>First</PagerText>
+        <PagerText>{first[language]}</PagerText>
         <MobilePagerPrev src={disablePrevious ? DisabledPrev : Prev} />
       </PagerButton>
       <PagerButton
@@ -60,24 +63,24 @@ export const Pager = () => {
         disabled={disablePrevious}
       >
         <PagerPrev src={disablePrevious ? DisabledPrev : Prev} />
-        <PagerText>Previous</PagerText>
+        <PagerText>{previous[language]}</PagerText>
       </PagerButton>
       <PagerInfo>
-        Page<Bold> {currentPage} </Bold>
-        of<Bold> {allPages} </Bold>
+        {page[language]}<Bold> {currentPage} </Bold>
+        {ofPage[language]}<Bold> {allPages} </Bold>
       </PagerInfo>
       <PagerButton
         onClick={onNextButtonClick}
         disabled={disableNext}
       >
-        <PagerText>Next</PagerText>
+        <PagerText>{next[language]}</PagerText>
         <PagerNext src={disableNext ? DisabledNext : Next} />
       </PagerButton>
       <PagerButton
         onClick={onLastButtonClick}
         disabled={disableNext}
       >
-        <PagerText>Last</PagerText>
+        <PagerText>{last[language]}</PagerText>
         <MobilePagerNext src={disableNext ? DisabledNext : Next} />
         <PagerNext src={disableNext ? DisabledNext : Next} />
       </PagerButton>
