@@ -87,3 +87,33 @@ export const Logo = styled.div`
   display: flex;
   align-items: center;
 `;
+
+export const ToggleButton = styled.button`
+  background-color: transparent;
+  color: ${({ theme }) => theme.navBar.color.white};
+  text-decoration: none;
+  border: 1px solid ${({ theme }) => theme.navBar.color.white};
+  border-radius: 24px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+`;
+
+export const Image = styled.img`
+  width: 32px;
+`;
+
+export const SunImage = styled(Image)`
+  transition: all 0.3s linear;
+
+  transform: ${({ isDark }) => isDark ? 'translateX(-100px)' : 'translateX(0)'};
+`;
+
+export const MoonImage = styled(Image)`
+  transition: all 0.3s linear;
+
+  transform: ${({ isDark }) => isDark ? 'translateX(0px)' : 'translateX(100px)'};
+`;
