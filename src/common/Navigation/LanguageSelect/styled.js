@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Select = styled.select`
+  height: 50px;
   padding: 15px;
   background-color: none;
   border: none;
@@ -9,7 +10,6 @@ export const Select = styled.select`
   align-items: center;
   outline: none;
   border-radius: 33px;
-  margin-left: auto;
   align-self: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
