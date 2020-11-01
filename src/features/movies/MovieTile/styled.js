@@ -2,11 +2,14 @@ import styled from "styled-components";
 
 const MovieTileImg = styled.img`
   width: 292px;
+  height: 438px;
+  object-fit: cover;
   margin: 0;
   margin-bottom: 16px;
   border-radius: 5px;
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     width: 34vw;
+    height: auto;
     min-width: 114px;
     margin: 0;
     margin-right: 16px;

@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const DetailsTile = styled.div`
   padding: 40px;
-  background-color: ${({ theme }) => theme.color.white};
-  color: ${({ theme }) => theme.color.black};
+  background-color: ${({ theme }) => theme.movieBanner.color.white};
+  color: ${({ theme }) => theme.movieBanner.color.black};
   display: grid;
   grid-template-columns: auto 1fr;
   grid-gap: 40px;
@@ -55,7 +55,7 @@ export const Text = styled.p`
   font-size: 18px;
   line-height: 120%;
   margin-right: 10px;
-  color: ${({ theme }) => theme.color.black};
+  color: ${({ theme }) => theme.movieBanner.color.black};
   display: flex;
   align-items: center;
 
@@ -65,7 +65,7 @@ export const Text = styled.p`
   }
 `;
 export const GrayText = styled(Text)`
-  color: ${({ theme }) => theme.color.stormGray};
+  color: ${({ theme }) => theme.movieBanner.color.stormGray};
 `;
 
 export const DesktopGrayText = styled(GrayText)`
@@ -143,7 +143,7 @@ export const Tags = styled.ul`
 `;
 
 export const Tag = styled.li`
-  background-color: ${({ theme }) => theme.color.grey};
+  background-color: ${({ theme }) => theme.movieBanner.color.grey};
   font-size: 14px;
   line-height: 1;
   font-weight: normal;
@@ -184,7 +184,7 @@ export const MovieRatingVotes = styled.p`
   font-size: 14px;
   line-height: 120%;
   align-self: flex-end;
-  color: ${({ theme }) => theme.color.darkerGrey};
+  color: ${({ theme }) => theme.movieBanner.color.darkerGrey};
   margin-right: 12px;
   margin-bottom: 3px;
 

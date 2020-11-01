@@ -1,8 +1,8 @@
 const { default: styled } = require("styled-components");
 
 export const MovieBackdrop = styled.div`
-  background-color: ${({ theme }) => theme.color.black};
-  color: ${({ theme }) => theme.color.white};
+  background-color: ${({ theme }) => theme.movieBanner.color.black};
+  color: ${({ theme }) => theme.movieBanner.color.white};
   background-image: 
   linear-gradient(270deg, #000000 14.11%, rgba(0, 0, 0, 0.873268) 15.08%, rgba(0, 0, 0, 0.720529) 16.51%, rgba(0, 0, 0, 0.294577) 19.99%, rgba(0, 0, 0, 0.159921) 21.88%, rgba(0, 0, 0, 0) 25.68%), 
   linear-gradient(90deg, #000000 13.6%, rgba(0, 0, 0, 0.984059) 14.58%, rgba(0, 0, 0, 0.967732) 15.44%, rgba(0, 0, 0, 0.865569) 16.3%, rgba(0, 0, 0, 0.230315) 22.87%, rgba(0, 0, 0, 0) 26.64%), 
@@ -17,8 +17,16 @@ export const MovieBackdrop = styled.div`
     background-size: 1366px 525px, 1366px 525px, 1366px 525px, 1366px 525px, 1024px 525px;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+    background-size: 1040px 400px, 1040px 400px, 1040px 400px, 1040px 400px, 776px 400px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    background-size: 350px 148px, 350px 148px, 350px 148px, 350px 148px, 262px 148px;
+    background-size: 700px 300px, 700px 300px, 700px 300px, 700px 300px, 550px 300px
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.miniMobile}px) {
+    background-size: 450px 188px, 450px 188px, 450px 188px, 450px 188px, 350px 188px;
   }
 `;
 
@@ -36,10 +44,20 @@ export const MainInfo = styled.div`
     height: 525px;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+    width: 776px;
+    height: 400px;
+    padding: 16px 32px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    width: 320px;
-    height: 148px;
+    width: 100%;
+    height: 300px;
     padding: 8px 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.miniMobile}px) {
+    height: 188px;
   }
 `;
 
@@ -47,6 +65,11 @@ export const MovieLongTitle = styled.h1`
   font-weight: 600;
   font-size: 64px;
   margin: 0px;
+  color: ${({ theme }) => theme.basicColor.white};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+    font-size: 36px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 24px;
@@ -59,6 +82,7 @@ export const MovieRating = styled.div`
   align-items: flex-start;
   padding: 0px;
   flex-wrap: wrap;
+  color: ${({ theme }) => theme.basicColor.white};
 `;
 
 export const MovieRatingImg = styled.img`
@@ -74,6 +98,7 @@ export const MovieRatingNote = styled.p`
   line-height: 1.3;
   align-self: center;
   margin: 0px 8px;
+  color: ${({ theme }) => theme.basicColor.white};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 14px;
@@ -87,8 +112,9 @@ export const MovieRatingText = styled.p`
   line-height: 1.2;
   align-self: center;
   margin-top: 16px;
-  color: ${({ theme }) => theme.color.white};
-  flex-basis: 90%;
+  color: ${({ theme }) => theme.basicColor.white};
+  flex-basis: 70%;
+
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 10px;

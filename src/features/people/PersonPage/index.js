@@ -10,6 +10,8 @@ import Loader from "../../../common/Loader";
 import searchQueryParamName from "../../searchQueryParamName";
 import { useQueryParameter } from "../../search/queryParameters";
 import Error from "../../../common/Error/index";
+import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
+import { cast, crew, moviesNavigation } from "../../../languages";
 
 export default () => {
   const { id } = useParams();
@@ -21,12 +23,13 @@ export default () => {
   const searchParams = new URLSearchParams(location.search);
   const history = useHistory();
   const error = useSelector(selectError);
+  const language = useSelector(selectLanguage);
 
   useEffect(() => {
     if (id) {
-      dispatch(fetchPerson(id));
+      dispatch(fetchPerson({ id, language }));
     }
-  }, [dispatch, id]);
+  }, [dispatch, id, language]);
 
   useEffect(() => {
     if (query) {
@@ -34,20 +37,21 @@ export default () => {
     }
   }, [query, history, searchParams]);
 
-  if(error)
-  {
-    return  <Wrapper> 
-              <Error/>
-            </Wrapper> 
+  const capitalizeFirstLetter = string => string.charAt(0).toUpperCase() + string.slice(1);
+
+  if (error) {
+    return <Wrapper>
+      <Error />
+    </Wrapper>
   }
 
   return (
     !loading && person ?
       <Wrapper>
         <PersonDetailsTile person={person} />
-        <Header>Movies - cast ({person.cast.length})</Header>
+        <Header>{capitalizeFirstLetter(moviesNavigation[language])} - {cast[language].toLowerCase()} ({person.cast.length})</Header>
         <MoviesContainer movies={person.cast.slice(0, 20)} />
-        <Header>Movies - crew ({person.crew.length})</Header>
+        <Header>{capitalizeFirstLetter(moviesNavigation[language])} - {crew[language].toLowerCase()} ({person.crew.length})</Header>
         <MoviesContainer movies={person.crew.slice(0, 20)} />
       </Wrapper>
       :

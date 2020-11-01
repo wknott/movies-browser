@@ -50,7 +50,8 @@ export const PersonName = styled.h2`
   line-height: 1.3;
   text-align: center;
   margin: 0 0 8px 0;
-
+  overflow-wrap: anywhere;
+  
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 14px;
     margin-bottom: 7px;
