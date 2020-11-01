@@ -1,0 +1,11 @@
+<svg id="sun-active" xmlns="http://www.w3.org/2000/svg" width="45.437" height="45.437" viewBox="0 0 45.437 45.437">
+  <circle id="Ellipse_4" data-name="Ellipse 4" cx="12" cy="12" r="12" transform="translate(10.422 10.815)" fill="#f8f9fa"/>
+  <line id="Line_1" data-name="Line 1" y1="5.68" transform="translate(22.718)" fill="none" stroke="#f8f9fa" stroke-width="2"/>
+  <line id="Line_2" data-name="Line 2" y1="5.68" transform="translate(22.718 39.757)" fill="none" stroke="#f8f9fa" stroke-width="2"/>
+  <line id="Line_3" data-name="Line 3" y1="5.68" transform="translate(45.437 22.718) rotate(90)" fill="none" stroke="#f8f9fa" stroke-width="2"/>
+  <line id="Line_4" data-name="Line 4" y1="5.68" transform="translate(5.68 22.718) rotate(90)" fill="none" stroke="#f8f9fa" stroke-width="2"/>
+  <line id="Line_5" data-name="Line 5" y1="5.68" transform="translate(38.921 6.515) rotate(45)" fill="none" stroke="#f8f9fa" stroke-width="2"/>
+  <line id="Line_6" data-name="Line 6" y1="5.68" transform="translate(10.531 34.905) rotate(45)" fill="none" stroke="#f8f9fa" stroke-width="2"/>
+  <line id="Line_7" data-name="Line 7" y1="5.68" transform="translate(38.921 38.921) rotate(135)" fill="none" stroke="#f8f9fa" stroke-width="2"/>
+  <line id="Line_8" data-name="Line 8" y1="5.68" transform="translate(10.531 10.531) rotate(135)" fill="none" stroke="#f8f9fa" stroke-width="2"/>
+</svg>
