@@ -14,20 +14,20 @@ export const PagerButton = styled.button`
     flex-direction:row;
     align-items:center;
     justify-content:center;
-    background-color:${({ theme }) => theme.color.lightBlue};
+    background-color:${({ theme }) => theme.basicColor.lightBlue};
     padding: 8px 16px;
     margin: 0 12px;
     outline:none;
     border:0;
     border-radius: 5px;
-    color: ${({ theme }) => theme.color.black};
+    color: ${({ theme }) => theme.basicColor.black};
 
     &:hover{
         cursor:pointer;
     }
 
     &:disabled{
-        background-color:${({ theme }) => theme.color.grey};
+        background-color:${({ theme }) => theme.basicColor.grey};
         color: ${({ theme }) => theme.basicColor.black}
     }
 
