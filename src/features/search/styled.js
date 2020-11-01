@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Label = styled.label`
   min-width: 340px;
   border-radius: 33px;
-  background-color: ${({ theme }) => theme.color.white};
-  border: 1px solid ${({ theme }) => theme.color.grey};
+  background-color: ${({ theme }) => theme.basicColor.white};
+  border: 1px solid ${({ theme }) => theme.basicColor.grey};
   display: flex;
   align-items: center;
   margin-left: auto;
@@ -24,7 +24,7 @@ export const Icon = styled.img`
 
 export const Input = styled.input`
   background-color:inherit;
-  color: ${({theme}) => theme.color.black};
+  color: ${({ theme }) => theme.basicColor.black};
   border: none;
   font-size: 16px;
   line-height: 150%;
