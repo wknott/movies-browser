@@ -12,7 +12,8 @@
 
 ### Api
 The website gets data from an external Api:
-[Api](https://www.themoviedb.org/)
+
+https://www.themoviedb.org/
 
 
 ### Used technologies:
@@ -37,6 +38,7 @@ The website gets data from an external Api:
 3. If you want to search for a movie / person enter at least part of the name next to " magnifying glass".
 
 ### Change the language:
+
 Just choose the language you want in the upper right corner and enjoy browsing the app :)
 Available languages: Polish, English and German.
 

@@ -11,6 +11,10 @@ export default styled.div`
   cursor: pointer;
   text-decoration: none;
   color: ${({ theme }) => theme.color.woodsmoke};
+
+  &:hover {
+    opacity: 0.8;
+  }
   
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     grid-template-columns: auto 1fr;
