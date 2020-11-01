@@ -4,7 +4,7 @@
 
 ## Live version
 
-![Movies browser demo](https://wknott.github.io/movies-browser/)
+[Movies browser demo](https://wknott.github.io/movies-browser/)
 
 ## Description
 
