@@ -10,34 +10,36 @@ import PersonPage from "./features/people/PersonPage";
 import PeoplePage from "./features/people/PeoplePage";
 import Navigation from "./common/Navigation/";
 import ScrollArrow from "./common/ScrollArrow/";
+import { useSelector } from "react-redux";
+import { selectIsDark } from "./themeSlice";
 
 export default () => {
-    const isDark = true;
-    const currentTheme = isDark ? darkTheme : theme;
+  const isDark = useSelector(selectIsDark);
 
   return (
-  <HashRouter>
-    <ThemeProvider theme={currentTheme}>
-      <GlobalStyle />
-      <Navigation />
-      <ScrollArrow />
-      <Switch>
-        <Route path={toMovie()}>
-          <MoviePage />
-        </Route>
-        <Route path={toMovies()}>
-          <MoviesPage />
-        </Route>
-        <Route path={toPerson()}>
-          <PersonPage />
-        </Route>
-        <Route path={toPeople()}>
-          <PeoplePage />
-        </Route>
-        <Route>
-          <Redirect to={toMovies()} />
-        </Route>
-      </Switch>
-    </ThemeProvider>
-  </HashRouter>
-);}
+    <HashRouter>
+      <ThemeProvider theme={isDark ? darkTheme : theme}>
+        <GlobalStyle />
+        <Navigation />
+        <ScrollArrow />
+        <Switch>
+          <Route path={toMovie()}>
+            <MoviePage />
+          </Route>
+          <Route path={toMovies()}>
+            <MoviesPage />
+          </Route>
+          <Route path={toPerson()}>
+            <PersonPage />
+          </Route>
+          <Route path={toPeople()}>
+            <PeoplePage />
+          </Route>
+          <Route>
+            <Redirect to={toMovies()} />
+          </Route>
+        </Switch>
+      </ThemeProvider>
+    </HashRouter>
+  );
+}
