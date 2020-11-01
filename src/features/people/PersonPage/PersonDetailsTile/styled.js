@@ -26,6 +26,11 @@ export const Image = styled.img`
   height: 564px;
   border-radius: 5px;
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+    width: 232px;
+    height: 326px;
+  }
+  
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     width: 116px;
     height: 163px;
@@ -122,6 +127,11 @@ export const DefaultImageContainer = styled.div`
   align-items: center;
   justify-content: center;
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+    width: 232px;
+    height: 326px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     width: 116px;
     height: 163px;
@@ -132,6 +142,11 @@ export const DefaultImage = styled.img`
   width: 216px;
   height: 216px;
   
+  @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+    width: 144px;
+    height: 144px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     width: 72px;
     height: 72px;
