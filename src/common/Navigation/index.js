@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Search from "../../features/search";
 import camera from "../../images/camera.svg";
 import {
@@ -11,8 +11,11 @@ import {
   StyledLink,
   Logo,
   ToggleButton,
-  SunImage,
-  MoonImage,
+  SunIcon,
+  MoonIcon,
+  BurgerItem,
+  DesktopNavigationList,
+  Desktop,
 } from "./styled";
 import { toMovies, toPeople } from "../../routes";
 import Wrapper from "../Wrapper";
@@ -23,11 +26,32 @@ import { moviesNavigation, peopleNavigation } from "../../languages";
 import { selectIsDark, toggleTheme } from "../../themeSlice";
 import sun from "../../images/sun.svg";
 import moon from "../../images/moon.svg";
+import Burger from "./Burger";
 
 const Navigation = () => {
+  const [open, setOpen] = useState(false);
   const language = useSelector(selectLanguage);
   const dispatch = useDispatch();
   const isDark = useSelector(selectIsDark);
+
+  const Navigation = (
+    <>
+      <NavigationList>
+        <NavigationItem>
+          <StyledLink onClick={() => setOpen(false)} to={toMovies()}>
+            {moviesNavigation[language]}
+          </StyledLink>
+        </NavigationItem>
+        <NavigationItem>
+          <StyledLink onClick={() => setOpen(false)} to={toPeople()}>
+            {peopleNavigation[language]}
+          </StyledLink>
+        </NavigationItem>
+      </NavigationList>
+      <Search />
+      <LanguageSelect handleClose={() => setOpen(false)} />
+    </>
+  );
 
   return (
     <Container>
@@ -38,20 +62,35 @@ const Navigation = () => {
             <Title>Movies Browser</Title>
           </Logo>
           <ToggleButton onClick={() => dispatch(toggleTheme())}>
-            <SunImage isDark={isDark} src={sun} />
-            <MoonImage isDark={isDark} src={moon} />
+            <SunIcon isDark={isDark} src={sun} />
+            <MoonIcon isDark={isDark} src={moon} />
           </ToggleButton>
-          <NavigationList>
+          <DesktopNavigationList>
             <NavigationItem>
-              <StyledLink to={toMovies()}>{moviesNavigation[language]}</StyledLink>
+              <StyledLink onClick={() => setOpen(false)} to={toMovies()}>
+                {moviesNavigation[language]}
+              </StyledLink>
             </NavigationItem>
             <NavigationItem>
-              <StyledLink to={toPeople()}>{peopleNavigation[language]}</StyledLink>
+              <StyledLink onClick={() => setOpen(false)} to={toPeople()}>
+                {peopleNavigation[language]}
+              </StyledLink>
             </NavigationItem>
-          </NavigationList>
-          <Search />
-          <LanguageSelect />
-
+          </DesktopNavigationList>
+          <Desktop>
+            <Search />
+          </Desktop>
+          <Desktop>
+            <LanguageSelect handleClose={() => setOpen(false)} />
+          </Desktop>
+          <BurgerItem>
+            <Burger
+              open={open}
+              handleClose={() => setOpen(false)}
+              handleOpen={() => setOpen(true)}
+            />
+          </BurgerItem>
+          {open ? Navigation : <></>}
         </NavigationStyle>
       </Wrapper>
     </Container>
