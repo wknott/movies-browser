@@ -1,14 +1,19 @@
 # Movies browser
 
-![movies browser](jakiś tam screen)
+![movies browser](https://raw.githubusercontent.com/wknott/movies-browser/readme/src/images/ScreenMovieBrowser.png)
 
 ## Live version
 
-[Movies browser demo](https://wknott.github.io/movies-browser/)
+![Movies browser demo](https://wknott.github.io/movies-browser/)
 
 ## Description
 
-*Movies browser* application was created as a final project in the course *"Frontend Developer from scratch"* led by *Youcode*. The app is used to browse and search for movies, actors and film crew. Additionally, it is possible to change the background color, as well as a choice of languages: English, Polish and Deutsche.
+*Movies browser* application was created as a final project in the course *"Frontend Developer from scratch"* led by *Youcode*. The app is used to browse and search for movies, actors and film crew. Additionally, it is possible to change the background color, as well as a choice of languages. The application also allows you to quickly return to the top of the page using the "arrow".
+
+### Api
+The website gets data from an external Api:
+[Api](https://www.themoviedb.org/)
+
 
 ### Used technologies:
 - HTML 
@@ -33,16 +38,17 @@
 
 ### Change the language:
 Just choose the language you want in the upper right corner and enjoy browsing the app :)
+Available languages: Polish, English and German.
 
-gif
+![language-gif](https://raw.githubusercontent.com/wknott/movies-browser/readme/src/gifs/languages.gif)
 ### Change background:
-You can choose a darker version that will make your eyes less tired. Just slide the slider.
+You can choose a darker version that will make your eyes less tired. Just move the slider to the right direction. If you select **sun** you will have a lighter theme, if **moon** you will see a darker version of the theme.
 
-gif
+![theme-gif](https://raw.githubusercontent.com/wknott/movies-browser/readme/src/gifs/theme.gif)
 ### Authors:
--[Amanda Chawińska](https://github.com/AmandaChawinska)
--[Wojciech Knott](https://github.com/wknott)
--[Szymon Marczuk](https://github.com/Monsy99)
+- [Amanda Chawińska](https://github.com/AmandaChawinska)
+- [Wojciech Knott](https://github.com/wknott)
+- [Szymon Marczuk](https://github.com/Monsy99)
 
 
 
