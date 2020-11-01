@@ -14,7 +14,7 @@ export const Arrow = styled(FaArrowCircleUp)`
   animation: fadeIn 0.3s;
   transition: opacity 0.4s;
   opacity: 0.5;
-  color: ${({ theme }) => theme.color.black};
+  color: ${({ theme }) => theme.color.blue};
 
   &:hover {
     opacity: 1;
