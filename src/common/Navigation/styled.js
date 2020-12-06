@@ -32,8 +32,8 @@ export const Icon = styled.img`
   width: 40px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
   }
 `;
 
@@ -47,7 +47,7 @@ export const Title = styled.h1`
   margin: 0px 0px 0px 12px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    font-size: 15px;
+    font-size: 17px;
     line-height: 130%;
     letter-spacing: -0.5px;
     margin-left: 8px;
@@ -55,7 +55,7 @@ export const Title = styled.h1`
 `;
 
 export const ToggleButton = styled.button`
-  height: 50px;
+  padding: 5px;
   background-color: transparent;
   color: ${({ theme }) => theme.navBar.color.white};
   text-decoration: none;
@@ -69,22 +69,28 @@ export const ToggleButton = styled.button`
   position: relative;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    height: 35px;
+    padding: 3px 10px;
   }
 `;
 
 export const SunIcon = styled(Icon)`
   transition: all 0.3s linear;
-
+  height: 30px;
   transform: ${({ isDark }) =>
     isDark ? "translateX(-100px)" : "translateX(0)"};
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    height: 25px;
+  }
 `;
 
 export const MoonIcon = styled(Icon)`
   transition: all 0.3s linear;
-
+  height: 30px;
   transform: ${({ isDark }) =>
     isDark ? "translateX(0px)" : "translateX(100px)"};
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    height: 25px;
+  }
 `;
 
 export const BurgerItem = styled.div`
@@ -124,7 +130,7 @@ export const StyledLink = styled(NavLink).attrs(() => ({ activeClassName }))`
     border: 1px solid ${({ theme }) => theme.navBar.color.white};
     border-radius: 24px;
   }
-
+  font-size: 14px;
   padding: 12.5px 24px;
   color: ${({ theme }) => theme.navBar.color.white};
   text-decoration: none;
