@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 const activeClassName = "link-active";
 
 export const Container = styled.div`
@@ -12,7 +12,7 @@ export const NavigationStyle = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
     padding: 16px 0px;
   }
@@ -22,6 +22,9 @@ export const Logo = styled.div`
   height: 50px;
   display: flex;
   align-items: center;
+`;
+export const LogoLink = styled(Link)`
+  text-decoration: none;
 `;
 
 export const Icon = styled.img`
@@ -73,18 +76,20 @@ export const ToggleButton = styled.button`
 export const SunIcon = styled(Icon)`
   transition: all 0.3s linear;
 
-  transform: ${({ isDark }) => isDark ? 'translateX(-100px)' : 'translateX(0)'};
+  transform: ${({ isDark }) =>
+    isDark ? "translateX(-100px)" : "translateX(0)"};
 `;
 
 export const MoonIcon = styled(Icon)`
   transition: all 0.3s linear;
 
-  transform: ${({ isDark }) => isDark ? 'translateX(0px)' : 'translateX(100px)'};
+  transform: ${({ isDark }) =>
+    isDark ? "translateX(0px)" : "translateX(100px)"};
 `;
 
 export const BurgerItem = styled.div`
   align-self: center;
-  
+
   @media (min-width: ${({ theme }) => theme.breakpoint.ipad}px) {
     display: none;
   }
@@ -100,7 +105,7 @@ export const NavigationList = styled.ul`
   padding: 0px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
-    margin-top:12px;
+    margin-top: 12px;
     width: 100%;
     justify-content: space-evenly;
   }
@@ -119,7 +124,7 @@ export const StyledLink = styled(NavLink).attrs(() => ({ activeClassName }))`
     border: 1px solid ${({ theme }) => theme.navBar.color.white};
     border-radius: 24px;
   }
-  
+
   padding: 12.5px 24px;
   color: ${({ theme }) => theme.navBar.color.white};
   text-decoration: none;
@@ -143,7 +148,7 @@ export const Desktop = styled.div`
 `;
 
 export const DesktopNavigationList = styled(NavigationList)`
- @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
     display: none;
   }
 `;

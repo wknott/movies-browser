@@ -16,6 +16,7 @@ import {
   BurgerItem,
   DesktopNavigationList,
   Desktop,
+  LogoLink,
 } from "./styled";
 import { toMovies, toPeople } from "../../routes";
 import Wrapper from "../Wrapper";
@@ -57,10 +58,12 @@ const Navigation = () => {
     <Container>
       <Wrapper>
         <NavigationStyle>
-          <Logo>
-            <Icon src={camera} />
-            <Title>Movies Browser</Title>
-          </Logo>
+          <LogoLink to={toMovies()}>
+            <Logo>
+              <Icon src={camera} />
+              <Title>Movies Browser</Title>
+            </Logo>
+          </LogoLink>
           <ToggleButton onClick={() => dispatch(toggleTheme())}>
             <SunIcon isDark={isDark} src={sun} />
             <MoonIcon isDark={isDark} src={moon} />
