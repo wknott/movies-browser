@@ -14,6 +14,5 @@ export const GlobalStyle = createGlobalStyle`
         background: ${({ theme }) => theme.color.whisper};
         margin: 0;
         overflow-y: scroll;
-        overflow-wrap: anywhere;
     }
 `;
