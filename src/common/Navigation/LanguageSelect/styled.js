@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Select = styled.select`
   height: 50px;
@@ -19,6 +19,12 @@ export const SelectContainer = styled.div`
   border-radius: 33px;
   align-self: center;
 
+  ${({ mobile }) => mobile && css`
+    @media (min-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+      display: none;
+    };
+  `}
+  
   @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
     margin-left: 0;
     margin-top: 10px;

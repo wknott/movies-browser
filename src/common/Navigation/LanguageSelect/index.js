@@ -4,7 +4,7 @@ import { languages } from "../../../languages";
 import { selectLanguage, setLanguage } from "./languageSlice";
 import { Select, SelectContainer } from "./styled";
 
-const LanguageSelect = ({ handleClose }) => {
+const LanguageSelect = ({ handleClose, mobile }) => {
   const dispatch = useDispatch();
   const language = useSelector(selectLanguage);
   const handleChange = ({ target }) => {
@@ -13,7 +13,7 @@ const LanguageSelect = ({ handleClose }) => {
   };
 
   return (
-    <SelectContainer>
+    <SelectContainer mobile={mobile}>
       <Select value={language} onChange={handleChange}>
         {languages.map(language =>
           <option value={language.code} key={language.code}>
