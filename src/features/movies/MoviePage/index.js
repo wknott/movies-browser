@@ -9,7 +9,8 @@ import {
   MovieRatingImg,
   MovieRatingText,
   MovieRating,
-  MovieRatingNote
+  MovieRatingNote,
+  MovieRatingTextVote
 } from "./styled";
 import star from "../MovieTile/ratingStar.svg";
 import Wrapper from "../../../common/Wrapper";
@@ -64,7 +65,7 @@ export default () => {
                 <MovieRatingImg src={star}></MovieRatingImg>
                 <MovieRatingNote>{movie.vote_average.toFixed(1)}</MovieRatingNote>
                 <MovieRatingText>/ 10</MovieRatingText>
-                <MovieRatingText>{movie.vote_count} {votes[language]}</MovieRatingText>
+                <MovieRatingTextVote>{movie.vote_count} {votes[language]}</MovieRatingTextVote>
               </MovieRating>
             </MainInfo>
           </MovieBackdrop>
