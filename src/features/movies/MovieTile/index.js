@@ -47,7 +47,7 @@ const MovieTile = ({ movie }) => {
         <MovieTileTags>{generateTags(movie.genres)}</MovieTileTags>
         <MovieAdditionalInfo>
           <MovieRatingImg src={star}></MovieRatingImg>
-          <MovieRatingText>{movie.vote_average}</MovieRatingText>
+          <MovieRatingText>{movie.vote_average.toFixed(1)}</MovieRatingText>
           <MovieRatingVotes>{movie.vote_count} {votes[language]}</MovieRatingVotes>
         </MovieAdditionalInfo>
       </MovieInfoWrapper>

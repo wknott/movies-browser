@@ -62,7 +62,7 @@ export default () => {
               <MovieLongTitle>{movie.title}</MovieLongTitle>
               <MovieRating>
                 <MovieRatingImg src={star}></MovieRatingImg>
-                <MovieRatingNote>{movie.vote_average}</MovieRatingNote>
+                <MovieRatingNote>{movie.vote_average.toFixed(1)}</MovieRatingNote>
                 <MovieRatingText>/ 10</MovieRatingText>
                 <MovieRatingText>{movie.vote_count} {votes[language]}</MovieRatingText>
               </MovieRating>
