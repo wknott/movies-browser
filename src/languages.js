@@ -74,9 +74,9 @@ export const popularPeople = {
 }
 
 export const errorTitle = {
-  "pl-PL": "Ups! Coś poszło nie tak...",
-  "en-US": "Ooops! Something went wrong...",
-  "de-DE": "Ups! Etwas ist schief gelaufen...",
+  "pl-PL": "Ups! Coś poszło nie tak…",
+  "en-US": "Ooops! Something went wrong…",
+  "de-DE": "Ups! Etwas ist schief gelaufen…",
 }
 
 export const errorText = {
