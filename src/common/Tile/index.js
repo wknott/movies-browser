@@ -11,9 +11,11 @@ export default styled.div`
   cursor: pointer;
   text-decoration: none;
   color: ${({ theme }) => theme.color.woodsmoke};
+  transition: 0.3s all;
 
   &:hover {
     opacity: 0.8;
+    transform: scale(1.03);
   }
   
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
