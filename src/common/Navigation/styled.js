@@ -139,11 +139,23 @@ export const StyledLink = styled(NavLink).attrs(() => ({ activeClassName }))`
 export const Desktop = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
     display: none;
-  }
+  };
 `;
 
 export const DesktopNavigationList = styled(NavigationList)`
  @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
     display: none;
-  }
+  };
+`;
+
+export const Mobile = styled.div`
+  @media (min-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+    display: none;
+  };
+`;
+
+export const MobileNavigationList = styled(NavigationList)`
+ @media (min-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+    display: none;
+  };
 `;

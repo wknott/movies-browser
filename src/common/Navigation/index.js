@@ -5,7 +5,6 @@ import {
   Container,
   NavigationStyle,
   NavigationItem,
-  NavigationList,
   Title,
   Icon,
   StyledLink,
@@ -16,6 +15,7 @@ import {
   BurgerItem,
   DesktopNavigationList,
   Desktop,
+  MobileNavigationList,
 } from "./styled";
 import { toMovies, toPeople } from "../../routes";
 import Wrapper from "../Wrapper";
@@ -33,25 +33,6 @@ const Navigation = () => {
   const language = useSelector(selectLanguage);
   const dispatch = useDispatch();
   const isDark = useSelector(selectIsDark);
-
-  const Navigation = (
-    <>
-      <NavigationList>
-        <NavigationItem>
-          <StyledLink onClick={() => setOpen(false)} to={toMovies()}>
-            {moviesNavigation[language]}
-          </StyledLink>
-        </NavigationItem>
-        <NavigationItem>
-          <StyledLink onClick={() => setOpen(false)} to={toPeople()}>
-            {peopleNavigation[language]}
-          </StyledLink>
-        </NavigationItem>
-      </NavigationList>
-      <Search />
-      <LanguageSelect handleClose={() => setOpen(false)} />
-    </>
-  );
 
   return (
     <Container>
@@ -90,10 +71,28 @@ const Navigation = () => {
               handleOpen={() => setOpen(true)}
             />
           </BurgerItem>
-          {open ? Navigation : <></>}
+          {open &&
+            <>
+              <MobileNavigationList>
+                <NavigationItem>
+                  <StyledLink onClick={() => setOpen(false)} to={toMovies()}>
+                    {moviesNavigation[language]}
+                  </StyledLink>
+                </NavigationItem>
+
+                <NavigationItem>
+                  <StyledLink onClick={() => setOpen(false)} to={toPeople()}>
+                    {peopleNavigation[language]}
+                  </StyledLink>
+                </NavigationItem>
+              </MobileNavigationList>
+              <Search mobile />
+              <LanguageSelect mobile handleClose={() => setOpen(false)} />
+            </>
+          }
         </NavigationStyle>
       </Wrapper>
-    </Container>
+    </Container >
   );
 };
 
