@@ -26,21 +26,22 @@ export default () => {
   const dispatch = useDispatch();
   const currentPage = useQueryParameter(pageQueryParamName);
   const language = useSelector(selectLanguage);
-
-  useEffect(() => {
-    dispatch(fetchMovies({ page: currentPage, query, language }));
-  }, [dispatch, currentPage, query, language]);
-
   const loading = useSelector(selectLoading);
   const movies = useSelector(selectMovies);
   const totalNumberOfMovies = useSelector(selectTotalNumberOfMovies);
   const error = useSelector(selectError);
 
+  useEffect(() => {
+    dispatch(fetchMovies({ page: currentPage, query, language }));
+  }, [dispatch, currentPage, query, language]);
+
   if (error) {
-    return <Wrapper>
-      <Error />
-    </Wrapper>
-  }
+    return (
+      <Wrapper>
+        <Error />
+      </Wrapper>
+    );
+  };
 
   return (
     <Wrapper>

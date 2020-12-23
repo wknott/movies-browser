@@ -27,7 +27,7 @@ const Search = ({ mobile }) => {
       <Icon src={searchIcon} />
       <Input
         value={inputValue}
-        placeholder={`${searchFor[language]} ${atMovies ? movies[language] : people[language]}...`}
+        placeholder={`${searchFor[language]} ${atMovies ? movies[language] : people[language]}…`}
         onChange={({ target: { value } }) => onInputChange({ newValue: value, atMovies })}
       />
     </Label>
