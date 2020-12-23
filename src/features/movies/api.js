@@ -1,5 +1,4 @@
-const apiKey = "0e9e647ea010d8b3410709d41b745d87";
-const apiUrl = "https://api.themoviedb.org/3/";
+import { apiKey, apiUrl } from "../../common/api";
 
 export const getMovies = async ({ query, page, language }) => {
   const url = query ?

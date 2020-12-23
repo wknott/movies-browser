@@ -1,8 +1,8 @@
-const apiKey = process.env.REACT_APP_API_KEY;
+import { apiKey, apiUrl } from "../../common/api";
 
 export const getPeople = async ({ page, query, language }) => {
-  const url = query ? `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&language=${language}&query=${query}&page=${page}`
-    : `https://api.themoviedb.org/3/person/popular?api_key=${apiKey}&language=${language}&page=${page}`
+  const url = query ? `${apiUrl}search/person?api_key=${apiKey}&language=${language}&query=${query}&page=${page}`
+    : `${apiUrl}person/popular?api_key=${apiKey}&language=${language}&page=${page}`
 
   const response = await fetch(url);
 
@@ -16,7 +16,7 @@ export const getPeople = async ({ page, query, language }) => {
 
 export const getPersonDetails = async ({ id, language }) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/person/${id}?api_key=${apiKey}&language=${language}`
+    `${apiUrl}person/${id}?api_key=${apiKey}&language=${language}`
   );
   if (!response.ok) {
     throw new Error(response.statusText);
@@ -28,7 +28,7 @@ export const getPersonDetails = async ({ id, language }) => {
 
 export const getPersonMovieCredits = async ({ id, language }) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${apiKey}&language=${language}`
+    `${apiUrl}person/${id}/movie_credits?api_key=${apiKey}&language=${language}`
   );
 
   if (!response.ok) {
