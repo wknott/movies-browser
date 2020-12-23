@@ -35,8 +35,8 @@ const MovieTile = ({ movie }) => {
   return (
     <Tile as={Link} to={toMovie({ id: movie.id })}>
       <MovieTileImg
-        src={movie.poster_path ? `https://image.tmdb.org/t/p/w400${movie.poster_path}` : Poster}
-      ></MovieTileImg>
+        url={movie.poster_path ? `https://image.tmdb.org/t/p/w400${movie.poster_path}` : Poster}
+      />
       <MovieInfoWrapper>
         <MovieTileHeader>{movie.title}</MovieTileHeader>
         <MovieTileYear>

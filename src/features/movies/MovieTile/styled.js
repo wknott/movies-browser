@@ -1,24 +1,31 @@
 import styled from "styled-components";
 
-const MovieTileImg = styled.img`
-  width: 292px;
-  height: 438px;
-  object-fit: cover;
+const MovieTileImg = styled.div`
+  padding-top: calc(100% * 632/421);
+  width: 100%;
+  background-image: url("${({ url }) => url}");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   margin: 0;
   margin-bottom: 16px;
   border-radius: 5px;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     width: 34vw;
     height: auto;
     min-width: 114px;
     margin: 0;
-    margin-right: 16px;
-  } ;
+  };
 `;
 const MovieInfoWrapper = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    margin-left: 16px;
+  };
 `;
 const MovieTileHeader = styled.h2`
   margin: 0;
