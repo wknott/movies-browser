@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { selectLanguage } from "../../common/Navigation/LanguageSelect/languageSlice";
 import { searchFor, movies, people } from "../../languages";
 
-const Search = () => {
+const Search = ({ mobile }) => {
   const searchQueryParamName = "search";
   const query = useQueryParameter(searchQueryParamName);
   const replaceQueryParameter = useReplaceQueryParameter(true);
@@ -23,7 +23,7 @@ const Search = () => {
   };
 
   return (
-    <Label>
+    <Label mobile={mobile}>
       <Icon src={searchIcon} />
       <Input
         value={query || ""}

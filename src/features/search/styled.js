@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Label = styled.label`
   min-width: 200px;
@@ -8,6 +8,12 @@ export const Label = styled.label`
   display: flex;
   align-items: center;
 
+  ${({ mobile }) => mobile && css`
+    @media (min-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+      display: none;
+    };
+  `}
+  
   @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
     margin: 12px 0px 0px;
     width: 100%;
