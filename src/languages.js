@@ -62,13 +62,13 @@ export const moviesNavigation = {
 }
 
 export const peopleNavigation = {
-  "pl-PL": "osoby",
+  "pl-PL": "aktorzy",
   "en-US": "people",
   "de-DE": "Personen",
 }
 
 export const popularPeople = {
-  "pl-PL": "Popularne osoby",
+  "pl-PL": "Popularni aktorzy",
   "en-US": "Popular people",
   "de-DE": "Beliebte Personen",
 }
