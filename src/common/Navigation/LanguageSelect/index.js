@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { languages } from "../../../languages";
 import { selectLanguage, setLanguage } from "./languageSlice";
-import { Select } from "./styled";
+import { Select, SelectContainer } from "./styled";
 
 const LanguageSelect = ({ handleClose }) => {
   const dispatch = useDispatch();
@@ -13,13 +13,15 @@ const LanguageSelect = ({ handleClose }) => {
   };
 
   return (
-    <Select value={language} onChange={handleChange}>
-      {languages.map(language =>
-        <option value={language.code} key={language.code}>
-          {language.label}
-        </option>
-      )}
-    </Select>
+    <SelectContainer>
+      <Select value={language} onChange={handleChange}>
+        {languages.map(language =>
+          <option value={language.code} key={language.code}>
+            {language.label}
+          </option>
+        )}
+      </Select>
+    </SelectContainer>
   );
 }
 
