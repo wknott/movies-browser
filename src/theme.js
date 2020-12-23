@@ -1,7 +1,7 @@
 const breakpoint = {
   miniMobile: 575.98,
   mobileMax: 767.98,
-  ipad: 991.98,
+  ipad: 1039.98,
   hdDesktop: 1199,
 };
 
