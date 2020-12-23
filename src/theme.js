@@ -1,12 +1,12 @@
 export const theme = {
     navBar: {
-        color:{
+        color: {
             black: "#000000",
             white: "#FFFFFF",
         }
     },
     movieBanner: {
-        color:{
+        color: {
             black: "#000000",
             white: "#FFFFFF",
         }
@@ -48,13 +48,13 @@ export const theme = {
 };
 export const darkTheme = {
     navBar: {
-        color:{
-        black: "#EEEEEE",
-        white: "#FFFFFF",
+        color: {
+            black: "#EEEEEE",
+            white: "#FFFFFF",
         }
     },
     movieBanner: {
-        color:{
+        color: {
             black: "#EEEEEE",
             white: "#000000",
         }
@@ -88,9 +88,9 @@ export const darkTheme = {
         white: "#FFFFFF",
     },
     breakpoint: {
-        miniMobile: 568,
-        mobileMax: 767,
-        ipad: 1040,
-        hdDesktop: 1366,
+        miniMobile: 575.98,
+        mobileMax: 767.98,
+        ipad: 991.98,
+        hdDesktop: 1199,
     },
 };
