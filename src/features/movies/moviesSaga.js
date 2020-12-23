@@ -1,4 +1,4 @@
-import { takeLatest, call, put, debounce } from "redux-saga/effects";
+import { takeLatest, call, put } from "redux-saga/effects";
 import { getGenres, getMovieCredits, getMovieDetails, getMovies } from "./api";
 import { getGenreName } from "./getGenreName";
 
@@ -41,6 +41,6 @@ function* fetchMovieHandler({ payload }) {
 };
 
 export function* watchFetchPopularMovies() {
-  yield debounce(500, fetchMovies.type, fetchMoviesHandler);
+  yield takeLatest(fetchMovies.type, fetchMoviesHandler);
   yield takeLatest(fetchMovie.type, fetchMovieHandler);
 };
