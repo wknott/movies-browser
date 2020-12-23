@@ -1,4 +1,4 @@
-const apiKey = process.env.REACT_APP_API_KEY;
+const apiKey = "0e9e647ea010d8b3410709d41b745d87";
 
 export const getMovies = async ({ query, page, language }) => {
   const url = query ?
