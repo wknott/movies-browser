@@ -14,7 +14,6 @@ import {
   MovieRatingVotes,
   MovieInfoWrapper,
 } from "./styled";
-import { nanoid } from "@reduxjs/toolkit";
 import { Link } from "react-router-dom";
 import { toMovie } from "../../../routes";
 import { votes } from "../../../common/languages";
@@ -23,8 +22,8 @@ import { useSelector } from "react-redux";
 
 const generateTags = (tagNames) => {
   if (tagNames) {
-    return tagNames.map((tagName) => {
-      return <MovieTileTag key={nanoid()}>{tagName}</MovieTileTag>;
+    return tagNames.map((tagName, index) => {
+      return <MovieTileTag key={index}>{tagName}</MovieTileTag>;
     });
   }
 };
