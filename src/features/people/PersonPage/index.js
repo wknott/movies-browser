@@ -9,7 +9,7 @@ import { MoviesContainer } from "../../movies/MoviesContainer";
 import Loader from "../../../common/Loader";
 import Error from "../../../common/Error/index";
 import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
-import { cast, crew, moviesNavigation } from "../../../languages";
+import { cast, crew, moviesNavigation } from "../../../common/languages";
 
 export default () => {
   const { id } = useParams();

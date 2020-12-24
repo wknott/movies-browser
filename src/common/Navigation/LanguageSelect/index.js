@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { languages } from "../../../languages";
+import { languages } from "../../../common/languages";
 import { selectLanguage, setLanguage } from "./languageSlice";
 import { Select, SelectContainer } from "./styled";
 

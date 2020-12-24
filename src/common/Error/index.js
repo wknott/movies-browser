@@ -5,7 +5,7 @@ import { toMovies } from "../../routes";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectLanguage } from "../Navigation/LanguageSelect/languageSlice";
-import { errorText, errorTitle, returnButton } from "../../languages";
+import { errorText, errorTitle, returnButton } from "../../common/languages";
 
 const NoConnection = () => {
   const language = useSelector(selectLanguage);

@@ -22,7 +22,7 @@ import Wrapper from "../Wrapper";
 import LanguageSelect from "./LanguageSelect";
 import { useDispatch, useSelector } from "react-redux";
 import { selectLanguage } from "./LanguageSelect/languageSlice";
-import { moviesNavigation, peopleNavigation } from "../../languages";
+import { moviesNavigation, peopleNavigation } from "../../common/languages";
 import { selectIsDark, toggleTheme } from "../../themeSlice";
 import sun from "../../images/sun.svg";
 import moon from "../../images/moon.svg";

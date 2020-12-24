@@ -19,7 +19,7 @@ import searchQueryParamName from "../../searchQueryParamName";
 import pageQueryParamName from "../../pageQueryParamName";
 import Error from "../../../common/Error/index";
 import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
-import { noResults, popularMovies, searchResultsFor } from "../../../languages";
+import { noResults, popularMovies, searchResultsFor } from "../../../common/languages";
 
 export default () => {
   const query = useQueryParameter(searchQueryParamName);

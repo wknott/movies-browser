@@ -17,7 +17,7 @@ import {
 import { nanoid } from "@reduxjs/toolkit";
 import { Link } from "react-router-dom";
 import { toMovie } from "../../../routes";
-import { votes } from "../../../languages";
+import { votes } from "../../../common/languages";
 import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
 import { useSelector } from "react-redux";
 

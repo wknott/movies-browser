@@ -5,7 +5,7 @@ import { useQueryParameter } from "./queryParameters";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectLanguage } from "../../common/Navigation/LanguageSelect/languageSlice";
-import { searchFor, movies, people } from "../../languages";
+import { searchFor, movies, people } from "../../common/languages";
 import { useOnInputSearchChange } from "./useOnInputSearchChange";
 
 const Search = ({ mobile }) => {

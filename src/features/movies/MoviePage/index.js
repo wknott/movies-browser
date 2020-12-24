@@ -20,7 +20,7 @@ import Header from "../../../common/Header";
 import Loader from "../../../common/Loader";
 import Error from "../../../common/Error/index";
 import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
-import { cast, crew, votes } from "../../../languages";
+import { cast, crew, votes } from "../../../common/languages";
 
 export default () => {
   const { id } = useParams();
