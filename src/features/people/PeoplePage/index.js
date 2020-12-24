@@ -44,7 +44,7 @@ export default () => {
             <Pager />
           </> :
           <>
-            <Header>{`${noResults[language]} "${query}"`}</Header>
+            <Header>{noResults[language]} <q>{query}</q></Header>
             <NoResults />
           </> :
         <Loader />
