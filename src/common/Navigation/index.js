@@ -16,6 +16,7 @@ import {
   DesktopNavigationList,
   Desktop,
   MobileNavigationList,
+  LogoLink,
 } from "./styled";
 import { toMovies, toPeople } from "../../routes";
 import Wrapper from "../Wrapper";
