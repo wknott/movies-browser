@@ -4,7 +4,7 @@ export const Button = styled.button`
   display: inline;
   border: none;
   border-radius: 5px;
-  padding: 16px 24px;
+  padding: 8px 16px;
   font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -16,7 +16,7 @@ export const Button = styled.button`
   transition: 0.3s filter;
   cursor: pointer;
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    font-size: 12px;
+    font-size: 10px;
     padding: 4px 12px;
     margin-left: 8px;
   }
