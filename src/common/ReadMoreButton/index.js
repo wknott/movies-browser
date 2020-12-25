@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Button } from "./styled";
 import { selectLanguage } from "../../common/Navigation/LanguageSelect/languageSlice";
-import { readLess, readMore } from "../../languages";
+import { readLess, readMore } from "../../common/languages";
 
 export default ({ content }) => {
   const [show, setShow] = useState(false);

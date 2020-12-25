@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { languages } from "../../../languages";
+import { languages } from "../../../common/languages";
 import { selectLanguage, setLanguage } from "./languageSlice";
-import { Select } from "./styled";
+import { Select, SelectContainer } from "./styled";
 
-const LanguageSelect = ({ handleClose }) => {
+const LanguageSelect = ({ handleClose, mobile }) => {
   const dispatch = useDispatch();
   const language = useSelector(selectLanguage);
   const handleChange = ({ target }) => {
@@ -13,13 +13,15 @@ const LanguageSelect = ({ handleClose }) => {
   };
 
   return (
-    <Select value={language} onChange={handleChange}>
-      {languages.map(language =>
-        <option value={language.code} key={language.code}>
-          {language.label}
-        </option>
-      )}
-    </Select>
+    <SelectContainer mobile={mobile}>
+      <Select value={language} onChange={handleChange}>
+        {languages.map(language =>
+          <option value={language.code} key={language.code}>
+            {language.label}
+          </option>
+        )}
+      </Select>
+    </SelectContainer>
   );
 }
 

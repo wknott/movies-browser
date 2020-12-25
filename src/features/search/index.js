@@ -1,34 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import searchIcon from "../../images/searchIcon.svg";
 import { Label, Icon, Input } from "./styled";
-import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
+import { useQueryParameter } from "./queryParameters";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectLanguage } from "../../common/Navigation/LanguageSelect/languageSlice";
-import { searchFor, movies, people } from "../../languages";
+import { searchFor, movies, people } from "../../common/languages";
+import { useOnInputSearchChange } from "./useOnInputSearchChange";
 
-const Search = () => {
-  const searchQueryParamName = "search";
-  const query = useQueryParameter(searchQueryParamName);
-  const replaceQueryParameter = useReplaceQueryParameter(true);
+const Search = ({ mobile }) => {
   const location = useLocation();
+  const searchQueryParamName = "search";
+  const query = useQueryParameter(searchQueryParamName) || "";
+  const [inputValue, setInputValue] = useState(query);
   const atMovies = location.pathname.includes("movies");
   const language = useSelector(selectLanguage);
 
-  const onInputChange = ({ target }) => {
-    replaceQueryParameter({
-      key: searchQueryParamName,
-      value: target.value.trim() !== "" ? target.value : undefined,
-    });
-  };
+  useEffect(() => {
+    setInputValue(query);
+  }, [query]);
+
+  const onInputChange = useOnInputSearchChange(setInputValue);
 
   return (
-    <Label>
+    <Label mobile={mobile}>
       <Icon src={searchIcon} />
       <Input
-        value={query || ""}
-        placeholder={`${searchFor[language]} ${atMovies ? movies[language] : people[language]}...`}
-        onChange={onInputChange}
+        value={inputValue}
+        placeholder={`${searchFor[language]} ${atMovies ? movies[language] : people[language]}…`}
+        onChange={({ target: { value } }) => onInputChange({ newValue: value, atMovies })}
       />
     </Label>
   );

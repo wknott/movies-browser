@@ -19,28 +19,29 @@ import searchQueryParamName from "../../searchQueryParamName";
 import pageQueryParamName from "../../pageQueryParamName";
 import Error from "../../../common/Error/index";
 import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
-import { noResults, popularMovies, searchResultsFor } from "../../../languages";
+import { noResults, popularMovies, searchResultsFor } from "../../../common/languages";
 
 export default () => {
   const query = useQueryParameter(searchQueryParamName);
   const dispatch = useDispatch();
   const currentPage = useQueryParameter(pageQueryParamName);
   const language = useSelector(selectLanguage);
-
-  useEffect(() => {
-    dispatch(fetchMovies({ page: currentPage, query, language }));
-  }, [dispatch, currentPage, query, language]);
-
   const loading = useSelector(selectLoading);
   const movies = useSelector(selectMovies);
   const totalNumberOfMovies = useSelector(selectTotalNumberOfMovies);
   const error = useSelector(selectError);
 
+  useEffect(() => {
+    dispatch(fetchMovies({ page: currentPage, query, language }));
+  }, [dispatch, currentPage, query, language]);
+
   if (error) {
-    return <Wrapper>
-      <Error />
-    </Wrapper>
-  }
+    return (
+      <Wrapper>
+        <Error />
+      </Wrapper>
+    );
+  };
 
   return (
     <Wrapper>
@@ -52,7 +53,7 @@ export default () => {
             <Pager></Pager>
           </> :
           <>
-            <Header>{`${noResults[language]} "${query}"`}</Header>
+            <Header>{noResults[language]} <q>{query}</q></Header>
             <NoResults />
           </> :
         <Loader />

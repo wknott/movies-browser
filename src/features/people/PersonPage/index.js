@@ -1,27 +1,21 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { fetchPerson, selectError, selectLoading, selectPerson } from "../peopleSlice";
 import Wrapper from "../../../common/Wrapper";
 import Header from "../../../common/Header";
 import PersonDetailsTile from "./PersonDetailsTile";
 import { MoviesContainer } from "../../movies/MoviesContainer";
 import Loader from "../../../common/Loader";
-import searchQueryParamName from "../../searchQueryParamName";
-import { useQueryParameter } from "../../search/queryParameters";
 import Error from "../../../common/Error/index";
 import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
-import { cast, crew, moviesNavigation } from "../../../languages";
+import { cast, crew, moviesNavigation } from "../../../common/languages";
 
 export default () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const person = useSelector(selectPerson);
   const loading = useSelector(selectLoading);
-  const query = useQueryParameter(searchQueryParamName);
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const history = useHistory();
   const error = useSelector(selectError);
   const language = useSelector(selectLanguage);
 
@@ -30,12 +24,6 @@ export default () => {
       dispatch(fetchPerson({ id, language }));
     }
   }, [dispatch, id, language]);
-
-  useEffect(() => {
-    if (query) {
-      history.push(`/people?${searchParams.toString()}`);
-    }
-  }, [query, history, searchParams]);
 
   const capitalizeFirstLetter = string => string.charAt(0).toUpperCase() + string.slice(1);
 

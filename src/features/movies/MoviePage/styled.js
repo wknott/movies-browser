@@ -79,17 +79,20 @@ export const MovieLongTitle = styled.h1`
 export const MovieRating = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   padding: 0px;
   flex-wrap: wrap;
   color: ${({ theme }) => theme.basicColor.white};
 `;
 
 export const MovieRatingImg = styled.img`
-  width: 40px;
+  height: 40px;
+  width: auto;
+  transform: translateY(-8%);
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    width: 16px;
-  } ;
+    height: 16px;
+  };
 `;
 
 export const MovieRatingNote = styled.p`
@@ -103,23 +106,29 @@ export const MovieRatingNote = styled.p`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 14px;
     font-weight: 600;
-  } ;
+  };
 `;
 
 export const MovieRatingText = styled.p`
   margin: 0px;
   font-size: 16px;
   line-height: 1.2;
-  align-self: center;
-  margin-top: 16px;
   color: ${({ theme }) => theme.basicColor.white};
   flex-basis: 70%;
-
+  margin-top: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 10px;
-    margin-top: 0px;
+    margin-top: 2px;
     margin-right: 8px;
     flex-basis: unset;
-  } ;
+  };
 `;
+
+export const MovieRatingTextVote = styled(MovieRatingText)`
+  margin-top: 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    margin-top: 2px;
+  };
+`; 

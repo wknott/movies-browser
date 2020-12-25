@@ -13,5 +13,6 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Poppins', sans-serif;
         background: ${({ theme }) => theme.color.whisper};
         margin: 0;
+        overflow-y: scroll;
     }
 `;

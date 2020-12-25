@@ -1,4 +1,4 @@
-import { takeLatest, call, put, debounce } from "redux-saga/effects";
+import { takeLatest, call, put } from "redux-saga/effects";
 import { getPersonDetails, getPersonMovieCredits, getPeople } from "./api";
 import {
   fetchPerson,
@@ -46,6 +46,6 @@ function* fetchPersonHandler({ payload }) {
 };
 
 export function* watchFetchPeople() {
-  yield debounce(500, fetchPeople.type, fetchPeopleHandler);
+  yield takeLatest(fetchPeople.type, fetchPeopleHandler);
   yield takeLatest(fetchPerson.type, fetchPersonHandler);
 };

@@ -16,7 +16,7 @@ import {
 } from "./styled";
 import profile from "../../../../images/Profile.svg";
 import ReadMoreButton from "../../../../common/ReadMoreButton";
-import { birth, dateOfBirth, placeOfBirth } from "../../../../languages";
+import { birth, dateOfBirth, placeOfBirth } from "../../../../common/languages";
 import { useSelector } from "react-redux";
 import { selectLanguage } from "../../../../common/Navigation/LanguageSelect/languageSlice";
 

@@ -5,7 +5,7 @@ export const Button = styled.button`
   border: none;
   border-radius: 5px;
   padding: 16px 24px;
-  font-family: Open Sans;
+  font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
