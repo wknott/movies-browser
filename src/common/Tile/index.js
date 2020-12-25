@@ -1,8 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export default styled.div`
   padding: 16px;
-  box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
+  ${({ theme }) => theme.color.white === "#FFFFFF" ?
+    css`box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);` :
+    css`box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.1);`}
   border-radius: 5px;
   display: grid;
   grid-template-columns: auto;
