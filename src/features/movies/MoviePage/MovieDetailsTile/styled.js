@@ -162,9 +162,10 @@ export const Tag = styled.li`
 
 export const MovieRatingImg = styled.img`
   width: 24px;
+  
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     width: 16px;
-  } ;
+  };
 `;
 
 export const MovieRatingText = styled.p`
@@ -196,6 +197,7 @@ export const MovieRatingVotes = styled.p`
     margin: 0;
   };
 `;
+
 export const DesktopMovieRatingVotes = styled(MovieRatingVotes)`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     display: none;

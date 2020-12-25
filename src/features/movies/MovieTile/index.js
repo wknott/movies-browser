@@ -14,17 +14,16 @@ import {
   MovieRatingVotes,
   MovieInfoWrapper,
 } from "./styled";
-import { nanoid } from "@reduxjs/toolkit";
 import { Link } from "react-router-dom";
 import { toMovie } from "../../../routes";
-import { votes } from "../../../languages";
+import { votes } from "../../../common/languages";
 import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
 import { useSelector } from "react-redux";
 
 const generateTags = (tagNames) => {
   if (tagNames) {
-    return tagNames.map((tagName) => {
-      return <MovieTileTag key={nanoid()}>{tagName}</MovieTileTag>;
+    return tagNames.map((tagName, index) => {
+      return <MovieTileTag key={index}>{tagName}</MovieTileTag>;
     });
   }
 };
@@ -35,8 +34,8 @@ const MovieTile = ({ movie }) => {
   return (
     <Tile as={Link} to={toMovie({ id: movie.id })}>
       <MovieTileImg
-        src={movie.poster_path ? `https://image.tmdb.org/t/p/w400${movie.poster_path}` : Poster}
-      ></MovieTileImg>
+        url={movie.poster_path ? `https://image.tmdb.org/t/p/w400${movie.poster_path}` : Poster}
+      />
       <MovieInfoWrapper>
         <MovieTileHeader>{movie.title}</MovieTileHeader>
         <MovieTileYear>
@@ -47,7 +46,7 @@ const MovieTile = ({ movie }) => {
         <MovieTileTags>{generateTags(movie.genres)}</MovieTileTags>
         <MovieAdditionalInfo>
           <MovieRatingImg src={star}></MovieRatingImg>
-          <MovieRatingText>{movie.vote_average}</MovieRatingText>
+          <MovieRatingText>{movie.vote_average.toFixed(1)}</MovieRatingText>
           <MovieRatingVotes>{movie.vote_count} {votes[language]}</MovieRatingVotes>
         </MovieAdditionalInfo>
       </MovieInfoWrapper>

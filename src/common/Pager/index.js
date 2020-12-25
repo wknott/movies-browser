@@ -21,7 +21,7 @@ import { useLocation } from "react-router-dom";
 import { useQueryParameter, useReplaceQueryParameter } from "../../features/search/queryParameters";
 import pageParam from "../../features/pageQueryParamName";
 import { selectLanguage } from "../Navigation/LanguageSelect/languageSlice";
-import { first, previous, page, ofPage, next, last } from "../../languages"
+import { first, previous, page, ofPage, next, last } from "../../common/languages"
 
 export const Pager = () => {
   const location = useLocation();

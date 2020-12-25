@@ -21,7 +21,7 @@ import {
 import star from "../../MovieTile/ratingStar.svg";
 import poster from "../../../../images/Poster.svg";
 import ReadMoreButton from "../../../../common/ReadMoreButton";
-import { production, releaseDate, votes } from "../../../../languages";
+import { production, releaseDate, votes } from "../../../../common/languages";
 import { useSelector } from "react-redux";
 import { selectLanguage } from "../../../../common/Navigation/LanguageSelect/languageSlice";
 
@@ -58,7 +58,7 @@ const MovieDetailsTile = ({ movie }) => {
         }
         <Rating>
           <MovieRatingImg src={star}></MovieRatingImg>
-          <MovieRatingText>{movie.vote_average}</MovieRatingText>
+          <MovieRatingText>{movie.vote_average.toFixed(1)}</MovieRatingText>
           <DesktopMovieRatingVotes>/ 10</DesktopMovieRatingVotes>
           <MovieRatingVotes>{movie.vote_count} {votes[language]}</MovieRatingVotes>
         </Rating>

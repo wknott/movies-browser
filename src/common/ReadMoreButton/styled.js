@@ -4,8 +4,8 @@ export const Button = styled.button`
   display: inline;
   border: none;
   border-radius: 5px;
-  padding: 8px 20px;
-  font-family: Open Sans;
+  padding: 16px 24px;
+  font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: bold;
   margin-left: 12px;

@@ -1,5 +1,5 @@
 import React from "react";
-import { languages } from "../../languages";
+import { languages } from "../../common/languages";
 
 const LanguageSelect = () => {
   return (

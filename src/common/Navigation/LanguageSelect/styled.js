@@ -1,21 +1,34 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Select = styled.select`
   height: 50px;
-  padding: 15px;
+  width: 100%;
+  padding: 16px 24px 16px 8px;
   background-color: none;
   border: none;
+  outline: none;
   font-size: 16px;
   line-height: 150%;
+`;
+
+export const SelectContainer = styled.div`
+  height: 50px;
+  padding: 0 24px;
+  background-color: ${({ theme }) => theme.color.white};
   align-items: center;
-  outline: none;
   border-radius: 33px;
   align-self: center;
 
+  ${({ mobile }) => mobile && css`
+    @media (min-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+      display: none;
+    };
+  `}
+  
   @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
     margin-left: 0;
     margin-top: 10px;
     width: 100%;
     min-width: 200px;
-  }
+  };
 `;

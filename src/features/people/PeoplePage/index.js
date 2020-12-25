@@ -12,7 +12,7 @@ import NoResults from "../../../common/NoResults";
 import pageQueryParamName from "../../pageQueryParamName";
 import Error from "../../../common/Error/index";
 import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
-import { noResults, popularPeople, searchResultsFor } from "../../../languages";
+import { noResults, popularPeople, searchResultsFor } from "../../../common/languages";
 
 export default () => {
   const query = useQueryParameter(searchQueryParamName);
@@ -44,7 +44,7 @@ export default () => {
             <Pager />
           </> :
           <>
-            <Header>{`${noResults[language]} "${query}"`}</Header>
+            <Header>{noResults[language]} <q>{query}</q></Header>
             <NoResults />
           </> :
         <Loader />
