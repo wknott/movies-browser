@@ -4,7 +4,7 @@ export const Button = styled.button`
   display: inline;
   border: none;
   border-radius: 5px;
-  padding: 8px 16px;
+  padding: 8px 20px;
   font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: bold;
