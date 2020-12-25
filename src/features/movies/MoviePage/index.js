@@ -45,7 +45,7 @@ export default () => {
   };
 
   return (
-    !loading && movie && movie.credits.cast ?
+    !loading && movie?.credits.cast ?
       <>
         {movie.backdrop_path &&
           <MovieBackdrop src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}>
