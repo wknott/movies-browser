@@ -14,7 +14,7 @@ export const Select = styled.select`
 export const SelectContainer = styled.div`
   height: 50px;
   padding: 0 24px;
-  background-color: ${({ theme }) => theme.color.white};
+  background-color: white;
   align-items: center;
   border-radius: 33px;
   align-self: center;
