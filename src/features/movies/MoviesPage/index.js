@@ -26,7 +26,7 @@ import {
   searchResultsFor,
 } from "../../../common/languages";
 
-export default () => {
+const MoviesPage = () => {
   const query = useQueryParameter(searchQueryParamName);
   const dispatch = useDispatch();
   const currentPage = useQueryParameter(pageQueryParamName);
@@ -82,3 +82,4 @@ export default () => {
     </Wrapper>
   );
 };
+export default MoviesPage;
