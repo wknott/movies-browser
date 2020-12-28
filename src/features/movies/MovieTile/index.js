@@ -19,18 +19,23 @@ import { toMovie } from "../../../routes";
 import { votes } from "../../../common/languages";
 import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
 import { useSelector } from "react-redux";
+import { selectGenres } from "../../genres/genresSlice";
+import { getGenreName } from "../../genres/getGenreName";
 
-const generateTags = (tagNames) => {
-  if (tagNames) {
-    return tagNames.map((tagName, index) => {
-      return <MovieTileTag key={index}>{tagName}</MovieTileTag>;
-    });
+const generateTags = (tagIds, genres) => {
+  if (tagIds && genres) {
+    const tags = tagIds.map((tagId) => getGenreName(tagId, genres));
+    return tags
+      ? tags.map((tag, index) => {
+          return <MovieTileTag key={index}>{tag}</MovieTileTag>;
+        })
+      : "";
   }
 };
 
 const MovieTile = ({ movie }) => {
   const language = useSelector(selectLanguage);
-
+  const genres = useSelector(selectGenres);
   return (
     <Tile as={Link} to={toMovie({ id: movie.id })}>
       <MovieTileImg
@@ -55,7 +60,7 @@ const MovieTile = ({ movie }) => {
             ? movie.release_date.slice(0, 4)
             : "????"}
         </MovieTileYear>
-        <MovieTileTags>{generateTags(movie.genres)}</MovieTileTags>
+        <MovieTileTags>{generateTags(movie.genre_ids, genres)}</MovieTileTags>
         <MovieAdditionalInfo>
           <MovieRatingImg src={star}></MovieRatingImg>
           <MovieRatingText>{movie.vote_average.toFixed(1)}</MovieRatingText>
