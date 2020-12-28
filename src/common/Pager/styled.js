@@ -14,21 +14,24 @@ export const PagerButton = styled.button`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.basicColor.lightBlue};
+  background-color: ${({ theme }) => theme.color.lightBlue};
   padding: 8px 16px;
   margin: 0 6px;
   outline: none;
   border: 0;
   border-radius: 5px;
-  color: ${({ theme }) => theme.basicColor.black};
+  color: ${({ theme }) => theme.color.black};
+  transition: 0.3s filter;
 
   &:hover {
+    filter: brightness(103%);
     cursor: pointer;
   }
 
   &:disabled {
-    background-color: ${({ theme }) => theme.basicColor.grey};
-    color: ${({ theme }) => theme.basicColor.black};
+    background-color: ${({ theme }) => theme.color.grey};
+    color: ${({ theme }) => theme.color.black};
+    cursor: not-allowed;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
