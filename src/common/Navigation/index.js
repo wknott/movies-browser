@@ -16,6 +16,7 @@ import {
   DesktopNavigationList,
   Desktop,
   MobileNavigationList,
+  LogoLink,
 } from "./styled";
 import { toMovies, toPeople } from "../../routes";
 import Wrapper from "../Wrapper";
@@ -38,10 +39,12 @@ const Navigation = () => {
     <Container>
       <Wrapper>
         <NavigationStyle>
-          <Logo>
-            <Icon src={camera} />
-            <Title>Movies Browser</Title>
-          </Logo>
+          <LogoLink to={toMovies()}>
+            <Logo>
+              <Icon src={camera} />
+              <Title>Movies Browser</Title>
+            </Logo>
+          </LogoLink>
           <ToggleButton onClick={() => dispatch(toggleTheme())}>
             <SunIcon isDark={isDark} src={sun} />
             <MoonIcon isDark={isDark} src={moon} />
@@ -71,7 +74,7 @@ const Navigation = () => {
               handleOpen={() => setOpen(true)}
             />
           </BurgerItem>
-          {open &&
+          {open && (
             <>
               <MobileNavigationList>
                 <NavigationItem>
@@ -89,10 +92,10 @@ const Navigation = () => {
               <Search mobile />
               <LanguageSelect mobile handleClose={() => setOpen(false)} />
             </>
-          }
+          )}
         </NavigationStyle>
       </Wrapper>
-    </Container >
+    </Container>
   );
 };
 

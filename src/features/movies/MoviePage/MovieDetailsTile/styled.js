@@ -15,8 +15,7 @@ export const DetailsTile = styled.div`
     grid-gap: 16px;
     grid-template-areas:
       "image info"
-      "description description"
-    ;
+      "description description";
   }
 `;
 
@@ -35,7 +34,7 @@ export const Name = styled.h1`
   font-weight: 600;
   font-size: 36px;
   margin: 8px 0px 24px 0px;
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-style: normal;
     font-weight: 500;
@@ -95,7 +94,7 @@ export const Description = styled.p`
   font-size: 20px;
   line-height: 1.6;
   margin: 0px;
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 14px;
     grid-area: description;
@@ -143,7 +142,7 @@ export const Tags = styled.ul`
 `;
 
 export const Tag = styled.li`
-  background-color: ${({ theme }) => theme.movieBanner.color.grey};
+  background-color: ${({ theme }) => theme.color.grey};
   font-size: 14px;
   line-height: 1;
   font-weight: normal;
@@ -157,15 +156,15 @@ export const Tag = styled.li`
     font-size: 10px;
     line-height: 110%;
     margin: 0px 0px 8px 8px;
-  };
+  } ;
 `;
 
 export const MovieRatingImg = styled.img`
   width: 24px;
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     width: 16px;
-  };
+  } ;
 `;
 
 export const MovieRatingText = styled.p`
@@ -195,7 +194,7 @@ export const MovieRatingVotes = styled.p`
     font-size: 13px;
     line-height: 130%;
     margin: 0;
-  };
+  } ;
 `;
 
 export const DesktopMovieRatingVotes = styled(MovieRatingVotes)`

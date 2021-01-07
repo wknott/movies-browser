@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 const activeClassName = "link-active";
 
 export const Container = styled.div`
@@ -12,7 +12,7 @@ export const NavigationStyle = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
     padding: 16px 0px;
   }
@@ -23,14 +23,17 @@ export const Logo = styled.div`
   display: flex;
   align-items: center;
 `;
+export const LogoLink = styled(Link)`
+  text-decoration: none;
+`;
 
 export const Icon = styled.img`
   height: 40px;
   width: 40px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
   }
 `;
 
@@ -52,7 +55,7 @@ export const Title = styled.h1`
 `;
 
 export const ToggleButton = styled.button`
-  height: 50px;
+  padding: 5px;
   background-color: transparent;
   color: ${({ theme }) => theme.navBar.color.white};
   text-decoration: none;
@@ -66,25 +69,33 @@ export const ToggleButton = styled.button`
   position: relative;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    height: 35px;
+    padding: 3px 10px;
   }
 `;
 
 export const SunIcon = styled(Icon)`
   transition: all 0.3s linear;
-
-  transform: ${({ isDark }) => isDark ? 'translateX(-100px)' : 'translateX(0)'};
+  height: 30px;
+  transform: ${({ isDark }) =>
+    isDark ? "translateX(-100px)" : "translateX(0)"};
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    height: 25px;
+  }
 `;
 
 export const MoonIcon = styled(Icon)`
   transition: all 0.3s linear;
-
-  transform: ${({ isDark }) => isDark ? 'translateX(0px)' : 'translateX(100px)'};
+  height: 30px;
+  transform: ${({ isDark }) =>
+    isDark ? "translateX(0px)" : "translateX(100px)"};
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    height: 25px;
+  }
 `;
 
 export const BurgerItem = styled.div`
   align-self: center;
-  
+
   @media (min-width: ${({ theme }) => theme.breakpoint.ipad}px) {
     display: none;
   }
@@ -100,7 +111,7 @@ export const NavigationList = styled.ul`
   padding: 0px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
-    margin-top:12px;
+    margin-top: 12px;
     width: 100%;
     justify-content: space-evenly;
   }
@@ -119,7 +130,7 @@ export const StyledLink = styled(NavLink).attrs(() => ({ activeClassName }))`
     border: 1px solid ${({ theme }) => theme.navBar.color.white};
     border-radius: 24px;
   }
-  
+  font-size: 14px;
   padding: 12.5px 24px;
   color: ${({ theme }) => theme.navBar.color.white};
   text-decoration: none;
@@ -139,23 +150,23 @@ export const StyledLink = styled(NavLink).attrs(() => ({ activeClassName }))`
 export const Desktop = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
     display: none;
-  };
+  } ;
 `;
 
 export const DesktopNavigationList = styled(NavigationList)`
- @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.ipad}px) {
     display: none;
-  };
+  } ;
 `;
 
 export const Mobile = styled.div`
   @media (min-width: ${({ theme }) => theme.breakpoint.ipad}px) {
     display: none;
-  };
+  } ;
 `;
 
 export const MobileNavigationList = styled(NavigationList)`
- @media (min-width: ${({ theme }) => theme.breakpoint.ipad}px) {
+  @media (min-width: ${({ theme }) => theme.breakpoint.ipad}px) {
     display: none;
-  };
+  } ;
 `;

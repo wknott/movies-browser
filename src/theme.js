@@ -4,19 +4,33 @@ const breakpoint = {
   ipad: 1039.98,
   hdDesktop: 1199,
 };
+const basicColor = {
+  black: "#000000",
+  woodsmoke: "#18181B",
+  blue: "#0044CC",
+  silver: "#C4C4C4",
+  lightBlue: "#D6E4FF",
+  yellow: "#FCD420",
+  stormGray: "#74788B",
+  darkerGrey: "#7E839A",
+  grey: "#E4E6F0",
+  mercury: "#E5E5E5",
+  whisper: "#F5F5FA",
+  white: "#FFFFFF",
+};
 
 export const theme = {
   navBar: {
     color: {
       black: "#000000",
       white: "#FFFFFF",
-    }
+    },
   },
   movieBanner: {
     color: {
       black: "#000000",
       white: "#FFFFFF",
-    }
+    },
   },
   color: {
     black: "#000000",
@@ -32,34 +46,21 @@ export const theme = {
     whisper: "#F5F5FA",
     white: "#FFFFFF",
   },
-  basicColor: {
-    black: "#000000",
-    woodsmoke: "#18181B",
-    blue: "#0044CC",
-    silver: "#C4C4C4",
-    lightBlue: "#D6E4FF",
-    yellow: "#FCD420",
-    stormGray: "#74788B",
-    darkerGrey: "#7E839A",
-    grey: "#E4E6F0",
-    mercury: "#E5E5E5",
-    whisper: "#F5F5FA",
-    white: "#FFFFFF",
-  },
-  breakpoint
+  basicColor,
+  breakpoint,
 };
 export const darkTheme = {
   navBar: {
     color: {
       black: "#EEEEEE",
       white: "#FFFFFF",
-    }
+    },
   },
   movieBanner: {
     color: {
       black: "#EEEEEE",
       white: "#000000",
-    }
+    },
   },
   color: {
     black: "#EEEEEE",
@@ -75,19 +76,6 @@ export const darkTheme = {
     whisper: "#0a0a05",
     white: "#000000",
   },
-  basicColor: {
-    black: "#000000",
-    woodsmoke: "#18181B",
-    blue: "#0044CC",
-    silver: "#C4C4C4",
-    lightBlue: "#D6E4FF",
-    yellow: "#FCD420",
-    stormGray: "#74788B",
-    darkerGrey: "#7E839A",
-    grey: "#E4E6F0",
-    mercury: "#E5E5E5",
-    whisper: "#F5F5FA",
-    white: "#FFFFFF",
-  },
-  breakpoint
+  basicColor,
+  breakpoint,
 };

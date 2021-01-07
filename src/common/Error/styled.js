@@ -15,6 +15,7 @@ export const ErrorImg = styled.img`
 
 export const ErrorTitle = styled.h1`
   margin-top: 38px;
+  margin-bottom: 0px;
   font-size: 36px;
   font-weight: 600;
   line-height: 120%;

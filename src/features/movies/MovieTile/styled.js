@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const MovieTileImg = styled.div`
-  padding-top: calc(100% * 632/421);
+  padding-top: calc(100% * 632 / 421);
   width: 100%;
   background-image: url("${({ url }) => url}");
   background-size: contain;
@@ -16,7 +16,7 @@ const MovieTileImg = styled.div`
     height: auto;
     min-width: 114px;
     margin: 0;
-  };
+  } ;
 `;
 const MovieInfoWrapper = styled.div`
   display: flex;
@@ -25,7 +25,7 @@ const MovieInfoWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     margin-left: 16px;
-  };
+  } ;
 `;
 const MovieTileHeader = styled.h2`
   margin: 0;
@@ -89,6 +89,7 @@ const MovieAdditionalInfo = styled.div`
 `;
 const MovieRatingImg = styled.img`
   width: 24px;
+  transform: translateY(-8%);
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     width: 16px;
   } ;

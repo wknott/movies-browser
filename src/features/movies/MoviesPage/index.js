@@ -8,7 +8,7 @@ import {
   selectMovies,
   fetchMovies,
   selectTotalNumberOfMovies,
-  selectError
+  selectError,
 } from "../moviesSlice";
 import Header from "../../../common/Header";
 import { Pager } from "../../../common/Pager";
@@ -19,9 +19,14 @@ import searchQueryParamName from "../../searchQueryParamName";
 import pageQueryParamName from "../../pageQueryParamName";
 import Error from "../../../common/Error/index";
 import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
-import { noResults, popularMovies, searchResultsFor } from "../../../common/languages";
+import {
+  noResults,
+  popularMovies,
+  searchingFor,
+  searchResultsFor,
+} from "../../../common/languages";
 
-export default () => {
+const MoviesPage = () => {
   const query = useQueryParameter(searchQueryParamName);
   const dispatch = useDispatch();
   const currentPage = useQueryParameter(pageQueryParamName);
@@ -41,23 +46,40 @@ export default () => {
         <Error />
       </Wrapper>
     );
-  };
+  }
 
   return (
     <Wrapper>
-      {!loading ?
-        movies.length ?
+      {!loading ? (
+        movies.length ? (
           <>
-            <Header>{query ? `${searchResultsFor[language]} "${query}" (${totalNumberOfMovies})` : popularMovies[language]}</Header>
+            <Header>
+              {query
+                ? `${searchResultsFor[language]} "${query}" (${totalNumberOfMovies})`
+                : popularMovies[language]}
+            </Header>
             <MoviesContainer movies={movies} />
             <Pager></Pager>
-          </> :
+          </>
+        ) : (
           <>
-            <Header>{noResults[language]} <q>{query}</q></Header>
+            <Header>
+              {noResults[language]} <q>{query}</q>
+            </Header>
             <NoResults />
-          </> :
-        <Loader />
-      }
+          </>
+        )
+      ) : (
+        <>
+          <Header>
+            {query
+              ? `${searchingFor[language]} "${query}"`
+              : popularMovies[language]}
+          </Header>
+          <Loader />
+        </>
+      )}
     </Wrapper>
   );
 };
+export default MoviesPage;
