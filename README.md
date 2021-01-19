@@ -1,6 +1,6 @@
 # Movies browser
 
-![movies browser](https://raw.githubusercontent.com/wknott/movies-browser/readme/src/images/ScreenMovieBrowser.png)
+[![movies browser](https://raw.githubusercontent.com/wknott/movies-browser/readme/src/images/ScreenMovieBrowser.png)](https://wknott.github.io/movies-browser/)
 
 ## Live version
 
