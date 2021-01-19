@@ -21,6 +21,7 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchGenres());
+    // eslint-disable-next-line
   }, [language]);
   return (
     <HashRouter>
