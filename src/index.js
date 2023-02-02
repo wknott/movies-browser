@@ -4,14 +4,16 @@ import { Provider } from "react-redux";
 import store from "./store";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import { QueryClient, QueryClientProvider } from "react-query";
 
+const queryClient = new QueryClient();
 
 ReactDOM.render(
-  <React.StrictMode>
+  <QueryClientProvider client={queryClient}>
     <Provider store={store}>
-        <App />
+      <App />
     </Provider>
-  </React.StrictMode>,
+  </QueryClientProvider>,
   document.getElementById("root")
 );
 

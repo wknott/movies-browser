@@ -23,6 +23,7 @@ const App = () => {
     dispatch(fetchGenres());
     // eslint-disable-next-line
   }, [language]);
+
   return (
     <HashRouter>
       <ThemeProvider theme={isDark ? darkTheme : theme}>
