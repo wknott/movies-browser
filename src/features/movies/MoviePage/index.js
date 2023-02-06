@@ -1,12 +1,5 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import {
-  fetchMovie,
-  selectError,
-  selectLoading,
-  selectMovie,
-} from "../moviesSlice";
 import {
   MovieBackdrop,
   MainInfo,
@@ -26,22 +19,38 @@ import Loader from "../../../common/Loader";
 import Error from "../../../common/Error/index";
 import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
 import { cast, crew, votes } from "../../../common/languages";
+import { useQuery } from "react-query";
+import { getMovieCredits, getMovieDetails } from "../api";
 
 const MoviePage = () => {
   const { id } = useParams();
-  const movie = useSelector(selectMovie);
-  const loading = useSelector(selectLoading);
-  const dispatch = useDispatch();
-  const error = useSelector(selectError);
   const language = useSelector(selectLanguage);
 
-  useEffect(() => {
-    if (id) {
-      dispatch(fetchMovie({ id, language }));
-    }
-  }, [dispatch, id, language]);
+  const {
+    data: movie,
+    isLoading: isMovieLoading,
+    isError: isMovieError,
+  } = useQuery(["movie", id], () => {
+    return getMovieDetails({ id, language });
+  });
 
-  if (error) {
+  const {
+    data: credits,
+    isLoading: isCreditsLoading,
+    isError: isCreditsError,
+  } = useQuery(["credits", id], () => {
+    return getMovieCredits({ id, language });
+  });
+
+  if (isMovieLoading || isCreditsLoading) {
+    return (
+      <Wrapper>
+        <Loader></Loader>
+      </Wrapper>
+    );
+  }
+
+  if (isMovieError || isCreditsError) {
     return (
       <Wrapper>
         <Error />
@@ -49,7 +58,7 @@ const MoviePage = () => {
     );
   }
 
-  return !loading && movie && movie.credits.cast ? (
+  return (
     <>
       {movie.backdrop_path && (
         <MovieBackdrop
@@ -71,15 +80,11 @@ const MoviePage = () => {
       <Wrapper>
         <MovieDetailsTile movie={movie} />
         <Header>{cast[language]}</Header>
-        <PeopleContainer people={movie.credits.cast} />
+        <PeopleContainer people={credits.cast} />
         <Header>{crew[language]}</Header>
-        <PeopleContainer people={movie.credits.crew} />
+        <PeopleContainer people={credits.crew} />
       </Wrapper>
     </>
-  ) : (
-    <Wrapper>
-      <Loader></Loader>
-    </Wrapper>
   );
 };
 export default MoviePage;
