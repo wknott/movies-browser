@@ -30,17 +30,13 @@ const MoviePage = () => {
     data: movie,
     isLoading: isMovieLoading,
     isError: isMovieError,
-  } = useQuery(["movie", id], () => {
-    return getMovieDetails({ id, language });
-  });
+  } = useQuery(["movie", { id, language }], getMovieDetails);
 
   const {
     data: credits,
     isLoading: isCreditsLoading,
     isError: isCreditsError,
-  } = useQuery(["credits", id], () => {
-    return getMovieCredits({ id, language });
-  });
+  } = useQuery(["credits", { id, language }], getMovieCredits);
 
   if (isMovieLoading || isCreditsLoading) {
     return (

@@ -22,7 +22,9 @@ export const getPeople = async ({ queryKey }) => {
   return await response.json();
 };
 
-export const getPersonDetails = async ({ id, language }) => {
+export const getPersonDetails = async ({ queryKey }) => {
+  const [, { id, language }] = queryKey;
+
   const params = new URLSearchParams({
     language,
   });
@@ -38,7 +40,9 @@ export const getPersonDetails = async ({ id, language }) => {
   return await response.json();
 };
 
-export const getPersonMovieCredits = async ({ id, language }) => {
+export const getPersonMovieCredits = async ({ queryKey }) => {
+  const [, { id, language }] = queryKey;
+
   const params = new URLSearchParams({
     language,
   });

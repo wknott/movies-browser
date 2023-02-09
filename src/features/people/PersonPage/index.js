@@ -19,14 +19,15 @@ const PersonPage = () => {
     data: person,
     isLoading: isPersonLoading,
     isError: isPersonError,
-  } = useQuery(["person", id], () => getPersonDetails({ id, language }));
+  } = useQuery(["person", { id, language }], getPersonDetails);
 
   const {
     data: movieCredits,
     isLoading: isMovieCreditsLoading,
     isError: isMovieCreditsError,
-  } = useQuery(["person-movie-credits", id], () =>
-    getPersonMovieCredits({ id, language })
+  } = useQuery(
+    ["person-movie-credits", { id, language }],
+    getPersonMovieCredits
   );
 
   const capitalizeFirstLetter = (string) =>

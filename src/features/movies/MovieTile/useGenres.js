@@ -23,9 +23,7 @@ const generateTags = (tagIds, genres) => {
 export const useGenres = (tagIds) => {
   const language = useSelector(selectLanguage);
 
-  const { data: genres } = useQuery(["genres"], () => {
-    return getGenres({ language });
-  });
+  const { data: genres } = useQuery(["genres", { language }], getGenres);
 
   return generateTags(tagIds, genres);
 };

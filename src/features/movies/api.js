@@ -22,7 +22,9 @@ export const getMovies = async ({ queryKey }) => {
   return await response.json();
 };
 
-export const getGenres = async ({ language }) => {
+export const getGenres = async ({ queryKey }) => {
+  const [, { language }] = queryKey;
+
   const response = await fetch(
     `${apiUrl}genre/movie/list?api_key=${apiKey}&language=${language}`
   );
@@ -36,7 +38,9 @@ export const getGenres = async ({ language }) => {
   return data.genres;
 };
 
-export const getMovieDetails = async ({ id, language }) => {
+export const getMovieDetails = async ({ queryKey }) => {
+  const [, { id, language }] = queryKey;
+
   const response = await fetch(
     `${apiUrl}movie/${id}?api_key=${apiKey}&language=${language}`
   );
@@ -48,7 +52,9 @@ export const getMovieDetails = async ({ id, language }) => {
   return await response.json();
 };
 
-export const getMovieCredits = async ({ id, language }) => {
+export const getMovieCredits = async ({ queryKey }) => {
+  const [, { id, language }] = queryKey;
+
   const response = await fetch(
     `${apiUrl}movie/${id}/credits?api_key=${apiKey}&language=${language}`
   );
