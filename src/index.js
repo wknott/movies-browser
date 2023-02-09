@@ -1,18 +1,29 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import store from "./store";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      keepPreviousData: true,
+      staleTime: 1000 * 60,
+    },
+  },
+});
 
-ReactDOM.render(
-  <React.StrictMode>
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <QueryClientProvider client={queryClient}>
+    <ReactQueryDevtools />
     <Provider store={store}>
-        <App />
+      <App />
     </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </QueryClientProvider>
 );
 
 // If you want your app to work offline and load faster, you can change

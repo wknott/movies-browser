@@ -1,41 +1,59 @@
 import { apiKey, apiUrl } from "../../common/api";
 
-export const getPeople = async ({ page, query, language }) => {
-  const url = query ? `${apiUrl}search/person?api_key=${apiKey}&language=${language}&query=${query}&page=${page}`
-    : `${apiUrl}person/popular?api_key=${apiKey}&language=${language}&page=${page}`
+export const getPeople = async ({ queryKey }) => {
+  const [, { page, query, language }] = queryKey;
+
+  const params = new URLSearchParams({
+    language,
+    page: page || 1,
+    ...(query && { query }),
+  });
+
+  const url = `${apiUrl}${
+    query ? "search/person" : "person/popular"
+  }?api_key=${apiKey}&${params}`;
 
   const response = await fetch(url);
 
   if (!response.ok) {
     throw new Error(response.statusText);
-  };
-  const people = await response.json();
+  }
 
-  return people;
+  return await response.json();
 };
 
-export const getPersonDetails = async ({ id, language }) => {
-  const response = await fetch(
-    `${apiUrl}person/${id}?api_key=${apiKey}&language=${language}`
-  );
-  if (!response.ok) {
-    throw new Error(response.statusText);
-  };
-  const personDetails = await response.json();
+export const getPersonDetails = async ({ queryKey }) => {
+  const [, { id, language }] = queryKey;
 
-  return personDetails;
-};
+  const params = new URLSearchParams({
+    language,
+  });
 
-export const getPersonMovieCredits = async ({ id, language }) => {
-  const response = await fetch(
-    `${apiUrl}person/${id}/movie_credits?api_key=${apiKey}&language=${language}`
-  );
+  const url = `${apiUrl}person/${id}?api_key=${apiKey}&${params}`;
+
+  const response = await fetch(url);
 
   if (!response.ok) {
     throw new Error(response.statusText);
-  };
+  }
 
-  const PersonMovieCredits = await response.json();
+  return await response.json();
+};
 
-  return PersonMovieCredits;
-}; 
+export const getPersonMovieCredits = async ({ queryKey }) => {
+  const [, { id, language }] = queryKey;
+
+  const params = new URLSearchParams({
+    language,
+  });
+
+  const response = await fetch(
+    `${apiUrl}person/${id}/movie_credits?api_key=${apiKey}&${params}`
+  );
+
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+
+  return await response.json();
+};
