@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { MoviesContainer } from "../MoviesContainer";
 import Wrapper from "../../../common/Wrapper/index";
@@ -17,7 +17,7 @@ import {
   searchingFor,
   searchResultsFor,
 } from "../../../common/languages";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 import { getMovies } from "../api";
 
 const MoviesPage = () => {
@@ -26,7 +26,7 @@ const MoviesPage = () => {
   const language = useSelector(selectLanguage);
 
   const { data, isLoading, isError } = useQuery(
-    ["movies", { page: currentPage, query, language }],
+    ["movies", { page: +currentPage, query, language }],
     getMovies
   );
 
@@ -35,6 +35,16 @@ const MoviesPage = () => {
     total_results: totalNumberOfMovies,
     total_pages: totalPages,
   } = data || {};
+
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    if (+currentPage + 1 < totalPages)
+      queryClient.prefetchQuery(
+        ["movies", { page: +currentPage + 1, query, language }],
+        getMovies
+      );
+  }, [currentPage, query, language, queryClient, totalPages]);
 
   if (isError) {
     return (

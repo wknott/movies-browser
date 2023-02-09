@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Wrapper from "../../../common/Wrapper";
 import Header from "../../../common/Header";
 import { useSelector } from "react-redux";
@@ -16,7 +16,7 @@ import {
   popularPeople,
   searchResultsFor,
 } from "../../../common/languages";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 import { getPeople } from "../api";
 
 const PeoplePage = () => {
@@ -25,7 +25,7 @@ const PeoplePage = () => {
   const language = useSelector(selectLanguage);
 
   const { data, isLoading, isError } = useQuery(
-    ["people", { page: currentPage, query, language }],
+    ["people", { page: +currentPage, query, language }],
     getPeople
   );
 
@@ -34,6 +34,16 @@ const PeoplePage = () => {
     total_results: totalResults,
     total_pages: totalPages,
   } = data || {};
+
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    if (+currentPage + 1 < totalPages)
+      queryClient.prefetchQuery(
+        ["people", { page: +currentPage + 1, query, language }],
+        getPeople
+      );
+  }, [currentPage, query, language, queryClient, totalPages]);
 
   return (
     <Wrapper>
