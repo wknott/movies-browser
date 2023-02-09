@@ -1,9 +1,17 @@
 import { apiKey, apiUrl } from "../../common/api";
 
-export const getMovies = async ({ query, page, language }) => {
-  const url = query
-    ? `${apiUrl}search/movie?api_key=${apiKey}&language=${language}&query=${query}&page=${page}`
-    : `${apiUrl}movie/popular?api_key=${apiKey}&language=${language}&page=${page}`;
+export const getMovies = async ({ queryKey }) => {
+  const [, { page, query, language }] = queryKey;
+
+  const params = new URLSearchParams({
+    language,
+    page: page || 1,
+    ...(query && { query }),
+  });
+
+  const url = `${apiUrl}${
+    query ? "search/movie" : "movie/popular"
+  }?api_key=${apiKey}&${params}`;
 
   const response = await fetch(url);
 
@@ -36,9 +44,8 @@ export const getMovieDetails = async ({ id, language }) => {
   if (!response.ok) {
     throw new Error(response.statusText);
   }
-  const movieDetails = await response.json();
 
-  return movieDetails;
+  return await response.json();
 };
 
 export const getMovieCredits = async ({ id, language }) => {
@@ -50,7 +57,5 @@ export const getMovieCredits = async ({ id, language }) => {
     throw new Error(response.statusText);
   }
 
-  const movieCredits = await response.json();
-
-  return movieCredits;
+  return await response.json();
 };

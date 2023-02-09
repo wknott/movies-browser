@@ -1,15 +1,7 @@
 import React from "react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { MoviesContainer } from "../MoviesContainer";
 import Wrapper from "../../../common/Wrapper/index";
-import {
-  selectLoading,
-  selectMovies,
-  fetchMovies,
-  selectTotalNumberOfMovies,
-  selectError,
-} from "../moviesSlice";
 import Header from "../../../common/Header";
 import { Pager } from "../../../common/Pager";
 import { useQueryParameter } from "../../search/queryParameters";
@@ -25,22 +17,26 @@ import {
   searchingFor,
   searchResultsFor,
 } from "../../../common/languages";
+import { useQuery } from "react-query";
+import { getMovies } from "../api";
 
 const MoviesPage = () => {
   const query = useQueryParameter(searchQueryParamName);
-  const dispatch = useDispatch();
   const currentPage = useQueryParameter(pageQueryParamName);
   const language = useSelector(selectLanguage);
-  const loading = useSelector(selectLoading);
-  const movies = useSelector(selectMovies);
-  const totalNumberOfMovies = useSelector(selectTotalNumberOfMovies);
-  const error = useSelector(selectError);
 
-  useEffect(() => {
-    dispatch(fetchMovies({ page: currentPage, query, language }));
-  }, [dispatch, currentPage, query, language]);
+  const { data, isLoading, isError } = useQuery(
+    ["movies", { page: currentPage, query, language }],
+    getMovies
+  );
 
-  if (error) {
+  const {
+    results: movies,
+    total_results: totalNumberOfMovies,
+    total_pages: totalPages,
+  } = data || {};
+
+  if (isError) {
     return (
       <Wrapper>
         <Error />
@@ -50,7 +46,7 @@ const MoviesPage = () => {
 
   return (
     <Wrapper>
-      {!loading ? (
+      {!isLoading ? (
         movies.length ? (
           <>
             <Header>
@@ -59,7 +55,7 @@ const MoviesPage = () => {
                 : popularMovies[language]}
             </Header>
             <MoviesContainer movies={movies} />
-            <Pager></Pager>
+            <Pager allPages={totalPages} />
           </>
         ) : (
           <>
@@ -82,4 +78,5 @@ const MoviesPage = () => {
     </Wrapper>
   );
 };
+
 export default MoviesPage;
