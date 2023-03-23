@@ -1,5 +1,5 @@
 import { MovieTileTag } from "./styled";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { getGenres } from "../api";
 import { useSelector } from "react-redux";
 import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";

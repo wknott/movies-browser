@@ -19,7 +19,7 @@ import Loader from "../../../common/Loader";
 import Error from "../../../common/Error/index";
 import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
 import { cast, crew, votes } from "../../../common/languages";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { getMovieCredits, getMovieDetails } from "../api";
 
 const MoviePage = () => {

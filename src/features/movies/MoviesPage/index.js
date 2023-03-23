@@ -17,7 +17,7 @@ import {
   searchingFor,
   searchResultsFor,
 } from "../../../common/languages";
-import { useQuery, useQueryClient } from "react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getMovies } from "../api";
 
 const MoviesPage = () => {

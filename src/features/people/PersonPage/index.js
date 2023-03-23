@@ -8,7 +8,7 @@ import Loader from "../../../common/Loader";
 import Error from "../../../common/Error/index";
 import { selectLanguage } from "../../../common/Navigation/LanguageSelect/languageSlice";
 import { moviesNavigation } from "../../../common/languages";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { getPersonDetails, getPersonMovieCredits } from "../api";
 
 const PersonPage = () => {
